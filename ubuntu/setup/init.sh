@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #: Apply some settings for an Ubuntu server.   Configures OpenSSH and lightdm, and installs fail2ban. This isn't 
-#: gaunrateed to be 100% automatic; you may be prompted for input or with confirm dialogs.
+#: gaunrateed to be 100% automatic; you may be prompted for input or with confirm dialogs.  Must be run as root.
 #: 
 #: PRECONDITIONS: 
 #:		1) OpenSSH is installed
@@ -11,8 +11,8 @@
 #: Author: Fastily
 
 
-if [ "$EUID" -ne 0 ]
-	then printf "[ERROR]: Script must be run as root (sudo)\n"
+if [ "$EUID" -ne 0 ]; then
+	printf "[ERROR]: Script must be run as root (sudo)\n"
 	exit
 fi
 
