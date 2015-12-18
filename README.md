@@ -1,3 +1,3 @@
 # autobots
 
-Miscellaneous shell scripts to help with a variety of tasks.
+Miscellaneous bash scripts to help with a variety of tasks.

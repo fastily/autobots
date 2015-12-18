@@ -10,11 +10,14 @@
 #: Tested on Ubuntu Server 15.10.  
 #: Author: Fastily
 
-
 if [ "$EUID" -ne 0 ]; then
 	printf "[ERROR]: Script must be run as root (sudo)\n"
 	exit
 fi
+
+## Some global vars
+res="res" # resources folder
+me="`whoami`" # current user
 
 ## Set directory for script
 cd `dirname "$0"`
@@ -27,16 +30,26 @@ apt-get -y install fail2ban
 ## Hide guest account from login screen
 printf "Configuring lightdm\n"
 mkdir -p /etc/lightdm
-cp lightdm.conf /etc/lightdm/
+cp "$res"/lightdm.conf /etc/lightdm/
 
 ## Apply custom settings for fail2ban
 printf "Apply settings for fail2ban\n"
-cp jail.local /etc/fail2ban/
+cp "$res"/jail.local /etc/fail2ban/
 
 ## Apply custom settings for ssh
 printf "Apply settings for ssh\n"
 mv /etc/ssh/sshd_config ~/sshd_config_backup.txt # create backup in user's home dir
-cp sshd_config /etc/ssh/
+chown "$me" ~/sshd_config_backup.txt
+
+cp "$res"/sshd_config /etc/ssh/
+
+if [ ! -d ~/.ssh ]; then
+	mkdir -p ~/.ssh
+	chown "$me" ~/.ssh
+	
+	touch ~/.ssh/authorized_keys
+	chown "$me" ~/.ssh/authorized_keys
+fi
 
 ## Restart affected services
 printf "Restarting affected services\n"
