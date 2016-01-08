@@ -28,5 +28,8 @@ wget "https://www.privateinternetaccess.com/installer/install_ubuntu.sh"
 chmod a+x install_ubuntu.sh
 ./install_ubuntu.sh
 
+printf "Cleaning up\n"
+rm install_ubuntu.sh
 
 printf "Done!\n"
+printf "Note: You may have to reboot for changes to take effect.\n"

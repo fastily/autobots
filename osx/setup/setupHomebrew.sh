@@ -8,7 +8,7 @@
 #: Tested on OS X 10.11.2
 #: Author: Fastily
 
-## Is Xcode installed?
+## Make sure xcode is installed
 which xcrun &> /dev/null
 if [ $? -ne 0 ]; then
 	printf "[ERROR]: Xcode is not installed.  Exiting.\n"
@@ -18,7 +18,7 @@ fi
 ## Install Homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-## Sanity check
+## Make sure the install worked
 which brew &> /dev/null
 if [ $? -ne 0 ]; then
 	printf "[ERROR]: Homebrew is not installed.  Something went wrong!\n"

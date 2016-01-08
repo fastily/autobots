@@ -19,6 +19,11 @@ fi
 res="res" # resources folder
 me="`whoami`" # current user
 
+# set $me to the correct user if sudo was used
+if [ -n "$SUDO_USER" ]; then
+	me="$SUDO_USER"
+fi
+
 ## Set directory for script
 cd `dirname "$0"`
 
