@@ -5,13 +5,11 @@
 #: Tested on Ubuntu Server 15.10.  
 #: Author: Fastily
 
-if [ "$EUID" -ne 0 ]; then
-	printf "[ERROR]: Script must be run as root (sudo)\n"
-	exit
-fi
+cd `dirname "$0"`
+source ../../autobotUtils.sh
+confirmRunAsRoot
 
-
-printf "Listing smb statuses"
+printf "Listing smb statuses\n"
 smbstatus
 pdbedit -L -v
 smbtree
