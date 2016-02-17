@@ -12,7 +12,7 @@
 confirmRunAsRoot()
 {
 	if [ "$EUID" -ne 0 ]; then
-		printf "[ERROR]: Script must be run as root (sudo)\n"
+		printf "[ERROR]: Script must be run as root/sudo\n"
 		exit 1
 	fi
 }

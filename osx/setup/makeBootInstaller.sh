@@ -18,6 +18,7 @@ confirmRunAsRoot
 ## Ensure that the the target drive volume exists
 if [ -z "$1" ]; then
 	printf "[ ERROR ]: You must specify the drive path to write to in the first argument\n"
+	exit 1
 fi
 
 confirmDirExists "$1"
