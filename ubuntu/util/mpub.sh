@@ -1,11 +1,14 @@
 #!/bin/bash
 
-#: Sets permissions of items in the Public folder to a+rx
+#: Sets permissions of items in ~/Public to a+r
 #: 
 #: Tested on Ubuntu Server 15.10.  
 #: Author: Fastily
 
-printf "Setting contents of Public folder to all read all exec\n"
-chmod -R a+rx ~/Public/*
+printf "Recursively setting contents of ~/Public to a+r\n"
+
+cd ~/Public
+find . -type f -exec chmod 664 {} +
+find . -type d -exec chmod 775 {} +
 
 printf "Done!\n"
