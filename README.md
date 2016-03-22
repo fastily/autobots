@@ -1,3 +1,3 @@
 # autobots
 
-Miscellaneous bash scripts to help with a variety of tasks.
+This is the autobots junkyard, for scripts which aren't being actively maintained.
