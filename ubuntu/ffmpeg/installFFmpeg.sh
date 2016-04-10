@@ -2,7 +2,7 @@
 
 #: Installs FFmpeg for ubuntu
 #: Must be run as root.
-#: This script was inspired by [https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu]
+#: This script was derived from [https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu]
 #: 
 #: Tested on Ubuntu Server 15.10.
 #: Author: Fastily
