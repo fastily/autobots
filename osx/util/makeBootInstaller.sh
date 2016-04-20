@@ -12,7 +12,7 @@
 #: Author: Fastily
 
 ## make sure we are root
-source ../../autobotUtils.sh
+source ../../shared/autobotUtils.sh
 confirmRunAsRoot
 
 ## Ensure that the the target drive volume exists

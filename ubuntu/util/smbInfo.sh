@@ -6,7 +6,7 @@
 #: Author: Fastily
 
 cd `dirname "$0"`
-source ../../autobotUtils.sh
+source ../../shared/autobotUtils.sh
 confirmRunAsRoot
 
 printf "Listing smb statuses\n"

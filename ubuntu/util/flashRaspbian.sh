@@ -15,8 +15,13 @@
 #: Author: Fastily
 
 cd `dirname "$0"`
-source ../../autobotUtils.sh
+source ../../shared/autobotUtils.sh
 confirmRunAsRoot
+
+if [ -z "$1" ] || [ -z "$2" ]; then
+	printf "Usage: flashRaspbian <path to SD> <path to img>\n"
+	exit 1
+fi
 
 printf "Attempting to flash %s to %s\n" "$2" "$1"
 

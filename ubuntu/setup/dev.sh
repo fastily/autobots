@@ -8,7 +8,7 @@
 #: Author: Fastily
 
 cd `dirname "$0"`
-source ../../autobotUtils.sh
+source ../../shared/autobotUtils.sh
 confirmRunAsRoot
 
 ## Set working directory to user's home
