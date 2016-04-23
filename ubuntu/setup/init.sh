@@ -15,7 +15,7 @@ source ../../shared/autobotUtils.sh
 confirmRunAsRoot
 
 ## Some global vars
-res="res" # resources folder
+res="../../shared" # resources folder
 me="`whoami`" # current user
 
 # set $me to the correct user if sudo was used

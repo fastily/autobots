@@ -12,4 +12,5 @@ confirmRunAsRoot
 printf "Listing smb statuses\n"
 smbstatus
 pdbedit -L -v
+net usershare info --long
 smbtree
