@@ -16,21 +16,22 @@ confirmRunAsRoot
 
 ## Some globals
 res="../../shared"
-me="`whoami`"
+me="pi"
+home="/home/""$me"
 
 ## Configuring ssh
 printf "Apply settings for ssh\n"
-mv /etc/ssh/sshd_config ~/sshd_config_backup.txt # create backup in user's home dir
-chown "$me" ~/sshd_config_backup.txt
+mv /etc/ssh/sshd_config "$home"/sshd_config_backup.txt # create backup in user's home dir
+chown "$me" "$home"/sshd_config_backup.txt
 
 cp "$res"/sshd_config /etc/ssh/
 
-if [ ! -d ~/.ssh ]; then
-	mkdir -p ~/.ssh
-	chown "$me" ~/.ssh
+if [ ! -d "$home"/.ssh ]; then
+	mkdir -p "$home"/.ssh
+	chown "$me" "$home"/.ssh
 	
-	touch ~/.ssh/authorized_keys
-	chown "$me" ~/.ssh/authorized_keys
+	touch "$home"/.ssh/authorized_keys
+	chown "$me" "$home"/.ssh/authorized_keys
 fi
 
 printf "Restarting ssh...\n"

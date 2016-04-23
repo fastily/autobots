@@ -7,7 +7,7 @@
 #:		1) OpenSSH is installed
 #:		2) Ubuntu Desktop is installed
 #: 
-#: Tested on Ubuntu Server 15.10.  
+#: Tested on Ubuntu Server 16.04  
 #: Author: Fastily
 
 cd `dirname "$0"`

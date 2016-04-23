@@ -1,10 +1,10 @@
 #!/bin/bash
 
-#: Apply settings for my development Ubuntu server box.  Installs WiFi drivers.  This isn't 
+#: Apply settings for my development Ubuntu server box.  This isn't 
 #: gaunrateed to be 100% automatic; you may be prompted for input or with confirm dialogs.
 #: Must be run as root.
 #: 
-#: Tested on Ubuntu Server 15.10.  
+#: Tested on Ubuntu Server 16.04.  
 #: Author: Fastily
 
 cd `dirname "$0"`
@@ -13,12 +13,6 @@ confirmRunAsRoot
 
 ## Set working directory to user's home
 cd ~
-
-## Install Broadcom wifi drivers
-printf "[INFO]: Installing Broadcom WiFI Drivers\n"
-apt-get update
-apt-get -y install bcmwl-kernel-source
-
 
 ## Install PIA
 printf "[INFO]: Installing PIA\n"
