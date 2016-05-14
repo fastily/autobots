@@ -21,6 +21,21 @@ bin="${rootsrc}/bin"
 mkdir -p "$rootsrc" "$src" "$build" "$bin"
 
 ##
+# Installs libvpx
+##
+installVPX
+{
+	cd "$src"
+	wget http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.5.0.tar.bz2
+	tar xjvf libvpx-1.5.0.tar.bz2
+	cd libvpx-1.5.0
+	PATH="$bin":"$PATH" ./configure --prefix="$build" --disable-examples --disable-unit-tests
+	PATH="$bin":"$PATH" make	
+	make install
+	make clean
+}
+	
+##
 # Installs FDK aac
 ##
 installAAC()
@@ -60,6 +75,7 @@ installFFmpeg()
 	  --enable-libopus \
 	  --enable-libtheora \
 	  --enable-libvorbis \
+	  --enable-libvpx \
 	  --enable-libx264 \
 	  --enable-nonfree
 
