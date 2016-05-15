@@ -7,7 +7,7 @@
 #: Tested on Ubuntu Server 16.04.  
 #: Author: Fastily
 
-cd `dirname "$0"`
+cd "${0%/*}"
 source ../../shared/autobotUtils.sh
 confirmRunAsRoot
 

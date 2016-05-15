@@ -10,7 +10,7 @@
 #: Tested on Raspbian March 2016
 #: Author: Fastily
 
-cd `dirname "$0"`
+cd "${0%/*}"
 source ../../shared/autobotUtils.sh
 confirmRunAsRoot
 
