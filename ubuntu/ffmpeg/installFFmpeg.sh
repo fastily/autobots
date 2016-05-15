@@ -23,7 +23,7 @@ mkdir -p "$rootsrc" "$src" "$build" "$bin"
 ##
 # Installs libvpx
 ##
-installVPX
+installVPX()
 {
 	cd "$src"
 	wget http://storage.googleapis.com/downloads.webmproject.org/releases/webm/libvpx-1.5.0.tar.bz2
@@ -91,11 +91,12 @@ apt-get update
 
 apt-get -y --force-yes install autoconf automake build-essential libass-dev libfreetype6-dev \
   libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev \
-  libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev
-
-apt-get install -y --force-yes yasm libx264-dev libmp3lame-dev libopus-dev
+  libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev yasm libx264-dev libmp3lame-dev libopus-dev
+ 
 installAAC
+installVPX
 installFFmpeg
+
 
 chmod -R a+rx "$rootsrc"
 printf "All done!\n"
