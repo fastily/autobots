@@ -99,6 +99,6 @@ installFFmpeg
 
 
 chmod -R a+rx "$rootsrc"
-prtinf "\nPATH=\$PATH:$bin" >> ~/.profile
+printf "\nPATH=\$PATH:$bin" >> ~/.profile
 
 printf "All done!\n"
