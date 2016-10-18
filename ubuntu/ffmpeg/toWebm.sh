@@ -20,8 +20,8 @@ usage()
 	exit 1
 }
 
-## Flag which applies audio
-aSet=""
+## Flag which toggles audio
+aSet="-an"
 
 while getopts "mh" flag; do
 	case "$flag" in
