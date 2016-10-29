@@ -46,11 +46,11 @@ installFFmpeg()
 	tar xjvf ffmpeg-snapshot.tar.bz2
 	cd ffmpeg
 
-	PATH="$bin":"$PATH" PKG_CONFIG_PATH="$build""/lib/pkgconfig" ./configure \
+	PATH="$bin":"$PATH" PKG_CONFIG_PATH="${build}/lib/pkgconfig" ./configure \
 	  --prefix="$build" \
 	  --pkg-config-flags="--static" \
-	  --extra-cflags="-I""$build""/include" \
-	  --extra-ldflags="-L""$build""/lib" \
+	  --extra-cflags="-I${build}/include" \
+	  --extra-ldflags="-L${build}/lib" \
 	  --bindir="$bin" \
 	  --enable-gpl \
 	  --enable-libass \
@@ -83,6 +83,6 @@ installFFmpeg
 
 
 chmod -R a+rx "$rootsrc"
-printf "\nPATH=\$PATH:$bin" >> ~/.profile
+printf "\nPATH=\$PATH:${bin}" >> ~/.profile
 
 printf "All done!\n"
