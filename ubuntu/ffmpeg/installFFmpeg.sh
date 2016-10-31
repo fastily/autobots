@@ -7,7 +7,7 @@
 #: Tested on Ubuntu Server 16.10.
 #: Author: Fastily
 
-cd "${0%/*}"
+cd "${0%/*}" &> /dev/null
 source ../../shared/autobotUtils.sh
 confirmRunAsRoot
 
@@ -83,6 +83,7 @@ installFFmpeg
 
 
 chmod -R a+rx "$rootsrc"
-printf "\nPATH=\$PATH:${bin}" >> ~/.profile
+touch ~/.bash_profile
+printf "\nPATH=\$PATH:${bin}" >> ~/.bash_profile
 
 printf "All done!\n"

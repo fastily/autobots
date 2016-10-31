@@ -5,7 +5,7 @@
 #: Tested on Ubuntu Server 15.10.  
 #: Author: Fastily
 
-cd "${0%/*}"
+cd "${0%/*}" &> /dev/null
 source ../../shared/autobotUtils.sh
 confirmRunAsRoot
 
