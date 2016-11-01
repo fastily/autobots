@@ -27,14 +27,18 @@ usage()
 procDL()
 {
 	printf "Checking '%s'\n" "$1"
-	if  grep "$1" "$LOGFILE" > "/dev/null" ; then
+	if  grep -- "$1" "$LOGFILE" > "/dev/null" ; then
 		return 0
 	fi
 
 	printf "Ripping audio for '%s'\n" "$1"
 
-	youtube-dl -f bestaudio -x --audio-format mp3 --audio-quality 0 --add-metadata --id "${YTURL}/watch?v=${1}" && \
-	eyed3 --add-image "${ARTWORK}:FRONT_COVER" "${1}.mp3" -A "$ALBUM" -a "$ARTIST" -b "$ARTIST" && \
+	DLURL="${YTURL}/watch?v=${1}"
+	BASEFMT='%(title)s - [%(id)s]'
+	TITLE=$(youtube-dl --get-filename -o "$BASEFMT" "$DLURL")
+
+	youtube-dl -f bestaudio -x --audio-format mp3 --audio-quality 0 --add-metadata -o "${BASEFMT}.%(ext)s" "$DLURL" && \
+	eyed3 --add-image "${ARTWORK}:FRONT_COVER" -A "$ALBUM" -a "$ARTIST" -b "$ARTIST" -c "$DLURL" "${TITLE}.mp3" && \
 	printf "\n${1}" >> "$LOGFILE"
 }
 
@@ -43,7 +47,7 @@ if (( $# < 3 )) ; then
 	usage
 fi
 
-cd "${0%/*}" &> /dev/null
+cd "$PWD"
 
 ## Global variables
 export -f procDL
