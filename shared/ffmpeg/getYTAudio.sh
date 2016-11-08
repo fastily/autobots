@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#: Rips audio from YouTube. 
+#: Rips audio from YouTube.
 #: 
 #: PRECONDITION: You have youtube-dl & eyed3 installed.
 #: 
@@ -38,7 +38,7 @@ procDL()
 	TITLE=$(youtube-dl --get-filename -o "$BASEFMT" "$DLURL")
 
 	youtube-dl -f bestaudio -x --audio-format mp3 --audio-quality 0 --add-metadata -o "${BASEFMT}.%(ext)s" "$DLURL" && \
-	eyed3 --add-image "${ARTWORK}:FRONT_COVER" -A "$ALBUM" -a "$ARTIST" -b "$ARTIST" -c "$DLURL" "${TITLE}.mp3" && \
+	eyed3 $ARTWORK -A "$ALBUM" -a "$ARTIST" -b "$ARTIST" -c "$DLURL" "${TITLE}.mp3" && \
 	printf "\n${1}" >> "$LOGFILE"
 }
 
@@ -52,21 +52,18 @@ cd "$PWD"
 ## Global variables
 export -f procDL
 
-RES="res"
-export LOGFILE="${RES}/log.txt"
+export LOGFILE="log.txt"
 export YTURL="https://www.youtube.com"
 
 export ARTIST="$2"
 export ALBUM="$3"
 
-ARTWORK="${RES}/defaultcover.png"
+ARTWORK=' '
 if [ $# -eq 4 ]; then
-	ARTWORK="$4"
+	ARTWORK="--add-image ${4}:FRONT_COVER"
 fi
 export ARTWORK
 
-
 ## Start DL
-mkdir -p "$RES"
 touch "$LOGFILE"
 youtube-dl --get-id "${YTURL}/${1}" | xargs -n 1 -I "{}" bash -c 'procDL "{}"'
