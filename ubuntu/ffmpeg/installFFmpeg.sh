@@ -21,22 +21,6 @@ bin="${rootsrc}/bin"
 mkdir -p "$rootsrc" "$src" "$build" "$bin"
 
 ##
-# Installs FDK aac
-##
-installAAC()
-{
-	cd "$src"
-	wget -O fdk-aac.tar.gz https://github.com/mstorsjo/fdk-aac/tarball/master
-	tar xzvf fdk-aac.tar.gz
-	cd mstorsjo-fdk-aac*
-	autoreconf -fiv
-	./configure --prefix="$build" --disable-shared
-	make
-	make install
-	make distclean
-}
-
-##
 # Installs ffmpeg
 ##
 installFFmpeg()
@@ -75,15 +59,14 @@ cd ~
 apt-get update
 
 apt-get -y --force-yes install autoconf automake build-essential libass-dev libfreetype6-dev \
-  libsdl1.2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev \
-  libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev yasm libx264-dev libmp3lame-dev libopus-dev libvpx-dev
+  libsdl2-dev libtheora-dev libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev \
+  libxcb-xfixes0-dev pkg-config texinfo zlib1g-dev yasm libx264-dev libmp3lame-dev libopus-dev libvpx-dev libfdk-aac-dev
  
-installAAC
 installFFmpeg
 
 
 chmod -R a+rx "$rootsrc"
 touch ~/.bash_profile
-printf "\nPATH=\$PATH:${bin}" >> ~/.bash_profile
+printf "\nPATH=\$PATH:${bin}" >> ~/.profile
 
 printf "All done!\n"

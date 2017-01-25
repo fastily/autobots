@@ -7,7 +7,7 @@
 #:		1) OpenSSH is installed
 #:		2) Ubuntu Desktop is installed
 #: 
-#: Tested on Ubuntu Server 16.04  
+#: Tested on Ubuntu Server 16.10
 #: Author: Fastily
 
 cd "${0%/*}" &> /dev/null
@@ -59,5 +59,9 @@ fi
 printf "Restarting affected services\n"
 service sshd restart
 service fail2ban restart
+
+## Install extra filesystems
+printf "Installing ExFat and HFS+ support\n"
+apt-get -y install hfsprogs exfat-utils exfat-fuse
 
 printf "All Done!\n"
