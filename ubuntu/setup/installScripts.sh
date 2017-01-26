@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#: Installs autobots ffmpeg scripts to ~/scripts and creates a new PATH entry in bash_profile for ~/scripts
+#: Installs my working environment to ~/bin and sets PATH variable in .profile for ~/bin if needed.
 #: Also works as an updater 
 #:
 #: Tested on Ubuntu Server 16.10.
