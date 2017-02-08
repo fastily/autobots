@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#: Use Homebrew to update OSX's ancient version of rsync and ssh.
+#: Use Homebrew to update OSX's ancient CLI utilities.
 #: 
 #: PRECONDITIONS: 
 #:		1) Homebrew is installed
@@ -18,7 +18,11 @@ fi
 printf "Installing new version of rsync\n"
 brew update
 brew tap homebrew/dupes
+
 brew install rsync
 brew install openssh
+brew install vim --with-override-system-vi
+brew install less
+brew install bash
 
 printf "Done!\n"

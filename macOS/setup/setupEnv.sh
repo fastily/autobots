@@ -1,10 +1,13 @@
 #!/bin/bash
 
-#: Generic, set up my working environment
+#: Generic, set up my working environment.
+#:
+#: PRECONDITION: homebrew is installed
 #: 
 #: Tested on macOS 10.12.1
 #: Author: Fastily
 
+## Create .bash_profile
 cd ~
 BPROFILE=".bash_profile"
 touch "$BPROFILE"
@@ -16,5 +19,12 @@ printf "alias ddss=\"find . -name '*.DS_Store' -type f -delete\"\n" >> "$BPROFIL
 mkdir -p bin
 printf "PATH=${PATH}:${HOME}/bin\n" >> "$BPROFILE"
 
+## Copy custom scripts to bin
+cd "${0%/*}" &> /dev/null
+cp scripts/* ~/bin
 
-printf "%s updated!\n" "$BPROFILE"
+
+brew update
+brew install eyed3
+
+printf "Done!\n"
