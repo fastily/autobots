@@ -11,7 +11,7 @@
 #: 		$1 - The base filesystem path to the target SD card (e.g. '/dev/sdc')
 #:		$2 - The full path to the Raspbian .img file
 #: 
-#: Tested on Ubuntu 15.10
+#: Tested on Ubuntu 16.10
 #: Author: Fastily
 
 cd "${0%/*}" &> /dev/null
