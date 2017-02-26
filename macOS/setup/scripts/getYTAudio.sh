@@ -23,6 +23,8 @@ usage()
 
 ##
 # Takes video ids and downloads the video if it has not been downloaded
+#	Arguments:
+#		1) The video id to process
 ##
 procDL()
 {

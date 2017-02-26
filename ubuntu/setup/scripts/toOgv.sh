@@ -25,7 +25,7 @@ aSet="-an"
 
 while getopts "mh" flag; do
 	case "$flag" in
-		m) aSet="-c:a libvorbis -q:a 8" ;;
+		m) aSet='-c:a libvorbis -q:a 8' ;;
 		h) usage ;;
 		*) usage ;;
 	esac
@@ -35,5 +35,5 @@ done
 cd "$PWD"
 
 for f in *.{mp4,mov,mts}; do 
-	ffmpeg -i "$f" -c:v libtheora -q:v 10 "$aSet" "${f%.*}.ogv"
+	ffmpeg -i "$f" -c:v libtheora -q:v 10 $aSet "${f%.*}.ogv"
 done

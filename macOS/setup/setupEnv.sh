@@ -55,7 +55,11 @@ git config --global user.email "fastily@users.noreply.github.com"
 
 ## Install dependencies for my custom scripts
 brew update
-brew install eyed3
+brew install eye-d3
 brew install youtube-dl
+
+## Misc Settings
+defaults write com.apple.TextEdit RichText -int 0
+
 
 printf "Done!\n"

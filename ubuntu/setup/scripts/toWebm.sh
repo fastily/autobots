@@ -26,7 +26,7 @@ aSet="-an"
 
 while getopts "mh" flag; do
 	case "$flag" in
-		m) aSet="-c:a libvorbis -q:a 8" ;;
+		m) aSet='-c:a libvorbis -q:a 8' ;;
 		h) usage ;;
 		*) usage ;;
 	esac
@@ -36,6 +36,6 @@ done
 cd "$PWD"
 
 for f in *.{mp4,mov,mts}; do 
-	ffmpeg -y -i "$f" -c:v libvpx-vp9 -pass 1 -b:v 30000K -threads 3 -speed 4 -tile-columns 0 -frame-parallel 0 -g 9999 -aq-mode 0 -an -f webm /dev/null && 
-	ffmpeg -i "$f" -c:v libvpx-vp9 -pass 2 -b:v 30000K -threads 3 -speed 0 -tile-columns 0 -frame-parallel 0 -auto-alt-ref 1 -lag-in-frames 25 -g 9999 -aq-mode 0 "$aSet" -f webm "${f%.*}.webm"
+	ffmpeg -y -i "$f" -c:v libvpx-vp9 -pass 1 -b:v 30000K -threads 3 -speed 4 -tile-columns 0 -frame-parallel 0 -g 9999 -aq-mode 0 $aSet -f webm /dev/null && 
+	ffmpeg -i "$f" -c:v libvpx-vp9 -pass 2 -b:v 30000K -threads 3 -speed 0 -tile-columns 0 -frame-parallel 0 -auto-alt-ref 1 -lag-in-frames 25 -g 9999 -aq-mode 0 $aSet -f webm "${f%.*}.webm"
 done
