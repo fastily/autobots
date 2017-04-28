@@ -23,9 +23,6 @@ if [ -n "$SUDO_USER" ]; then
 	me="$SUDO_USER"
 fi
 
-## Set directory for script
-cd `dirname "$0"`
-
 ## Install some software
 printf "Installing fail2ban\n"
 apt-get update

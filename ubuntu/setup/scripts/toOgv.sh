@@ -35,5 +35,5 @@ done
 cd "$PWD"
 
 for f in *.{mp4,mov,mts}; do 
-	ffmpeg -i "$f" -c:v libtheora -q:v 10 $aSet "${f%.*}.ogv"
+	ffmpeg -i "$f" -c:v libtheora -q:v 8 $aSet "${f%.*}.ogv"
 done

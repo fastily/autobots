@@ -35,7 +35,7 @@ cd ~
 BPROFILE=".bash_profile"
 touch "$BPROFILE"
 
-## Initialize command whcih recusrively deletes .DS_STORE from the current directory
+## Add a command whcih recusrively deletes .DS_STORE from the current directory
 printf "alias ddss=\"find . -name '*.DS_Store' -type f -delete\"\n" >> "$BPROFILE"
 
 ## Create bin folder in HOME and add it to PATH

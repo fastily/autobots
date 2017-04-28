@@ -4,9 +4,9 @@
 #: 
 #: PRECONDITIONS: 
 #:		1) Homebrew is installed
-#:		2) '/usr/local/bin' is before '/usr/bin' in /private/etc/paths
+#:		2) '/usr/local/bin' is before '/usr/bin' in /private/etc/paths (this is the default)
 #: 
-#: Tested on OS X 10.11.2
+#: Tested on OS X 10.11.4
 #: Author: Fastily
 
 which brew &> /dev/null
