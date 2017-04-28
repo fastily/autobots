@@ -5,8 +5,10 @@
 #: PRECONDITION:
 #:		1) Xcode or Xcode tools are installed
 #:
-#: Tested on macOS 10.12.1
+#: Tested on macOS 10.12.4
 #: Author: Fastily
+
+SCPTDIR="${0%/*}"
 
 ## Make sure xcode is installed
 which xcrun &> /dev/null
@@ -33,7 +35,7 @@ cd ~
 BPROFILE=".bash_profile"
 touch "$BPROFILE"
 
-## Recusrively deletes .DS_STORE from the current directory
+## Initialize command whcih recusrively deletes .DS_STORE from the current directory
 printf "alias ddss=\"find . -name '*.DS_Store' -type f -delete\"\n" >> "$BPROFILE"
 
 ## Create bin folder in HOME and add it to PATH
@@ -41,7 +43,7 @@ mkdir -p bin
 printf "PATH=${PATH}:${HOME}/bin\n" >> "$BPROFILE"
 
 ## Copy custom scripts to bin
-cd "${0%/*}" &> /dev/null
+cd "$SCPTDIR" &> /dev/null
 cp scripts/* ~/bin
 
 ## Setup .ssh
@@ -61,5 +63,8 @@ brew install youtube-dl
 ## Misc Settings
 defaults write com.apple.TextEdit RichText -int 0
 
+## Trackers suck
+defaults write com.apple.Safari WebkitHyperlinkAuditingEnabled -bool false
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2HyperlinkAuditingEnabled -bool false
 
 printf "Done!\n"
