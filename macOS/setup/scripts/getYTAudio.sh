@@ -45,7 +45,7 @@ procDL()
 }
 
 ## < 3 args -> print usage and exit
-if (( $# < 3 )) ; then
+if (( $# < 3 )); then
 	usage
 fi
 
