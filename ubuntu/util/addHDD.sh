@@ -20,7 +20,7 @@ confirmRunAsRoot
 # Prints usage and exits
 ##
 usage() {
-  printf "addHDD <device id> <mount destination>\n"
+  printf "Usage: addHDD <device id> <mount destination>\n"
   exit 1
 }
 
