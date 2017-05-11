@@ -28,11 +28,10 @@ aSet="-an"
 ## Flag to toggle one-pass encode
 onePass=false
 
-while getopts "mh" flag; do
+while getopts "mho" flag; do
 	case "$flag" in
 		m) aSet='-c:a libvorbis -q:a 8' ;;
-		o) onePass=true
-		h) usage ;;
+		o) onePass=true ;;
 		*) usage ;;
 	esac
 done
@@ -41,7 +40,7 @@ cd "$PWD"
 
 if [ "$onePass" = true ]; then
 	for f in *.{mp4,mov,mts}; do
-		ffmpeg -y -i "$f" -c:v libvpx-vp9 -b:v 0 -crf 24 -threads 4 -speed 0 $aSet -f webm "${f%.*}.webm".webm
+		ffmpeg -y -i "$f" -c:v libvpx-vp9 -b:v 0 -crf 24 -threads 4 -speed 0 $aSet -f webm "${f%.*}.webm"
 	done
 else
 	for f in *.{mp4,mov,mts}; do 

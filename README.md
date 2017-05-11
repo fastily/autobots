@@ -1,3 +1,3 @@
 # autobots
 
-Miscellaneous bash scripts which I use to automate my life.  Posted here to the benefit of the public.  Have fun, enjoy 😀
+Miscellaneous bash scripts which help automate my life.  Posted here to public benefit.  Have fun, enjoy 😀
