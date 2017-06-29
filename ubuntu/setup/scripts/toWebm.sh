@@ -3,7 +3,7 @@
 #: Convert common movie files (mp4, mov, mts) to vp9/vorbis.  Targets higher quality and sane-ish file size.
 #: Configuration should be good enough for most video @ 1080p60fps
 #: 
-#: Tested on Ubuntu Server 16.10
+#: Tested on Ubuntu Server 17.04
 #: Author: Fastily
 
 # Set bash case-insensitivity and set non-matching patterns to expand to nothing
@@ -15,9 +15,9 @@ shopt -s nullglob nocaseglob
 usage()
 {
 	printf "Usage:\n"
-	printf "toWebm.sh [-m] [-o] [-h]\n"
-	printf "\t-m: Turn audio transcoding on (off by default)\n"
-	printf "\t-o: Specify one pass encoding\n"
+	printf "toWebm.sh [-a] [-t] [-h]\n"
+	printf "\t-a: Turn audio transcoding on (off by default)\n"
+	printf "\t-t: Specify two pass encoding\n"
 	printf "\t-h: Show this message and exit\n"
 	exit 1
 }
@@ -26,12 +26,12 @@ usage()
 aSet="-an"
 
 ## Flag to toggle one-pass encode
-onePass=false
+onePass=true
 
-while getopts "mho" flag; do
+while getopts "aht" flag; do
 	case "$flag" in
-		m) aSet='-c:a libvorbis -q:a 8' ;;
-		o) onePass=true ;;
+		a) aSet='-c:a libvorbis -q:a 8' ;;
+		t) onePass=false ;;
 		*) usage ;;
 	esac
 done
