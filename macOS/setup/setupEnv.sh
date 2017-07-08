@@ -30,21 +30,13 @@ fi
 brew doctor
 
 
-## Create .bash_profile
-cd ~
-BPROFILE=".bash_profile"
-touch "$BPROFILE"
-
-## Add a command whcih recusrively deletes .DS_STORE from the current directory
-printf "alias ddss=\"find . -name '*.DS_Store' -type f -delete\"\n" >> "$BPROFILE"
-
-## Create bin folder in HOME and add it to PATH
-mkdir -p bin
-printf "PATH=${PATH}:${HOME}/bin\n" >> "$BPROFILE"
-
-## Copy custom scripts to bin
 cd "$SCPTDIR" &> /dev/null
-cp scripts/* ~/bin
+
+## Copy .bash_profile and bin scripts
+cat bash_profile.txt > ~/.bash_profile
+
+cp -r scripts ~/bin
+chflags hidden ~/bin
 
 ## Setup .ssh
 printf "Creating .ssh folder in home directory\n"
