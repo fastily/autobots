@@ -1,5 +1,8 @@
-alias ddss="find . -name '*.DS_Store' -type f -delete"
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${HOME}/bin
+
+alias ddss="find . -name '*.DS_Store' -type f -delete"
+alias pdserv="php -S localhost:8080 -t "
+alias undoLastCommit="git reset --soft HEAD~1"
 
 mp3ify()
 {

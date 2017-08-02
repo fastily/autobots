@@ -51,6 +51,17 @@ git config --global user.email "fastily@users.noreply.github.com"
 brew update
 brew install eye-d3
 brew install youtube-dl
+brew install ffmpeg --with-fdk-aac --with-libcaca --with-libvidstab --with-libvorbis --with-libvpx --with-opus --with-schroedinger --with-speex --with-theora --with-tools
+brew install gradle
+
+## Patch Antiques
+brew tap homebrew/dupes
+
+brew install rsync
+brew install openssh
+brew install vim --with-override-system-vi
+brew install less
+brew install bash
 
 ## Misc Settings
 defaults write com.apple.TextEdit RichText -int 0
