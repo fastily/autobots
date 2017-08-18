@@ -5,7 +5,7 @@
 #: PRECONDITION:
 #:		1) Xcode or Xcode tools are installed
 #:
-#: Tested on macOS 10.12.4
+#: Tested on macOS 10.12.6
 #: Author: Fastily
 
 SCPTDIR="${0%/*}"
@@ -18,7 +18,7 @@ if [ $? -ne 0 ]; then
 fi
 
 ## Install Homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 ## Make sure the install worked
 which brew &> /dev/null
@@ -33,9 +33,9 @@ brew doctor
 cd "$SCPTDIR" &> /dev/null
 
 ## Copy .bash_profile and bin scripts
-cat bash_profile.txt > ~/.bash_profile
+cp -fv bash_profile.txt ~/.bash_profile
 
-cp -r scripts ~/bin
+cp -rv scripts ~/bin
 chflags hidden ~/bin
 
 ## Setup .ssh
@@ -47,21 +47,35 @@ printf "Setting git global vars\n"
 git config --global user.name "fastily"
 git config --global user.email "fastily@users.noreply.github.com"
 
+
 ## Install dependencies for my custom scripts
 brew update
+
+brew cask install java
+
+# brew cask install eclipse-java
+# brew cask install firefox
+# brew cask install postman
+# brew cask install rekordbox
+# brew cask install sublime-text
+# brew cask install virtualbox
+# brew cask install vlc
+
+brew install exiftool
 brew install eye-d3
-brew install youtube-dl
 brew install ffmpeg --with-fdk-aac --with-libcaca --with-libvidstab --with-libvorbis --with-libvpx --with-opus --with-schroedinger --with-speex --with-theora --with-tools
 brew install gradle
+brew install sox --with-flac --with-lame --with-libao --with-libvorbis --with-opusfile --with-opencore-amr
+brew install youtube-dl
 
 ## Patch Antiques
 brew tap homebrew/dupes
 
-brew install rsync
-brew install openssh
-brew install vim --with-override-system-vi
-brew install less
 brew install bash
+brew install less
+brew install openssh
+brew install rsync
+brew install vim --with-override-system-vi
 
 ## Misc Settings
 defaults write com.apple.TextEdit RichText -int 0
