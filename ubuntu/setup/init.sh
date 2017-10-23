@@ -25,8 +25,8 @@ fi
 
 ## Install some software
 printf "Installing fail2ban\n"
-apt-get update
-apt-get -y install fail2ban
+apt update
+apt install fail2ban
 
 ## Hide guest account from login screen
 printf "Configuring lightdm\n"
@@ -59,6 +59,6 @@ service fail2ban restart
 
 ## Install extra filesystems
 printf "Installing ExFat and HFS+ support\n"
-apt-get -y install hfsprogs exfat-utils exfat-fuse
+apt install hfsprogs exfat-utils exfat-fuse
 
 printf "All Done!\n"

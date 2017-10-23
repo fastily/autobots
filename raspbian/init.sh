@@ -36,8 +36,8 @@ fi
 
 ## Install fail2ban
 printf "Installing fail2ban\n"
-apt-get update
-apt-get -y install fail2ban
+apt update
+apt install fail2ban
 printf "Apply settings for fail2ban\n"
 cp "$res"/jail.local /etc/fail2ban/
 

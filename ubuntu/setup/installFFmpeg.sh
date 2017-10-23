@@ -21,7 +21,7 @@ bin="${HOME}/bin"
 mkdir -p "$rootsrc" "$src" "$build" "$bin"
 
 ## Install FFmpeg and dependencies
-apt-get update
+apt update
 
 apt-get -y --force-yes install autoconf automake build-essential libass-dev libsdl2-dev libtheora-dev \
 libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev \
@@ -29,7 +29,7 @@ pkg-config texinfo zlib1g-dev yasm libx264-dev libmp3lame-dev libopus-dev libvpx
 
  ## Install FFmpeg
  cd "$src"
- wget http://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2
+ wget https://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2
  tar xjvf ffmpeg-snapshot.tar.bz2
  cd ffmpeg
 
