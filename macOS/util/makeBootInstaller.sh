@@ -4,7 +4,7 @@
 #: 
 #: PRECONDITIONS: 
 #:		1) You have an empty USB thumb drive to create the bootable installer on
-#: 		2) Install OS X El Capitan.app has been dwonloaded from the app store
+#: 		2) Install OS X El Capitan.app has been downloaded from the app store
 #: ARGUMENTS:
 #: 		$1 - The full path to the target USB Thumb Drive (e.g. '/Volumes/MyDrive')
 #: 
