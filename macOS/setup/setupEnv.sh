@@ -53,13 +53,11 @@ brew update
 
 brew cask install java
 
-# brew cask install eclipse-java
-# brew cask install firefox
-# brew cask install postman
-# brew cask install rekordbox
-# brew cask install sublime-text
-# brew cask install virtualbox
-# brew cask install vlc
+brew cask install atom
+brew cask install postman
+brew cask install sts
+brew cask install sublime-text
+brew cask install vlc
 
 brew install exiftool
 brew install eye-d3
@@ -81,7 +79,6 @@ brew install vim --with-override-system-vi
 defaults write com.apple.TextEdit RichText -int 0
 
 ## Trackers suck
-defaults write com.apple.Safari WebkitHyperlinkAuditingEnabled -bool false
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2HyperlinkAuditingEnabled -bool false
 
 printf "Done!\n"
