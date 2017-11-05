@@ -1,13 +1,9 @@
 #!/bin/bash
 
-#: Apply some settings for an Ubuntu server.   Configures OpenSSH and lightdm, and installs fail2ban. This isn't 
+#: Apply some default settings for Ubuntu.   Configures OpenSSH and lightdm, and installs fail2ban. This isn't 
 #: gaunrateed to be 100% automatic; you may be prompted for input or with confirm dialogs.  Must be run as root.
 #: 
-#: PRECONDITIONS: 
-#:		1) OpenSSH is installed
-#:		2) Ubuntu Desktop is installed
-#: 
-#: Tested on Ubuntu Server 16.10
+#: Tested on Ubuntu Desktop 16.04.3
 #: Author: Fastily
 
 cd "${0%/*}" &> /dev/null
@@ -16,7 +12,7 @@ confirmRunAsRoot
 
 ## Some global vars
 res="../../shared" # resources folder
-me="`whoami`" # current user
+me="$( whoami )" # current user
 
 # set $me to the correct user if sudo was used
 if [ -n "$SUDO_USER" ]; then
@@ -24,9 +20,8 @@ if [ -n "$SUDO_USER" ]; then
 fi
 
 ## Install some software
-printf "Installing fail2ban\n"
 apt update
-apt install fail2ban
+apt install fail2ban openssh-client openssh-server
 
 ## Hide guest account from login screen
 printf "Configuring lightdm\n"

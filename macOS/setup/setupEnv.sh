@@ -55,7 +55,6 @@ brew cask install java
 
 brew cask install atom
 brew cask install postman
-brew cask install sts
 brew cask install sublime-text
 brew cask install vlc
 
