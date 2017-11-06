@@ -21,16 +21,19 @@ fi
 
 ## Install some software
 apt update
-apt install fail2ban openssh-client openssh-server
+apt install curl fail2ban openssh-client openssh-server samba
 
 ## Hide guest account from login screen
 printf "Configuring lightdm\n"
-mkdir -p /etc/lightdm
-cp "$res"/lightdm.conf /etc/lightdm/
+bash ./hideGuest.sh
 
 ## Apply custom settings for fail2ban
 printf "Apply settings for fail2ban\n"
 cp "$res"/jail.local /etc/fail2ban/
+
+## Apply custom settings for samba
+printf "Apply settings for samba\n"
+sed -i 's/^\[global\]/\[global\]\nusershare owner only = false/' /etc/samba/smb.conf
 
 ## Apply custom settings for ssh
 printf "Apply settings for ssh\n"
@@ -51,6 +54,7 @@ fi
 printf "Restarting affected services\n"
 service sshd restart
 service fail2ban restart
+service smbd restart
 
 ## Install extra filesystems
 printf "Installing ExFat and HFS+ support\n"
