@@ -28,7 +28,7 @@ if [ $? -ne 0 ]; then
 fi
 
 brew doctor
-
+brew update
 
 cd "$SCPTDIR" &> /dev/null
 
@@ -49,21 +49,21 @@ git config --global user.email "fastily@users.noreply.github.com"
 
 
 ## Install dependencies for my custom scripts
-brew update
-
 brew cask install java
-
-brew cask install atom
-brew cask install postman
-brew cask install sublime-text
-brew cask install vlc
 
 brew install exiftool
 brew install eye-d3
 brew install ffmpeg --with-fdk-aac --with-libcaca --with-libvidstab --with-libvorbis --with-libvpx --with-opus --with-schroedinger --with-speex --with-theora --with-tools
 brew install gradle
+brew install nodejs
+brew install ruby
 brew install sox --with-flac --with-lame --with-libao --with-libvorbis --with-opusfile --with-opencore-amr
 brew install youtube-dl
+
+brew cask install atom
+brew cask install postman
+brew cask install sublime-text
+brew cask install vlc
 
 ## Patch Antiques
 brew tap homebrew/dupes
