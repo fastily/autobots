@@ -49,7 +49,7 @@ git config --global user.email "fastily@users.noreply.github.com"
 
 
 ## Install dependencies for my custom scripts
-brew cask install java
+brew cask install java8
 
 brew install exiftool
 brew install eye-d3
@@ -61,6 +61,7 @@ brew install sox --with-flac --with-lame --with-libao --with-libvorbis --with-op
 brew install youtube-dl
 
 brew cask install atom
+brew cask install eclipse-java
 brew cask install postman
 brew cask install sublime-text
 brew cask install vlc
@@ -76,6 +77,7 @@ brew install vim --with-override-system-vi
 
 ## Misc Settings
 defaults write com.apple.TextEdit RichText -int 0
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf" # Finder - search the current folder by default
 
 ## Trackers suck
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2HyperlinkAuditingEnabled -bool false
