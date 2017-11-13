@@ -53,7 +53,7 @@ brew cask install java8
 
 brew install exiftool
 brew install eye-d3
-brew install ffmpeg --with-fdk-aac --with-libcaca --with-libvidstab --with-libvorbis --with-libvpx --with-opus --with-schroedinger --with-speex --with-theora --with-tools
+brew install ffmpeg --with-theora --with-libvorbis --with-libvpx --with-opus --with-fdk-aac --with-x265 --with-tools 
 brew install gradle
 brew install nodejs
 brew install ruby
@@ -64,6 +64,7 @@ brew cask install atom
 brew cask install eclipse-java
 brew cask install postman
 brew cask install sublime-text
+brew cask install rekordbox
 brew cask install vlc
 
 ## Patch Antiques
@@ -77,7 +78,7 @@ brew install vim --with-override-system-vi
 
 ## Misc Settings
 defaults write com.apple.TextEdit RichText -int 0
-defaults write com.apple.finder FXDefaultSearchScope -string "SCcf" # Finder - search the current folder by default
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf" # Have Finder search current folder by default
 
 ## Trackers suck
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2HyperlinkAuditingEnabled -bool false

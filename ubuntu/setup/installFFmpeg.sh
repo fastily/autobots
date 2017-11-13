@@ -25,7 +25,7 @@ apt update
 
 apt-get -y --force-yes install autoconf automake build-essential libass-dev libsdl2-dev libtheora-dev \
 libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev \
-pkg-config texinfo zlib1g-dev yasm libx264-dev libmp3lame-dev libopus-dev libvpx-dev libfdk-aac-dev
+pkg-config texinfo zlib1g-dev yasm libx264-dev libmp3lame-dev libopus-dev libvpx-dev libfdk-aac-dev libx265-dev
 
  ## Install FFmpeg
  cd "$src"
@@ -48,6 +48,7 @@ pkg-config texinfo zlib1g-dev yasm libx264-dev libmp3lame-dev libopus-dev libvpx
 	 --enable-libvorbis \
 	 --enable-libvpx \
 	 --enable-libx264 \
+     --enable-libx265 \
 	 --enable-nonfree
 
  PATH="$bin":"$PATH" make
