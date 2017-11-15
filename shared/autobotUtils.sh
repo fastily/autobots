@@ -2,7 +2,7 @@
 
 #: Shared library functions for unix-based systems in autobots.
 #: 
-#: Tested on Ubuntu Server 15.10 and OS X 10.11
+#: Tested on Ubuntu Server 16.04 and OS X 10.13.1
 #: Author: Fastily
 
 
@@ -37,4 +37,26 @@ confirmDirExists()
 		printf "[ERROR]: '%s' does not exist, exiting\n" "$1"
 		exit 1
 	fi
+}
+
+##
+# Creates a directory and assigns the specified owner.
+# PARAMETERS:
+# 		$1 - path to directory to create
+# 		$2 - user to assign as owner
+##
+mkdirWithOwner()
+{
+	mkdir -p "$1" && chown "$2" "$1"
+}
+
+##
+# Tocuh a file and assign the specified owner.
+# PARAMETERS:
+# 		$1 - path to file to touch
+# 		$2 - user to assign as owner
+##
+touchWithOwner()
+{
+	touch "$1" && chown "$2" "$1"
 }

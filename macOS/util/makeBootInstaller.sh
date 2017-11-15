@@ -29,6 +29,6 @@ confirmDirExists "$app"
 
 ## Run the script
 printf "Creating bootable intsall at '%s'\n" "$1"
-"${app}/Contents/Resources/createinstallmedia" --volume "$1" --applicationpath "$app"
+"${app}/Contents/Resources/createinstallmedia" --volume "$1" --applicationpath "$app" --nointeraction
 
 printf "Done!\n"

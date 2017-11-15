@@ -43,11 +43,8 @@ chown "$me" ~/sshd_config_backup.txt
 cp "$res"/sshd_config /etc/ssh/
 
 if [ ! -d ~/.ssh ]; then
-	mkdir -p ~/.ssh
-	chown "$me" ~/.ssh
-	
-	touch ~/.ssh/authorized_keys
-	chown "$me" ~/.ssh/authorized_keys
+	mkdirWithOwner ~/.ssh "$me"
+	touchWithOwner ~/.ssh/authorized_keys "$me"
 fi
 
 ## Restart affected services

@@ -21,18 +21,16 @@ home="/home/${me}"
 
 ## Configure ssh
 printf "Apply settings for ssh\n"
-mv /etc/ssh/sshd_config "$home"/sshd_config_backup.txt # create backup in user's home dir
-chown "$me" "$home"/sshd_config_backup.txt
-
+mv /etc/ssh/sshd_config /etc/ssh/sshd_config_backup.txt # create backup in user's home dir
 cp "$res"/sshd_config /etc/ssh/
 
 if [ ! -d "$home"/.ssh ]; then
-	mkdir -p "$home"/.ssh
-	chown "$me" "$home"/.ssh
-	
-	touch "$home"/.ssh/authorized_keys
-	chown "$me" "$home"/.ssh/authorized_keys
+	mkdirWithOwner "$home"/.ssh "$me"
+	touchWithOwner "$home"/.ssh/authorized_keys "$me"
 fi
+
+mkdirWithOwner "$home"/bin "$me"
+printf '\nPATH=$PATH:$HOME/bin' >> "$home"/.bashrc
 
 ## Install fail2ban
 printf "Installing fail2ban\n"
