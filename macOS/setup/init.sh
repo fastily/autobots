@@ -63,7 +63,10 @@ brew install youtube-dl
 
 brew cask install atom
 brew cask install eclipse-java
+#brew cask install firefox
+#brew cask install private-internet-access
 brew cask install postman
+brew cask install sts
 brew cask install sublime-text
 brew cask install rekordbox
 brew cask install vlc

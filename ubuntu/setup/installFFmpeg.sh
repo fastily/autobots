@@ -23,15 +23,15 @@ mkdir -p "$rootsrc" "$src" "$build" "$bin"
 ## Install FFmpeg and dependencies
 apt update
 
-apt-get -y --force-yes install autoconf automake build-essential libass-dev libsdl2-dev libtheora-dev \
+apt-get -y --force-yes install autoconf automake build-essential libsdl2-dev libtheora-dev \
 libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev \
-pkg-config texinfo zlib1g-dev yasm libx264-dev libmp3lame-dev libopus-dev libfdk-aac-dev libx265-dev
+pkg-config texinfo zlib1g-dev yasm libx264-dev libmp3lame-dev libopus-dev libfdk-aac-dev
 
 ## Install libvpx
 cd "$src" && \
 git clone --depth 1 https://chromium.googlesource.com/webm/libvpx && \
 cd libvpx && \
-PATH="$bin":"$PATH" ./configure --prefix="$build" --disable-examples --enable-vp9-highbitdepth && \
+PATH="$bin":"$PATH" ./configure --prefix="$build" --disable-examples --disable-unit-tests --enable-vp9-highbitdepth && \
 PATH="$bin":"$PATH" make && \
 make install
 
@@ -48,7 +48,6 @@ PATH="$bin":"$PATH" PKG_CONFIG_PATH="${build}/lib/pkgconfig" ./configure \
  --extra-ldflags="-L${build}/lib" \
  --bindir="$bin" \
  --enable-gpl \
- --enable-libass \
  --enable-libfdk-aac \
  --enable-libmp3lame \
  --enable-libopus \
@@ -56,7 +55,6 @@ PATH="$bin":"$PATH" PKG_CONFIG_PATH="${build}/lib/pkgconfig" ./configure \
  --enable-libvorbis \
  --enable-libvpx \
  --enable-libx264 \
- --enable-libx265 \
  --enable-nonfree
 
 PATH="$bin":"$PATH" make
