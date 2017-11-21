@@ -7,7 +7,7 @@
 #: Author: Fastily
 
 # Set bash case-insensitivity and set non-matching patterns to expand to nothing
-shopt -s nullglob nocaseglob
+shopt -s globstar nullglob nocaseglob
 
 ##
 # Print program help and exit
@@ -37,11 +37,11 @@ done
 cd "$PWD"
 
 if [ "$enableSlowMo" = true ]; then
-	for f in *.{mp4,mov,mts}; do
+	for f in **/*.{mp4,mov,mts}; do
 		ffmpeg -y -i "$f" -c:v libvpx-vp9 -b:v 0 -crf 24 -threads 4 -speed 0 -r 30 -vf "setpts=8*PTS" -an -f webm "${f%.*}.webm"
 	done
 else
-	for f in *.{mp4,mov,mts}; do
+	for f in **/*.{mp4,mov,mts}; do
 		ffmpeg -y -i "$f" -c:v libvpx-vp9 -b:v 0 -crf 24 -threads 4 -speed 0 $aSet -f webm "${f%.*}.webm"
 	done
 fi

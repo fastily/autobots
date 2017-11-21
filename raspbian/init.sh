@@ -39,9 +39,12 @@ apt install fail2ban
 printf "Apply settings for fail2ban\n"
 cp "$res"/jail.local /etc/fail2ban/
 
+## Enable ssh
+systemctl enable ssh
+systemctl start ssh
+
 ## Restart affected services
 printf "Restarting affected services\n"
-service ssh restart
 service fail2ban restart
 
 printf "Done!\n"

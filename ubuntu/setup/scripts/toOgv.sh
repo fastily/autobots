@@ -6,7 +6,7 @@
 #: Author: Fastily
 
 # Set bash case-insensitivity and set non-matching patterns to expand to nothing
-shopt -s nullglob nocaseglob
+shopt -s globstar nullglob nocaseglob
 
 ##
 # Print program help and exit
@@ -34,6 +34,6 @@ done
 
 cd "$PWD"
 
-for f in *.{mp4,mov,mts}; do 
+for f in **/*.{mp4,mov,mts}; do 
 	ffmpeg -i "$f" -c:v libtheora -q:v 8 $aSet "${f%.*}.ogv"
 done
