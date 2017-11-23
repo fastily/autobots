@@ -57,7 +57,7 @@ brew install ffmpeg --with-theora --with-libvorbis --with-libvpx --with-opus --w
 brew install gradle
 brew install nodejs
 brew install ruby
-brew install sox --with-flac --with-lame --with-libao --with-libvorbis --with-opusfile --with-opencore-amr
+#brew install sox --with-flac --with-lame --with-libao --with-libvorbis --with-opusfile --with-opencore-amr
 brew install wget
 brew install youtube-dl
 

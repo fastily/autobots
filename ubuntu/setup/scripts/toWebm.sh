@@ -45,6 +45,3 @@ else
 		ffmpeg -y -i "$f" -c:v libvpx-vp9 -b:v 0 -crf 24 -threads 4 -speed 0 $aSet -f webm "${f%.*}.webm"
 	done
 fi
-
-
-

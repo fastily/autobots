@@ -11,8 +11,8 @@ confirmRunAsRoot
 
 OUTDIR="/tmp"
 
-apt install curl network-manager-openvpn-gnome
-wget https://www.privateinternetaccess.com/installer/pia-nm.sh -P "$OUTDIR"
+apt install curl network-manager-openvpn-gnome && \
+wget https://www.privateinternetaccess.com/installer/pia-nm.sh -P "$OUTDIR" && \
 bash "${OUTDIR}/pia-nm.sh"
 
 printf "Done!\n"

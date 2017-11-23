@@ -9,6 +9,6 @@ cd "${0%/*}" &> /dev/null
 source ../../shared/autobotUtils.sh
 confirmRunAsRoot
 
-add-apt-repository ppa:deluge-team/ppa && \
+add-apt-repository ppa:pmjdebruijn/darktable-release && \
 apt-get update && \
-apt-get install deluge
+apt-get install darktable
