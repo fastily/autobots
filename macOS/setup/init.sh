@@ -48,7 +48,7 @@ git config --global user.name "fastily"
 git config --global user.email "fastily@users.noreply.github.com"
 
 
-## Install dependencies for my custom scripts
+## Install script dependencies
 brew cask install java8
 
 brew install exiftool
@@ -61,6 +61,7 @@ brew install ruby
 brew install wget
 brew install youtube-dl
 
+## Install Apps
 brew cask install atom
 brew cask install eclipse-java
 #brew cask install firefox

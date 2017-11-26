@@ -5,7 +5,17 @@ alias pdserv="php -S localhost:8080 -t "
 alias undoLastCommit="git reset --soft HEAD~1"
 alias resetFileGit="git checkout HEAD -- "
 
-mp3ify()
+##
+# Convert a media file to 320kbps mp3
+# PARAMETERS:
+# 		$1 - path to media file to rip
+##
+makeMp3()
 {
-  ffmpeg -i "$1" -vn -c:a libmp3lame -b:a 256k out.mp3
+	if [ ! -f "$1" ]; then
+		printf "[ERROR]: specify a file to convert\n"
+		return 1
+	fi
+
+	ffmpeg -y -i "$1" -vn -c:a libmp3lame -b:a 320k "${1%.*}".mp3
 }
