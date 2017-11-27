@@ -16,9 +16,9 @@ source ../../shared/autobotUtils.sh
 confirmRunAsRoot
 
 ## Ensure that the the target drive volume exists
-if [ -z "$1" ]; then
+if [ ! -d "$1" ]; then
 	printf "Usage: makeBootInstaller <PATH_TO_USB>\n"
-	exit 1
+	return 1
 fi
 
 confirmDirExists "$1"

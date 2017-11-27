@@ -58,13 +58,16 @@ brew install gradle
 brew install nodejs
 brew install ruby
 #brew install sox --with-flac --with-lame --with-libao --with-libvorbis --with-opusfile --with-opencore-amr
+brew install unrar
 brew install wget
 brew install youtube-dl
 
 ## Install Apps
 brew cask install atom
+#brew cask install darktable
 brew cask install eclipse-java
 #brew cask install firefox
+#brew cask install inkscape
 #brew cask install private-internet-access
 brew cask install postman
 brew cask install sts
@@ -80,6 +83,13 @@ brew install less
 brew install openssh
 brew install rsync
 brew install vim --with-override-system-vi
+
+## Install Atom Packages
+apm install atom-bootstrap3
+apm install atom-ternjs
+apm install autocomplete-modules
+apm install docblockr
+apm install language-babel
 
 ## Misc Settings
 defaults write com.apple.TextEdit RichText -int 0
