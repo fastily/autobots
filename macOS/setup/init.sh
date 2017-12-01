@@ -55,6 +55,7 @@ brew install exiftool
 brew install eye-d3
 brew install ffmpeg --with-theora --with-libvorbis --with-libvpx --with-opus --with-fdk-aac --with-x265 --with-tools 
 brew install gradle
+brew install nmap
 brew install nodejs
 brew install ruby
 #brew install sox --with-flac --with-lame --with-libao --with-libvorbis --with-opusfile --with-opencore-amr
