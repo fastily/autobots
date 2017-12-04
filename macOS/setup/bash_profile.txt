@@ -19,3 +19,18 @@ makeMp3()
 
 	ffmpeg -y -i "$1" -vn -c:a libmp3lame -b:a 320k "${1%.*}".mp3
 }
+
+##
+# Convert a media file to 320kbps mp3
+# PARAMETERS:
+# 		$1 - path to URL to rip
+##
+ytAudio()
+{
+	if [ "$#" -ne 1 ]; then
+		printf "[ERROR]: specify a URL to rip\n"
+		return 1
+	fi
+
+	youtube-dl -f bestaudio -x --audio-format m4a --audio-quality 0 --add-metadata "$1"
+}
