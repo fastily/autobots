@@ -5,7 +5,7 @@
 #: PRECONDITION:
 #:		1) Xcode or Xcode tools are installed
 #:
-#: Tested on macOS 10.12.6
+#: Tested on macOS 10.13.1
 #: Author: Fastily
 
 SCPTDIR="${0%/*}"
@@ -32,11 +32,8 @@ brew update
 
 cd "$SCPTDIR" &> /dev/null
 
-## Copy .bash_profile and bin scripts
-cp -fv bash_profile.txt ~/.bash_profile
-
-cp -rv scripts ~/bin
-chflags hidden ~/bin
+## Copy .bash_profile
+cat bash_profile.txt > ~/.bash_profile
 
 ## Setup .ssh
 printf "Creating .ssh folder in home directory\n"
