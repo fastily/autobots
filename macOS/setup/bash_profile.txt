@@ -1,19 +1,21 @@
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${HOME}/bin
 
 alias ddss="find . -name '*.DS_Store' -type f -delete"
+alias gcbp="gradle clean build publishToMavenLocal -x test"
 alias pdserv="php -S localhost:8080 -t "
-alias undoLastCommit="git reset --soft HEAD~1"
 alias resetFileGit="git checkout HEAD -- "
+alias undoLastCommit="git reset --soft HEAD~1"
+alias ytToAudio="youtube-dl -f bestaudio -x --audio-format m4a --audio-quality 0 --add-metadata "
 
 ##
 # Convert a media file to 320kbps mp3
 # PARAMETERS:
-# 		$1 - path to media file to rip
+# 		$1 - path to media file to encode as mp3
 ##
 makeMp3()
 {
 	if [ ! -f "$1" ]; then
-		printf "[ERROR]: specify a file to convert\n"
+		printf "Usage: makeMp3 <PATH_TO_MEDIA_FILE>\n"
 		return 1
 	fi
 
@@ -21,22 +23,7 @@ makeMp3()
 }
 
 ##
-# Convert a media file to 320kbps mp3
-# PARAMETERS:
-# 		$1 - path to URL to rip
-##
-ytAudio()
-{
-	if [ "$#" -ne 1 ]; then
-		printf "[ERROR]: specify a URL to rip\n"
-		return 1
-	fi
-
-	youtube-dl -f bestaudio -x --audio-format m4a --audio-quality 0 --add-metadata "$1"
-}
-
-##
-# Archive a YouTube video, channel, or playlist.  Skips already downloaded content via skip file: archive.txt.
+# Archive a YouTube video, channel, or playlist as mp3.  Skips already downloaded content via skip file: archive.txt.
 # PARAMETERS:
 # 		$1 - URL to archive excluding "https://www.youtube.com/" prefix
 # 		$2 - String to set as Album Artist tag in output

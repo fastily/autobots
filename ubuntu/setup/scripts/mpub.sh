@@ -13,8 +13,8 @@ for f in "${arr[@]}"; do
 	if [ -d "$f" ]; then
 		printf "Recursively setting contents of %s to a+r\n" "$f"
 
-		find "$f" -type f -user "$ME" -exec chmod 664 {} +
-		find "$f" -type d -user "$ME" -exec chmod 775 {} +
+		find "$f" -type f -user "$ME" -exec chmod 644 {} +
+		find "$f" -type d -user "$ME" -exec chmod 755 {} +
 	fi
 done
 
