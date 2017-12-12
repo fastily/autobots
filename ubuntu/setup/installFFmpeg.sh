@@ -25,14 +25,23 @@ apt update
 
 apt-get -y --force-yes install autoconf automake build-essential libsdl2-dev libtheora-dev \
 libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev \
-pkg-config texinfo zlib1g-dev yasm libx264-dev libmp3lame-dev libopus-dev libfdk-aac-dev
+pkg-config texinfo zlib1g-dev yasm libx264-dev libmp3lame-dev libopus-dev libfdk-aac-dev \
+flac mercurial cmake cmake-curses-gui
 
 ## Install libvpx
 cd "$src" && \
 git clone --depth 1 https://chromium.googlesource.com/webm/libvpx && \
 cd libvpx && \
-PATH="$bin":"$PATH" ./configure --prefix="$build" --disable-examples --disable-unit-tests --enable-vp9-highbitdepth && \
-PATH="$bin":"$PATH" make && \
+PATH="${bin}:${PATH}" ./configure --prefix="$build" --disable-examples --disable-unit-tests --enable-vp9-highbitdepth && \
+PATH="${bin}:${PATH}" make && \
+make install
+
+## Install x265
+cd "$src" && \
+hg clone https://bitbucket.org/multicoreware/x265 && \
+cd x265/build/linux && \
+PATH="${bin}:${PATH}" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$build" -DENABLE_SHARED:bool=off ../../source && \
+PATH="${bin}:${PATH}" make && \
 make install
 
 ## Install FFmpeg
@@ -41,7 +50,7 @@ wget https://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2 && \
 tar xjvf ffmpeg-snapshot.tar.bz2 && \
 cd ffmpeg
 
-PATH="$bin":"$PATH" PKG_CONFIG_PATH="${build}/lib/pkgconfig" ./configure \
+PATH="${bin}:${PATH}" PKG_CONFIG_PATH="${build}/lib/pkgconfig" ./configure \
  --prefix="$build" \
  --pkg-config-flags="--static" \
  --extra-cflags="-I${build}/include" \
@@ -55,9 +64,11 @@ PATH="$bin":"$PATH" PKG_CONFIG_PATH="${build}/lib/pkgconfig" ./configure \
  --enable-libvorbis \
  --enable-libvpx \
  --enable-libx264 \
+ --enable-libx265 \
+ --enable-pic \
  --enable-nonfree
 
-PATH="$bin":"$PATH" make
+PATH="${bin}:${PATH}" make
 make install
 make distclean
 hash -r
