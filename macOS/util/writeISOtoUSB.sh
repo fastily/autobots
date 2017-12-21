@@ -11,7 +11,6 @@
 #: 		$2 - The disk id (integer) to write to.  This disk will be unmounted before being written to; 
 #:			use 'diskutil list' to get the id.
 #: 
-#: Tested on OS X 10.13
 #: Author: Fastily
 
 cd "${0%/*}" &> /dev/null

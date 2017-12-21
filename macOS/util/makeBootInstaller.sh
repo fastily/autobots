@@ -8,7 +8,6 @@
 #: ARGUMENTS:
 #: 		$1 - The full path to the target USB Thumb Drive (e.g. '/Volumes/MyDrive')
 #: 
-#: Tested on OS X 10.13.1
 #: Author: Fastily
 
 ## make sure we are root

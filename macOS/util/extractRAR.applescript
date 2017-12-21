@@ -4,7 +4,6 @@
  * PRECONDITIONS: 
  *	1) unrar is installed.
  *
- * Tested on macOS 10.12.5
  * Author: Fastily
  *)
 
