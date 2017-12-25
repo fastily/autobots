@@ -29,15 +29,6 @@ fi
 brew doctor
 brew update
 
-cd "$SCPTDIR" &> /dev/null
-
-## Setup Custom Scripts
-bash scripts/deploy.sh
-
-## Setup .ssh
-printf "Creating .ssh folder in home directory\n"
-mkdir -p ~/.ssh
-
 ## Initialize git name and email
 printf "Setting git global vars\n"
 git config --global user.name "fastily"
@@ -51,6 +42,7 @@ brew install exiftool
 brew install eye-d3
 brew install ffmpeg --with-theora --with-libvorbis --with-libvpx --with-opus --with-fdk-aac --with-x265 --with-tools 
 brew install gradle
+#brew install imagemagick --with-librsvg
 brew install nmap
 brew install nodejs
 brew install ruby
@@ -81,12 +73,21 @@ brew install openssh
 brew install rsync
 brew install vim --with-override-system-vi
 
+## Install global npm packages
+npm install -g bootlint
+
 ## Install Atom Packages
 apm install atom-bootstrap3
 apm install atom-ternjs
 apm install autocomplete-modules
 apm install docblockr
 apm install language-babel
+apm install linter
+apm install linter-bootlint
+apm install linter-ui-default
+
+## Install Gems
+gem install jekyll bundler
 
 ## Misc Settings
 defaults write com.apple.TextEdit RichText -int 0
@@ -94,5 +95,13 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf" # Have Finde
 
 ## Trackers suck
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2HyperlinkAuditingEnabled -bool false
+
+## Setup .ssh
+printf "Creating .ssh folder in home directory\n"
+mkdir -p ~/.ssh
+
+## Setup Custom Scripts
+cd "$SCPTDIR" &> /dev/null
+bash scripts/deploy.sh
 
 printf "Done!\n"
