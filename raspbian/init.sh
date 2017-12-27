@@ -7,7 +7,6 @@
 #: PRECONDITIONS: 
 #:		1) OpenSSH is installed
 #: 
-#: Tested on Raspbian March 2016
 #: Author: Fastily
 
 cd "${0%/*}" &> /dev/null
