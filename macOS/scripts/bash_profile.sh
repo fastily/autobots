@@ -1,7 +1,6 @@
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${HOME}/bin
 export PATH
 
-alias ddss="find . -name '*.DS_Store' -type f -delete"
 alias gcbp='gradle clean build publishToMavenLocal -x test'
 alias pdserv='php -S localhost:8080 -t '
 alias resetFileGit='git checkout HEAD -- '

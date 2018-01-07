@@ -10,14 +10,13 @@ cd "${0%/*}" &> /dev/null
 
 BINDIR="${HOME}/bin"
 
-printf "Installing scripts to ~/bin\n"
+printf "Installing scripts to \"%s\"\n" "$BINDIR"
 
 mkdir -p "$BINDIR"
-cp -Rf scripts/* "${BINDIR}/"
+cp -f bin/* "${BINDIR}/"
 
 if [[ ":$PATH:" != *"$BINDIR"* ]]; then
 	printf "Updating PATH with script directory\n"
-	touch ~/.profile
 	printf "\nPATH=\$PATH:${BINDIR}" >> ~/.profile
 fi
 
