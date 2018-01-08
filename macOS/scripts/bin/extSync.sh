@@ -15,8 +15,6 @@
 #: Author: Fastily
 ##
 
-printf "Performing remote sync task\n"
-
 src="/Volumes/${1}"
 remoteDest="/archive/${1}"
 dest="${2}:${remoteDest}"
@@ -38,7 +36,7 @@ targets=("$@")
 ddss.sh "$src"
 
 for d in "${targets[@]}"; do
-	rsync -rltDvhun --progress --delete -e "ssh -T -o Compression=no -x" "${src}/${d}/" "${dest}/${d}"
+	rsync -rltDvhu --progress --delete -e "ssh -T -o Compression=no -x" "${src}/${d}/" "${dest}/${d}"
 done
 
 printf "Done!\n"

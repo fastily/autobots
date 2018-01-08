@@ -13,7 +13,7 @@ if [ $# -gt 0 ]; then
     search="$1"
 fi
 
-printf "Recursively deleting \".DS_STORE\":\n"
-find "$search" -name '*.DS_Store' -type f -print #-delete
+printf "Recursively deleting '.DS_STORE' from '%s':\n" "$search"
+find "$search" -name '*.DS_Store' -type f -print -delete
 
 printf "Done!\n"

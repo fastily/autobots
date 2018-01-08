@@ -14,7 +14,7 @@
 ##
 
 src="/Volumes/${1}"
-dest="/Volumes/${1}2"
+dest="${src}2"
 
 if [ $# -lt 2 ]; then
 	printf "Usage: localSync <SRC_VOLUME_BASENAME> <DIRS_TO_COPY...>\n"
@@ -33,7 +33,7 @@ targets=("$@")
 ddss.sh "$src"
 
 for d in "${targets[@]}"; do
-	rsync -avhn --progress --delete "${1}/${d}/" "${dest}/${d}"
+	rsync -avh --progress --delete "${src}/${d}/" "${dest}/${d}"
 done
 
 printf "Done!\n"
