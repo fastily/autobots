@@ -10,7 +10,7 @@ cd "${0%/*}" &> /dev/null
 
 BINDIR="${HOME}/bin"
 
-printf "Installing scripts to \"%s\"\n" "$BINDIR"
+printf 'Installing scripts to "%s"\n' "$BINDIR"
 
 mkdir -p "$BINDIR"
 cp -f bin/* "${BINDIR}/"

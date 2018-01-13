@@ -8,7 +8,7 @@
 
 sudo apt install build-essential pkg-config libc6-dev libssl-dev libexpat1-dev libavcodec-dev libgl1-mesa-dev libqt4-dev
 
-mkvVERSION="1.10.8"
+mkvVERSION="1.10.9"
 mkvBIN="makemkv-bin-${mkvVERSION}"
 mkvOSS="makemkv-oss-${mkvVERSION}"
 

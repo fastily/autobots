@@ -6,13 +6,11 @@
 #: Author: Fastily
 
 cd "${0%/*}" &> /dev/null
-source ../../shared/autobotUtils.sh
-confirmRunAsRoot
 
-OUTDIR="/tmp"
+OUTDIR="/tmp/PIA"
 
-apt install curl network-manager-openvpn-gnome && \
+sudo apt install curl network-manager-openvpn-gnome && \
 wget https://www.privateinternetaccess.com/installer/pia-nm.sh -P "$OUTDIR" && \
-bash "${OUTDIR}/pia-nm.sh"
+sudo bash "${OUTDIR}/pia-nm.sh"
 
 printf "Done!\n"
