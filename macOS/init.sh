@@ -71,7 +71,7 @@ brew install bash
 brew install less
 brew install openssh
 brew install rsync
-brew install vim --with-override-system-vi
+#brew install vim --with-override-system-vi
 
 ## Install global npm packages
 npm install -g bootlint

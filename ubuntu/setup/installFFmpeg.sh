@@ -46,7 +46,7 @@ make install
 
 ## Install FFmpeg
 cd "$src" && \
-wget https://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2 && \
+wget "https://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2" && \
 tar xjvf ffmpeg-snapshot.tar.bz2 && \
 cd ffmpeg
 
@@ -70,7 +70,5 @@ PATH="${bin}:${PATH}" PKG_CONFIG_PATH="${build}/lib/pkgconfig" ./configure \
 
 PATH="${bin}:${PATH}" make
 make install
-make distclean
-hash -r
 
 printf "All done!\n"

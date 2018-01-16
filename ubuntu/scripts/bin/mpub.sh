@@ -7,7 +7,7 @@
 
 ME=$( whoami )
 
-declare -a arr=("${HOME}/Public" "/mnt/stuff")
+arr=("${HOME}/Public" "/mnt/stuff")
 
 for f in "${arr[@]}"; do
 	if [ -d "$f" ]; then
