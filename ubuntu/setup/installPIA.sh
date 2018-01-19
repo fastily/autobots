@@ -5,12 +5,10 @@
 #: Tested on Ubuntu Desktop 16.04.3
 #: Author: Fastily
 
-cd "${0%/*}" &> /dev/null
-
 OUTDIR="/tmp/PIA"
 
 sudo apt install curl network-manager-openvpn-gnome && \
-wget https://www.privateinternetaccess.com/installer/pia-nm.sh -P "$OUTDIR" && \
+wget 'https://www.privateinternetaccess.com/installer/pia-nm.sh' -P "$OUTDIR" && \
 sudo bash "${OUTDIR}/pia-nm.sh"
 
 printf "Done!\n"

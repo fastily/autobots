@@ -5,10 +5,6 @@
 #: Tested on Ubuntu Desktop 16.04.3
 #: Author: Fastily
 
-cd "${0%/*}" &> /dev/null
-source ../../shared/autobotUtils.sh
-confirmRunAsRoot
-
-add-apt-repository ppa:deluge-team/ppa && \
-apt-get update && \
-apt-get install deluge
+sudo add-apt-repository ppa:deluge-team/ppa && \
+sudo apt-get update && \
+sudo apt-get install deluge
