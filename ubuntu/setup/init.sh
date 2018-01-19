@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#: Apply some default settings for Ubuntu.  Configures OpenSSH and lightdm, and installs fail2ban. Not
-#: 100% automatic, there may be prompts and/or dialogs.
+#: Apply some default settings for Ubuntu.  Configures OpenSSH and lightdm, and installs fail2ban.
+#: Not 100% automatic, there may be prompts/dialogs.
 #: 
 #: Tested on Ubuntu Desktop 16.04.3
 #: Author: Fastily
@@ -13,7 +13,7 @@ res="../../shared" # resources folder
 
 ## Install some software
 sudo apt update && \
-sudo apt install curl fail2ban openssh-client openssh-server samba hfsprogs exfat-utils exfat-fuse
+sudo apt -y install curl fail2ban openssh-client openssh-server samba hfsprogs exfat-utils exfat-fuse
 
 ## Hide guest account from login screen
 printf "Configuring lightdm\n"

@@ -6,30 +6,36 @@
 #: Tested on Ubuntu 16.04.3.
 #: Author: Fastily
 
-sudo apt install build-essential pkg-config libc6-dev libssl-dev libexpat1-dev libavcodec-dev libgl1-mesa-dev libqt4-dev libfdk-aac-dev
+sudo apt -y install build-essential pkg-config libc6-dev libssl-dev libexpat1-dev libgl1-mesa-dev libqt4-dev libfdk-aac-dev #libavcodec-dev
 
-mkvVERSION="1.10.9"
+mkvVERSION="1.10.10"
+ffmpegVERSION="3.4.1"
+
+ffmpegBIN="ffmpeg-${ffmpegVERSION}"
 mkvBIN="makemkv-bin-${mkvVERSION}"
 mkvOSS="makemkv-oss-${mkvVERSION}"
 
 BUILD="/tmp/makemkv"
+mkdir -p "$BUILD"
 
 cd "$BUILD"
 wget "https://www.makemkv.com/download/${mkvBIN}.tar.gz"
 wget "https://www.makemkv.com/download/${mkvOSS}.tar.gz"
-wget "https://ffmpeg.org/releases/ffmpeg-snapshot.tar.bz2"
+wget "https://www.ffmpeg.org/releases/${ffmpegBIN}.tar.bz2"
 
 tar -xvzf "${mkvBIN}.tar.gz"
 tar -xvzf "${mkvOSS}.tar.gz"
-tar -xvjf "ffmpeg-snapshot.tar.bz2"
+tar -xvjf "${ffmpegBIN}.tar.bz2"
 
 
-cd ffmpeg && \
-./configure --prefix="${BUILD}/ffmpeg" --enable-static --disable-shared --enable-pic --disable-yasm --enable-libfdk-aac && \
+cd "${ffmpegBIN}" && \
+./configure --prefix="${BUILD}/${ffmpegBIN}" --enable-static --disable-shared \
+--enable-pic --disable-yasm --disable-all --disable-autodetect --disable-everything \
+--enable-swresample --enable-avcodec --enable-encoder=flac,aac --enable-decoders --enable-libfdk-aac && \
 make install
 
 cd "${BUILD}/${mkvOSS}" && \
-PKG_CONFIG_PATH="${BUILD}/ffmpeg/lib/pkgconfig" ./configure && \
+PKG_CONFIG_PATH="${BUILD}/${ffmpegBIN}/lib/pkgconfig" ./configure && \
 make && \
 sudo make install
 
