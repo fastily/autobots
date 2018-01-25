@@ -6,11 +6,14 @@
 #: Author: Fastily
 
 cd "${0%/*}" &> /dev/null
+source ../../shared/autobotUtils.sh
+confirmRunAsRoot
 
 LIGHTDM="/etc/lightdm"
-sudo mkdir -p "$LIGHTDM"
 
-sudo cat > "${LIGHTDM}"/lightdm.conf <<- EOM
+mkdir -p "$LIGHTDM"
+
+cat > "${LIGHTDM}"/lightdm.conf <<- EOM
 	[SeatDefaults]
 	user-session=ubuntu
 	greeter-session=unity-greeter
