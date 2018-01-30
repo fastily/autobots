@@ -38,6 +38,7 @@ git config --global user.email "fastily@users.noreply.github.com"
 
 
 ## Install script dependencies
+brew tap caskroom/versions
 brew cask install java8
 
 brew install exiftool
@@ -67,8 +68,6 @@ brew cask install rekordbox
 brew cask install vlc
 
 ## Patch Antiques
-brew tap homebrew/dupes
-
 brew install bash
 brew install less
 brew install openssh
