@@ -38,10 +38,9 @@ if [[ -z $targetUUID ]]; then
 fi
 
 mountPoint="/mnt/${2}"
-lineOut="UUID=${targetUUID} ${mountPoint} auto nosuid,nodev,nofail,rw 0 2"
 
 ## Perform changes
 mkdir -p "$mountPoint"
-printf "\n%s" "$lineOut" >> /etc/fstab
+printf "\nUUID=${targetUUID} ${mountPoint} auto nosuid,nodev,nofail,rw 0 2" >> /etc/fstab
 
 printf "OK: ${targetDrive} will mount on ${mountPoint} on next reboot.\n"

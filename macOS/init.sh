@@ -7,7 +7,9 @@
 #:
 #: Author: Fastily
 
-SCPTDIR="${0%/*}"
+## Setup Custom Scripts
+cd "${0%/*}" &> /dev/null && \
+bash scripts/deploy.sh
 
 ## Make sure xcode is installed
 which xcrun &> /dev/null
@@ -99,9 +101,5 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 ## Setup .ssh
 printf "Creating .ssh folder in home directory\n"
 mkdir -p ~/.ssh
-
-## Setup Custom Scripts
-cd "$SCPTDIR" &> /dev/null
-bash scripts/deploy.sh
 
 printf "Done!\n"
