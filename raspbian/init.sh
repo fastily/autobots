@@ -1,49 +1,34 @@
 #!/bin/bash
 
-#: Apply custom settings for Raspbian.   This isn't 
-#: gaunrateed to be 100% automatic; you may be prompted for input or with confirm dialogs.  
-#: Must be run as root.
-#: 
-#: PRECONDITIONS: 
-#:		1) OpenSSH is installed
+#: Apply custom settings for Raspbian. This isn't 100% automatic; 
+#: you may be prompted for input or with confirm dialogs.  
 #: 
 #: Author: Fastily
 
 cd "${0%/*}" &> /dev/null
-source ../shared/autobotUtils.sh
-confirmRunAsRoot
 
-## Some globals
+## Globals
 res="../shared"
-me="pi"
-home="/home/${me}"
 
-## Configure ssh
+## Setup ssh
 printf "Apply settings for ssh\n"
-mv /etc/ssh/sshd_config /etc/ssh/sshd_config_backup.txt # create backup in user's home dir
-cp "$res"/sshd_config /etc/ssh/
+sudo mv /etc/ssh/sshd_config /etc/ssh/sshd_config_backup.txt
+sudo cp "${res}/sshd_config" /etc/ssh/
 
-if [ ! -d "$home"/.ssh ]; then
-	mkdirWithOwner "$home"/.ssh "$me"
-	touchWithOwner "$home"/.ssh/authorized_keys "$me"
-fi
+mkdir -p ~/.ssh
+touch ~/.ssh/authorized_keys
 
-mkdirWithOwner "$home"/bin "$me"
-printf '\nPATH=$PATH:$HOME/bin' >> "$home"/.bashrc
+sudo systemctl enable ssh
+sudo systemctl start ssh
+
+## Setup bin directory
+mkdir -p ~/bin
+printf '\nPATH=$PATH:$HOME/bin' >> ~/.bashrc
 
 ## Install fail2ban
-printf "Installing fail2ban\n"
-apt update
-apt install fail2ban
-printf "Apply settings for fail2ban\n"
-cp "$res"/jail.local /etc/fail2ban/
-
-## Enable ssh
-systemctl enable ssh
-systemctl start ssh
-
-## Restart affected services
-printf "Restarting affected services\n"
-service fail2ban restart
+sudo apt update && \
+sudo apt -y install fail2ban && \
+sudo cp "${res}/jail.local" /etc/fail2ban/ && \
+sudo service fail2ban restart
 
 printf "Done!\n"
