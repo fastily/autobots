@@ -31,4 +31,7 @@ sudo apt -y install fail2ban && \
 sudo cp "${res}/jail.local" /etc/fail2ban/ && \
 sudo service fail2ban restart
 
+## Install Java
+sudo apt -y install oracle-java8-jdk
+
 printf "Done!\n"
