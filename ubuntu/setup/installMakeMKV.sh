@@ -9,7 +9,7 @@
 sudo apt -y install build-essential pkg-config libc6-dev libssl-dev libexpat1-dev libgl1-mesa-dev libqt4-dev libfdk-aac-dev #libavcodec-dev
 
 mkvVERSION="1.12.0"
-ffmpegVERSION="3.4.1"
+ffmpegVERSION="3.4.2"
 
 ffmpegBIN="ffmpeg-${ffmpegVERSION}"
 mkvBIN="makemkv-bin-${mkvVERSION}"

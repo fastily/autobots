@@ -13,7 +13,7 @@ confirmRunAsRoot
 
 
 ## Setting up folder env variables
-ffmpegNAME="ffmpeg-3.4.1"
+ffmpegNAME="ffmpeg-3.4.2"
 
 rootsrc="/tmp/FFMPEG"
 src="${rootsrc}/src"
