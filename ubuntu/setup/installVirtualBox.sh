@@ -15,7 +15,7 @@ mkdir -p "$TARGETDIR"
 
 cd "$TARGETDIR" && \
 wget "$DLURL" && \
-sudo dpkg -i "FILENAME" && \
+sudo dpkg -i "$FILENAME" && \
 sudo apt-get install -f
 
 wget "$EXTPACKURL"
