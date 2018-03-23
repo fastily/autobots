@@ -2,12 +2,14 @@
 
 #: Installs deluge from their ppa.
 #: 
-#: Tested on Ubuntu Desktop 16.04.3
 #: Author: Fastily
 
-sudo add-apt-repository ppa:deluge-team/ppa && \
-sudo apt-get update && \
-sudo apt-get -y install deluge
+## Newer versions of ubuntu use the latest deluge version
+if [[ "$( lsb_release -r -s | tr -d '.' )" -lt 1710 ]]; then
+	sudo add-apt-repository ppa:deluge-team/ppa && \
+	sudo apt-get update && \
+	sudo apt-get -y install deluge
+fi
 
 delugeCONFIG="${HOME}/.config/deluge/plugins"
 

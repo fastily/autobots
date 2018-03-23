@@ -45,7 +45,7 @@ brew install exiftool
 brew install eye-d3
 brew install ffmpeg --with-theora --with-libvorbis --with-libvpx --with-opus --with-fdk-aac --with-x265 --with-tools 
 brew install gradle
-#brew install imagemagick --with-librsvg
+#brew install imagemagick --with-librsvg --with-webp
 brew install nmap
 brew install nodejs
 brew install ruby
@@ -58,7 +58,7 @@ brew install youtube-dl
 brew cask install atom
 #brew cask install darktable
 brew cask install eclipse-java
-#brew cask install firefox
+brew cask install firefox
 #brew cask install inkscape
 brew cask install private-internet-access
 brew cask install postman
