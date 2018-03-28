@@ -56,8 +56,6 @@ brew install youtube-dl
 
 ## Install Apps
 brew cask install atom
-#brew cask install darktable
-brew cask install eclipse-java
 brew cask install firefox
 #brew cask install inkscape
 brew cask install private-internet-access
@@ -91,11 +89,20 @@ apm install linter-ui-default
 gem install jekyll bundler
 
 ## Misc Settings
-defaults write com.apple.TextEdit RichText -int 0
-defaults write com.apple.finder FXDefaultSearchScope -string "SCcf" # Have Finder search current folder by default
+defaults write com.apple.TextEdit RichText -int 0 # Start TextEdit in plain text mode
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf" # Finder searches in the current folder
 
-## Trackers suck
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2HyperlinkAuditingEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false # disable autocorrect smart-quotes
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false  # disable autocorrect smart-dashes
+
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true  # don't create .DS_STORE in SMB shares
+
+defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2HyperlinkAuditingEnabled -bool false # Disable trackers
+defaults write com.apple.Safari AutoOpenSafeDownloads -bool false  # disable auto-opening of downloads
+defaults write com.apple.Safari IncludeDevelopMenu -bool true # show develop menu
+defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false # match on contains instead of startswith
+
+defaults write com.apple.Terminal SecureKeyboardEntry -bool true #enable terminal secure keyboard entry
 
 ## Setup .ssh
 printf "Creating .ssh folder in home directory\n"
