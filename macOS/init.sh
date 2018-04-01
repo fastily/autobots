@@ -108,6 +108,7 @@ defaults write com.apple.Safari NewTabBehavior -int 1 # new tabs open in empty p
 defaults write com.apple.Safari NewWindowBehavior -int 0 # new windows open to homepage
 defaults write com.apple.Safari IncludeDevelopMenu -bool true # show develop menu
 defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false # match on contains instead of startswith
+defaults write com.apple.Safari ShowOverlayStatusBar -bool true # always show status bar in bottom left corner
 
 defaults write com.apple.Terminal SecureKeyboardEntry -bool true # enable terminal secure keyboard entry
 defaults write com.apple.Terminal "Default Window Settings" -string Pro # set default terminal window to Pro
@@ -115,6 +116,9 @@ defaults write com.apple.Terminal "Startup Window Settings" -string Pro # set st
 defaults write com.apple.Terminal NewTabWorkingDirectoryBehavior -int 1 # New tabs should open with default working dir
 
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true # prevent Photos from opening when iPhone is connected
+
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad USBMouseStopsTrackpad -bool true # disable trackpad in clamshell mode
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true # tap to click
 
 ## Setup .ssh
 printf "Creating .ssh folder in home directory\n"
