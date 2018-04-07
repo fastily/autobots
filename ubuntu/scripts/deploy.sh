@@ -15,16 +15,13 @@ printf 'Installing scripts to "%s"\n' "$BINDIR"
 mkdir -p "$BINDIR"
 cp -f bin/* "${BINDIR}/"
 
-## include home bin in path
-if [[ ":$PATH:" != *"$BINDIR"* ]]; then
-	printf "Updating PATH with script directory\n"
-	printf "\nPATH=\$PATH:${BINDIR}" >> ~/.profile
-fi
-
 ## install update/upgrade alias if it does not exist
-if ! grep -q 'uuu' ~/.profile ; then 
-	printf "Installing uuu alias into .profile\n"
-	printf '\nalias uuu="sudo apt update && sudo apt upgrade -y"' >> ~/.profile
+BASHALIASES="${HOME}/.bash_aliases"
+touch "$BASHALIASES"
+
+if ! grep -q 'uuu' "$BASHALIASES" ; then 
+	printf "Installing uuu alias into %s\n" "$BASHALIASES"
+	printf '\nalias uuu="sudo apt update && sudo apt upgrade -y"' >> "$BASHALIASES"
 fi
 
 printf "Done!\n"
