@@ -25,5 +25,6 @@ git clone 'https://github.com/fastily/mtc.git'
 git clone 'https://github.com/fastily/mtc-rest.git'
 git clone 'https://github.com/fastily/mw-oauth.git'
 
+git clone 'git@bitbucket.org:fastily/code-puzzles.git'
 git clone 'git@bitbucket.org:fastily/flabs.git'
 git clone 'git@bitbucket.org:fastily/spring-course.git'

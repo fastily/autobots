@@ -8,6 +8,6 @@
 cd "${0%/*}" &> /dev/null
 
 sudo adduser $( whoami ) vboxsf
-sudo bash ./hideGuest.sh
+# sudo bash ./hideGuest.sh
 
 printf "Done!  Please reboot for changes to take effect.\n"

@@ -6,7 +6,7 @@
 #: Tested on Ubuntu 16.04.3.
 #: Author: Fastily
 
-sudo apt -y install build-essential pkg-config libc6-dev libssl-dev libexpat1-dev libgl1-mesa-dev libqt4-dev libfdk-aac-dev #libavcodec-dev
+sudo apt -y install build-essential pkg-config libc6-dev libssl-dev libexpat1-dev libgl1-mesa-dev libqt4-dev libfdk-aac-dev openjdk-8-jre-headless #libavcodec-dev
 
 mkvVERSION="1.12.0"
 ffmpegVERSION="3.4.2"

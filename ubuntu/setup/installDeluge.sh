@@ -9,6 +9,8 @@ if [[ "$( lsb_release -r -s | tr -d '.' )" -lt 1710 ]]; then
 	sudo add-apt-repository ppa:deluge-team/ppa && \
 	sudo apt-get update && \
 	sudo apt-get -y install deluge
+else
+	sudo apt install -y deluge
 fi
 
 delugeCONFIG="${HOME}/.config/deluge/plugins"

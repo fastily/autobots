@@ -13,9 +13,9 @@ FILENAME="$( basename $DLURL )"
 TARGETDIR="/tmp/vboxsetup"
 mkdir -p "$TARGETDIR"
 
-cd "$TARGETDIR" && \
-wget "$DLURL" && \
-sudo dpkg -i "$FILENAME" && \
+cd "$TARGETDIR"
+wget "$DLURL"
+sudo dpkg -i "$FILENAME"
 sudo apt-get install -f
 
 wget "$EXTPACKURL"
