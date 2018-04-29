@@ -49,7 +49,7 @@ brew install gradle
 brew install nmap
 brew install nodejs
 brew install ruby
-brew install sox --with-flac --with-lame --with-libao --with-libvorbis --with-opusfile --with-opencore-amr
+brew install sox --with-libao --with-opusfile --with-opencore-amr
 brew install unrar
 brew install wget
 brew install youtube-dl

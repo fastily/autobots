@@ -29,9 +29,7 @@ sudo sed -i 's/^\[global\]/\[global\]\nusershare owner only = false/' /etc/samba
 
 ## Apply custom settings for ssh
 printf "Apply settings for ssh\n"
-sudo mv /etc/ssh/sshd_config ~/sshd_config_backup.txt # create backup in user's home dir
-sudo chown "$( whoami )" ~/sshd_config_backup.txt
-
+sudo mv "/etc/ssh/sshd_config" "/tmp/sshd_config_backup.txt" # create backup in /tmp
 sudo cp "${res}/sshd_config" "/etc/ssh/"
 
 ## create user ssh directories
@@ -39,7 +37,6 @@ mkdir -p ~/.ssh
 touch ~/.ssh/authorized_keys
 
 mkdir -p ~/bin
-printf "\nPATH=\$PATH:${HOME}/bin" >> ~/.profile
 
 ## Restart affected services
 printf "Restarting affected services\n"
