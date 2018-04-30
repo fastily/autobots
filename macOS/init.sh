@@ -8,7 +8,7 @@
 #: Author: Fastily
 
 ## Setup Custom Scripts
-cd "${0%/*}" &> /dev/null && \
+cd "${0%/*}" &> /dev/null
 bash scripts/deploy.sh
 
 ## Make sure xcode is installed
@@ -36,7 +36,6 @@ printf "Setting git global vars\n"
 git config --global user.name "fastily"
 git config --global user.email "fastily@users.noreply.github.com"
 
-
 ## Install script dependencies
 brew tap caskroom/versions
 brew cask install java8
@@ -57,12 +56,13 @@ brew install youtube-dl
 ## Install Apps
 brew cask install atom
 brew cask install firefox
+brew cask install iina
 brew cask install private-internet-access
 brew cask install postman
 brew cask install sts
 brew cask install sublime-text
 brew cask install rekordbox
-brew cask install vlc
+# brew cask install vlc
 
 ## Patch Antiques
 brew install bash
@@ -109,6 +109,8 @@ defaults write com.apple.Safari NewWindowBehavior -int 0 # new windows open to h
 defaults write com.apple.Safari IncludeDevelopMenu -bool true # show develop menu
 defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false # match on contains instead of startswith
 defaults write com.apple.Safari ShowOverlayStatusBar -bool true # always show status bar in bottom left corner
+
+defaults -currentHost write com.apple.screensaver idleTime -int 0 # disable screensaver
 
 defaults write com.apple.Terminal SecureKeyboardEntry -bool true # enable terminal secure keyboard entry
 defaults write com.apple.Terminal "Default Window Settings" -string Pro # set default terminal window to Pro
