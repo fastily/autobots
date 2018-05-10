@@ -4,7 +4,7 @@
 #: Must be run as root.
 #: This script was derived from [https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu]
 #: 
-#: Tested on Ubuntu Server 16.04.
+#: Intended for Ubuntu 16.04.4
 #: Author: Fastily
 
 cd "${0%/*}" &> /dev/null
@@ -13,7 +13,7 @@ confirmRunAsRoot
 
 
 ## Setting up folder env variables
-ffmpegNAME="ffmpeg-3.4.2"
+ffmpegNAME="ffmpeg-4.0"
 
 rootsrc="/tmp/FFMPEG"
 src="${rootsrc}/src"

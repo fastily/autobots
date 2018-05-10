@@ -3,13 +3,13 @@
 #: Installs MakeMKV for Ubuntu.  Not 100% automatic, there will be prompts during the installation.
 #: See also: [https://www.makemkv.com/forum2/viewtopic.php?f=3&t=224], [https://www.makemkv.com/forum2/viewtopic.php?f=5&t=1053]
 #: 
-#: Tested on Ubuntu 16.04.3.
+#: Intended for Ubuntu 16.04.4
 #: Author: Fastily
 
 sudo apt -y install build-essential pkg-config libc6-dev libssl-dev libexpat1-dev libgl1-mesa-dev libqt4-dev libfdk-aac-dev openjdk-8-jre-headless #libavcodec-dev
 
-mkvVERSION="1.12.0"
-ffmpegVERSION="3.4.2"
+mkvVERSION="1.12.2"
+ffmpegVERSION="4.0"
 
 ffmpegBIN="ffmpeg-${ffmpegVERSION}"
 mkvBIN="makemkv-bin-${mkvVERSION}"

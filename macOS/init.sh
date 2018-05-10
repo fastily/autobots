@@ -57,6 +57,7 @@ brew install youtube-dl
 brew cask install atom
 brew cask install firefox
 brew cask install iina
+brew cask install mysqlworkbench
 brew cask install private-internet-access
 brew cask install postman
 brew cask install sts

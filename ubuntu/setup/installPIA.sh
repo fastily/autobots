@@ -2,7 +2,7 @@
 
 #: Setup PIA VPN for Ubuntu.
 #: 
-#: Tested on Ubuntu Desktop 16.04.3
+#: Intended for Ubuntu 16.04.4
 #: Author: Fastily
 
 OUTDIR="/tmp/PIA"
