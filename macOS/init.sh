@@ -34,7 +34,7 @@ brew update
 ## Initialize git name and email
 printf "Setting git global vars\n"
 git config --global user.name "fastily"
-git config --global user.email "fastily@users.noreply.github.com"
+git config --global user.email 'fastily@users.noreply.github.com'
 
 ## Install script dependencies
 brew tap caskroom/versions
@@ -45,8 +45,10 @@ brew install eye-d3
 brew install ffmpeg --with-theora --with-libvorbis --with-libvpx --with-opus --with-fdk-aac --with-x265 --with-tools 
 brew install gradle
 #brew install imagemagick --with-librsvg --with-webp
+brew install mysql
 brew install nmap
 brew install nodejs
+brew install python
 brew install ruby
 brew install sox --with-libao --with-opusfile --with-opencore-amr
 brew install unrar
@@ -63,6 +65,7 @@ brew cask install postman
 brew cask install sts
 brew cask install sublime-text
 brew cask install rekordbox
+brew cask install visual-studio-code
 # brew cask install vlc
 
 ## Patch Antiques
