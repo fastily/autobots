@@ -4,6 +4,7 @@ export PATH
 alias gcbp='gradle clean build publishToMavenLocal -x test'
 alias pdserv='php -S localhost:8080 -t '
 alias python='python3'
+alias pip='pip3'
 alias resetFileGit='git checkout HEAD -- '
 alias undoLastCommit='git reset --soft HEAD~1'
 alias whatIsMyIP='curl icanhazip.com'

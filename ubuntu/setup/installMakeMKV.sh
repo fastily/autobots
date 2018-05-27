@@ -6,7 +6,10 @@
 #: Intended for Ubuntu 16.04.4
 #: Author: Fastily
 
-sudo apt -y install build-essential pkg-config libc6-dev libssl-dev libexpat1-dev libgl1-mesa-dev libqt4-dev libfdk-aac-dev openjdk-8-jre-headless #libavcodec-dev
+sudo apt update
+sudo apt -y install autoconf automake build-essential cmake yasm pkg-config \
+libc6-dev libssl-dev libexpat1-dev libgl1-mesa-dev libqt4-dev zlib1g-dev \
+libfdk-aac-dev openjdk-8-jre-headless #libavcodec-dev
 
 mkvVERSION="1.12.2"
 ffmpegVERSION="4.0"
@@ -29,9 +32,9 @@ tar -xvjf "${ffmpegBIN}.tar.bz2"
 
 
 cd "${ffmpegBIN}" && \
-./configure --prefix="${BUILD}/${ffmpegBIN}" --enable-static --disable-shared \
---enable-pic --disable-yasm --disable-all --disable-autodetect --disable-everything \
---enable-swresample --enable-avcodec --enable-encoder=flac,aac --enable-decoders --enable-libfdk-aac && \
+./configure --prefix="${BUILD}/${ffmpegBIN}" --enable-static --disable-shared --enable-pic \
+--disable-all --disable-autodetect --disable-everything --enable-swresample --enable-avcodec \
+--enable-encoder=flac,aac --enable-decoders --enable-libfdk-aac --extra-libs="-lpthread -lm" && \
 make install
 
 cd "${BUILD}/${mkvOSS}" && \
