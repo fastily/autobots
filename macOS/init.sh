@@ -56,7 +56,7 @@ brew install wget
 brew install youtube-dl
 
 ## Install Apps
-brew cask install atom
+# brew cask install atom
 brew cask install firefox
 brew cask install iina
 brew cask install mysqlworkbench
@@ -76,17 +76,17 @@ brew install rsync
 #brew install vim --with-override-system-vi
 
 ## Install global npm packages
-npm install -g bootlint
+# npm install -g bootlint
 
 ## Install Atom Packages
-apm install atom-bootstrap3
-apm install atom-ternjs
-apm install autocomplete-modules
-apm install docblockr
-apm install language-babel
-apm install linter
-apm install linter-bootlint
-apm install linter-ui-default
+# apm install atom-bootstrap3
+# apm install atom-ternjs
+# apm install autocomplete-modules
+# apm install docblockr
+# apm install language-babel
+# apm install linter
+# apm install linter-bootlint
+# apm install linter-ui-default
 
 ## Install Gems
 gem install jekyll bundler

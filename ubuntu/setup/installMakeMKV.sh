@@ -12,7 +12,7 @@ libc6-dev libssl-dev libexpat1-dev libgl1-mesa-dev libqt4-dev zlib1g-dev \
 libfdk-aac-dev openjdk-8-jre-headless #libavcodec-dev
 
 mkvVERSION="1.12.2"
-ffmpegVERSION="4.0"
+ffmpegVERSION="3.4.2"
 
 ffmpegBIN="ffmpeg-${ffmpegVERSION}"
 mkvBIN="makemkv-bin-${mkvVERSION}"
@@ -31,11 +31,13 @@ tar -xvzf "${mkvOSS}.tar.gz"
 tar -xvjf "${ffmpegBIN}.tar.bz2"
 
 
+# --extra-libs="-lpthread -lm"
 cd "${ffmpegBIN}" && \
 ./configure --prefix="${BUILD}/${ffmpegBIN}" --enable-static --disable-shared --enable-pic \
 --disable-all --disable-autodetect --disable-everything --enable-swresample --enable-avcodec \
---enable-encoder=flac,aac --enable-decoders --enable-libfdk-aac --extra-libs="-lpthread -lm" && \
+--enable-encoder=flac,aac --enable-decoders --enable-libfdk-aac && \
 make install
+
 
 cd "${BUILD}/${mkvOSS}" && \
 PKG_CONFIG_PATH="${BUILD}/${ffmpegBIN}/lib/pkgconfig" ./configure && \
