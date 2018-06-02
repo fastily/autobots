@@ -34,8 +34,8 @@ tar -xvjf "${ffmpegBIN}.tar.bz2"
 # --extra-libs="-lpthread -lm"
 cd "${ffmpegBIN}" && \
 ./configure --prefix="${BUILD}/${ffmpegBIN}" --enable-static --disable-shared --enable-pic \
---disable-all --disable-autodetect --disable-everything --enable-swresample --enable-avcodec \
---enable-encoder=flac,aac --enable-decoders --enable-libfdk-aac && \
+--disable-all --disable-x86asm --disable-autodetect --disable-everything --enable-swresample \
+--enable-avcodec --enable-encoder=flac,aac --enable-decoders --enable-libfdk-aac && \
 make install
 
 
