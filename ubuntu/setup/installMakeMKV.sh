@@ -9,7 +9,7 @@
 sudo apt update
 sudo apt -y install autoconf automake build-essential cmake yasm pkg-config \
 libc6-dev libssl-dev libexpat1-dev libgl1-mesa-dev libqt4-dev zlib1g-dev \
-libfdk-aac-dev openjdk-8-jre-headless #libavcodec-dev
+libfdk-aac-dev flac openjdk-8-jre-headless #libavcodec-dev
 
 mkvVERSION="1.12.2"
 ffmpegVERSION="3.4.2"

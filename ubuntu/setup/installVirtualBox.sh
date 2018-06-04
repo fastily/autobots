@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#: Installs VirtualBox for Ubuntu 16.04.3.  Not 100% automatic, there may be prompts during the installation.
-#: Also downloads the extension pack to the same directory as the installation files.
+#: Installs VirtualBox for Ubuntu 16.04.4.  Not 100% automatic, there may be prompts during the installation.
+#: Also downloads the extension pack to the user's home directory
 #: 
 #: Intended for Ubuntu 16.04.4
 #: Author: Fastily
