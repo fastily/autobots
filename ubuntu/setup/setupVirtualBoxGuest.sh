@@ -2,10 +2,24 @@
 
 #: Script to run on vbox ubuntu guests
 #: 
-#: Tested on Ubuntu Desktop 16.04.3
+#: Tested on Ubuntu Desktop 18.04
 #: Author: Fastily
 
-cd "${0%/*}" &> /dev/null
+VBOXVERSION="5.2.12"
+ISOFILE="VBoxGuestAdditions_${VBOXVERSION}.iso"
+MOUNTDIR="/media/vboxGuestExt"
+
+sudo apt update
+sudo apt install -y curl gcc make perl
+
+cd /tmp
+wget "https://download.virtualbox.org/virtualbox/${VBOXVERSION}/${ISOFILE}"
+
+sudo mkdir -p "$MOUNTDIR"
+sudo mount -o loop,ro "$ISOFILE" "$MOUNTDIR"
+sudo "${MOUNTDIR}/VBoxLinuxAdditions.run"
+sudo umount "$MOUNTDIR"
+sudo rm -rf "$MOUNTDIR"
 
 sudo adduser $( whoami ) vboxsf
 # sudo bash ./hideGuest.sh

@@ -2,7 +2,7 @@
 
 #: Installs MPV from their ppa.
 #: 
-#: Tested on Ubuntu Desktop 16.04.3
+#: Tested on Ubuntu Desktop 16.04.4
 #: Author: Fastily
 
 sudo add-apt-repository ppa:mc3man/mpv-tests && \
