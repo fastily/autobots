@@ -10,6 +10,10 @@ cd "${0%/*}" &> /dev/null
 ## Globals
 res="../shared"
 
+## Install packages
+sudo apt update
+sudo apt -y install oracle-java8-jdk fail2ban samba samba-common-bin
+
 ## Setup ssh
 printf "Apply settings for ssh\n"
 sudo mv /etc/ssh/sshd_config /etc/ssh/sshd_config_backup.txt
@@ -26,12 +30,8 @@ mkdir -p ~/bin
 printf '\nPATH=$PATH:$HOME/bin' >> ~/.bashrc
 
 ## Install fail2ban
-sudo apt update && \
-sudo apt -y install fail2ban && \
 sudo cp "${res}/jail.local" /etc/fail2ban/ && \
 sudo service fail2ban restart
 
-## Install Java
-sudo apt -y install oracle-java8-jdk
 
 printf "Done!\n"

@@ -23,7 +23,6 @@ targets=("Desktop" "Documents", "Downloads", "Music/iTunes/iTunes Media/Music", 
 
 
 for d in "${targets[@]}"; do
-
 	printf "Backing up %s...\n" "$d"
 	cp -R ~/"$d" "${1}/${d}"
 done
