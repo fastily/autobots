@@ -10,24 +10,19 @@
 #: 
 #: Author: Fastily
 
-## make sure we are root
-source ../../shared/autobotUtils.sh
-confirmRunAsRoot
+APP="/Applications/Install macOS High Sierra.app"
 
-## Ensure that the the target drive volume exists
-if [ ! -d "$1" ]; then
+if [ $# -lt 1 ]; then
 	printf "Usage: makeBootInstaller <PATH_TO_USB>\n"
-	return 1
+	exit
 fi
 
-confirmDirExists "$1"
+if [ ! -d "$1" ] || [ ! -d "$APP" ]; then
+	printf "ERROR: '%s' or '%s' does not exist!\n" "$1" "$APP"
+	exit 1
+fi
 
-## Make sure that the installer has been downloaded
-app="/Applications/Install macOS High Sierra.app"
-confirmDirExists "$app"
-
-## Run the script
-printf "Creating bootable intsall at '%s'\n" "$1"
-"${app}/Contents/Resources/createinstallmedia" --volume "$1" --applicationpath "$app" --nointeraction
+printf "Creating bootable installer at '%s'\n" "$1"
+sudo "${APP}/Contents/Resources/createinstallmedia" --volume "$1" --applicationpath "$APP" --nointeraction
 
 printf "Done!\n"

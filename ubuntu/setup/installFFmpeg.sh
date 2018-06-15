@@ -29,7 +29,7 @@ apt update
 apt -y install autoconf automake build-essential cmake libsdl2-dev libtheora-dev \
 libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev \
 pkg-config texinfo zlib1g-dev yasm libx264-dev libmp3lame-dev libopus-dev libfdk-aac-dev \
-flac mercurial libnuma-dev nasm
+flac mercurial libnuma-dev nasm  ||  { printf "installing dependencies failed, cannot proceed.\n"; exit 1; }
 
 ## Install libvpx
 cd "$src" && \
