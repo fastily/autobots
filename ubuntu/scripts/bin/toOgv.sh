@@ -34,6 +34,7 @@ done
 
 cd "$PWD"
 
-for f in **/*.{mp4,mov,mts}; do 
-	ffmpeg -i "$f" -c:v libtheora -q:v 8 $aSet -map_metadata -1 "${f%.*}.ogv"
+for f in **/*.{mp4,mov,mts}; do
+	printf '%s\n[INFO]: transcoding "%s"...\n' "$(date)" "$f"
+	ffmpeg -i "$f" -c:v libtheora -q:v 8 $aSet -map_metadata -1 -loglevel panic "${f%.*}.ogv"
 done
