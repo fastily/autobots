@@ -12,7 +12,7 @@ res="../shared"
 
 ## Install packages
 sudo apt update
-sudo apt -y install oracle-java8-jdk fail2ban samba samba-common-bin
+sudo apt -y install openjdk-8-jre fail2ban samba samba-common-bin
 
 ## Setup ssh
 printf "Apply settings for ssh\n"
@@ -25,9 +25,9 @@ touch ~/.ssh/authorized_keys
 sudo systemctl enable ssh
 sudo systemctl start ssh
 
-## Setup bin directory
+## Setup bin and aliases
 mkdir -p ~/bin
-printf '\nPATH=$PATH:$HOME/bin' >> ~/.bashrc
+printf '\nalias uuu="sudo apt update && sudo apt upgrade -y"' >> ~/.bash_aliases
 
 ## Install fail2ban
 sudo cp "${res}/jail.local" /etc/fail2ban/ && \
