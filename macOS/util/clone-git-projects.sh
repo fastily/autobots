@@ -38,6 +38,8 @@ mkdir -p "$GIT_DIR" "$WORKSPACE_DIR"
 cd "$GIT_DIR"
 git clone "${GITHUB}/cli-notebook.git"
 git clone "${GITHUB}/fastilybot-toollabs.git"
+git clone "${GITHUB}/ip-range-calc.git"
+git clone "${GITHUB}/text2hash-toollabs.git"
 
 
 ## Setup eclipse environment
@@ -49,4 +51,4 @@ cloneAndBuild "$GITHUB" "mw-oauth"
 
 cloneAndBuild "$BITBUCKET" "code-puzzles"
 cloneAndBuild "$BITBUCKET" "flabs"
-cloneAndBuild "$BITBUCKET" "spring-course"
+# cloneAndBuild "$BITBUCKET" "spring-course"
