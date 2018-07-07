@@ -78,6 +78,8 @@ brew install rsync
 ## Install global npm packages
 # npm install -g bootlint
 
+npm install -g eslint
+
 ## Install Atom Packages
 # apm install atom-bootstrap3
 # apm install atom-ternjs

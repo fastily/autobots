@@ -5,7 +5,7 @@
 #: Tested on Ubuntu Desktop 18.04
 #: Author: Fastily
 
-VBOXVERSION="5.2.12"
+VBOXVERSION="5.2.14"
 ISOFILE="VBoxGuestAdditions_${VBOXVERSION}.iso"
 MOUNTDIR="/media/vboxGuestExt"
 
@@ -22,6 +22,5 @@ sudo umount "$MOUNTDIR"
 sudo rm -rf "$MOUNTDIR"
 
 sudo adduser $( whoami ) vboxsf
-# sudo bash ./hideGuest.sh
 
 printf "Done!  Please reboot for changes to take effect.\n"

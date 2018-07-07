@@ -6,8 +6,8 @@
 #: Intended for Ubuntu 16.04.4
 #: Author: Fastily
 
-DLURL='https://download.virtualbox.org/virtualbox/5.2.12/virtualbox-5.2_5.2.12-122591~Ubuntu~xenial_amd64.deb'
-EXTPACKURL='https://download.virtualbox.org/virtualbox/5.2.12/Oracle_VM_VirtualBox_Extension_Pack-5.2.12.vbox-extpack'
+DLURL='https://download.virtualbox.org/virtualbox/5.2.14/virtualbox-5.2_5.2.14-123301~Ubuntu~xenial_amd64.deb'
+EXTPACKURL='https://download.virtualbox.org/virtualbox/5.2.14/Oracle_VM_VirtualBox_Extension_Pack-5.2.14.vbox-extpack'
 
 FILENAME="$( basename $DLURL )"
 TARGETDIR="/tmp/vboxsetup"
