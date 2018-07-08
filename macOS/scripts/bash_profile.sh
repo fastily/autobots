@@ -2,6 +2,7 @@ PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${HOME}/bin
 export PATH
 
 alias gcbp='gradle clean build publishToMavenLocal -x test'
+alias instantWS='python3 -m http.server 8000'
 alias pdserv='php -S localhost:8080 -t '
 alias python='python3'
 alias pip='pip3'
