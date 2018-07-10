@@ -6,11 +6,11 @@
 
 ## Newer versions of ubuntu use the latest deluge version
 if [[ "$( lsb_release -r -s | tr -d '.' )" -lt 1710 ]]; then
-	sudo add-apt-repository ppa:deluge-team/ppa && \
+	sudo add-apt-repository -y ppa:deluge-team/ppa && \
 	sudo apt-get update && \
 	sudo apt-get -y install deluge
 else
-	sudo apt install -y deluge
+	sudo apt -y install deluge
 fi
 
 delugeCONFIG="${HOME}/.config/deluge/plugins"

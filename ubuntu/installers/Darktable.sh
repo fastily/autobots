@@ -5,6 +5,6 @@
 #: Tested on Ubuntu Desktop 16.04.3
 #: Author: Fastily
 
-sudo add-apt-repository ppa:pmjdebruijn/darktable-release && \
+sudo add-apt-repository -y ppa:pmjdebruijn/darktable-release && \
 sudo apt-get update && \
-sudo apt-get install darktable
+sudo apt-get -y install darktable
