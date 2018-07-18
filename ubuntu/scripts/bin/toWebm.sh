@@ -39,11 +39,11 @@ cd "$PWD"
 if [ "$enableSlowMo" = true ]; then
 	for f in **/*.{mp4,mov,mts}; do
 		printf '%s\n[INFO]: transcoding "%s"...\n' "$(date)" "$f"
-		ffmpeg -y -i "$f" -c:v libvpx-vp9 -b:v 0 -crf 24 -threads 4 -speed 0 -r 30 -vf "setpts=8*PTS" -an -map_metadata -1 -loglevel panic -f webm "${f%.*}.webm"
+		ffmpeg -y -i "$f" -c:v libvpx-vp9 -b:v 0 -crf 24 -threads 6 -speed 0 -r 30 -vf "setpts=8*PTS" -an -map_metadata -1 -loglevel panic -f webm "${f%.*}.webm"
 	done
 else
 	for f in **/*.{mp4,mov,mts}; do
 		printf '%s\n[INFO]: transcoding "%s"...\n' "$(date)" "$f"
-		ffmpeg -y -i "$f" -c:v libvpx-vp9 -b:v 0 -crf 24 -threads 4 -speed 0 $aSet -map_metadata -1 -loglevel panic -f webm "${f%.*}.webm"
+		ffmpeg -y -i "$f" -c:v libvpx-vp9 -b:v 0 -crf 24 -threads 6 -speed 0 $aSet -map_metadata -1 -loglevel panic -f webm "${f%.*}.webm"
 	done
 fi

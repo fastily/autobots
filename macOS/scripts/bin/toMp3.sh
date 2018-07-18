@@ -13,4 +13,4 @@ if [ ! -f "$1" ]; then
 	exit 1
 fi
 
-ffmpeg -y -i "$1" -vn -c:a libmp3lame -b:a 320k "${1%.*}".mp3
+ffmpeg -y -i "$1" -vn -c:a libmp3lame -b:a 320k -loglevel panic "${1%.*}".mp3
