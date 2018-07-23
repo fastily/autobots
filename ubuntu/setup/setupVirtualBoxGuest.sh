@@ -5,7 +5,7 @@
 #: Tested on Ubuntu Desktop 18.04
 #: Author: Fastily
 
-VBOXVERSION="5.2.14"
+VBOXVERSION="5.2.16"
 ISOFILE="VBoxGuestAdditions_${VBOXVERSION}.iso"
 MOUNTDIR="/media/vboxGuestExt"
 
