@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ##
 #: Performs a backup of the specified folders of one volume to my local NAS box.

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #: Quickly backs up all my folders in my home directory.
 #: 

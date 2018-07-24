@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ##
 #: Recursively rips the audio from video files to mp3.  Default bitrate - 256kbps

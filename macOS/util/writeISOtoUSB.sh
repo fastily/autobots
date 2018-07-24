@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #: Writes an ISO to a USB. This can take a few minutes to complete, depending on the amount of data you're trying to copy.
 #: 

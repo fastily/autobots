@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ##
 #: Archive a YouTube video, channel, or playlist.  Skips already downloaded content via skip file: archive.txt.

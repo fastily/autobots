@@ -19,7 +19,7 @@ sudo apt -y install curl fail2ban openssh-client openssh-server samba hfsprogs e
 if [[ "$( lsb_release -r -s | tr -d '.' )" -lt 1710 ]]; then
 	printf "Configuring lightdm\n"
 	sudo bash ./hideGuest.sh
-done
+fi
 
 ## Apply custom settings for fail2ban
 printf "Apply settings for fail2ban\n"

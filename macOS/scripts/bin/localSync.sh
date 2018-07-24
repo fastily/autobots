@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ##
 #: Performs a backup of the specified folders in one volume to another volume on the same machine.

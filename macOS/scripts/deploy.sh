@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ##
 #: Simple deploy script, copies my custom scripts to the home directory bin.

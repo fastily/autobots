@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ##
 #: Recursively deletes .DS_STORE from the specified directory.  Deletes starting in the current directory by default.
