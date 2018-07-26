@@ -2,6 +2,7 @@
 
 #: Installs deluge from their ppa.
 #: 
+#: Tested on Ubuntu Desktop 18.04
 #: Author: Fastily
 
 ## Newer versions of ubuntu use the latest deluge version
