@@ -49,6 +49,6 @@ cloneAndBuild "$GITHUB" "mtc"
 cloneAndBuild "$GITHUB" "mtc-rest"
 cloneAndBuild "$GITHUB" "mw-oauth"
 
-cloneAndBuild "$BITBUCKET" "code-puzzles"
+# cloneAndBuild "$BITBUCKET" "code-puzzles"
 cloneAndBuild "$BITBUCKET" "flabs"
 # cloneAndBuild "$BITBUCKET" "spring-course"
