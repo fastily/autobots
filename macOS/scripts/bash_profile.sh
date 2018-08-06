@@ -1,7 +1,9 @@
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${HOME}/bin
 export PATH
 
+alias ffprobe='ffprobe -hide_banner '
 alias gcbp='gradle clean build publishToMavenLocal -x test'
+alias nrd='npm run dev'
 alias pdserv='php -S localhost:8080 -t '
 alias python='python3'
 alias pip='pip3'

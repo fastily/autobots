@@ -49,7 +49,7 @@ brew install mysql
 brew install nmap
 brew install nodejs
 brew install python
-brew install ruby
+# brew install ruby
 brew install sox --with-libao --with-opusfile --with-opencore-amr
 brew install unrar
 brew install wget
@@ -91,7 +91,7 @@ npm install -g eslint
 # apm install linter-ui-default
 
 ## Install Gems
-gem install jekyll bundler
+# gem install jekyll bundler
 
 ## Misc Settings
 defaults write com.apple.TextEdit RichText -int 0 # Start TextEdit in plain text mode
