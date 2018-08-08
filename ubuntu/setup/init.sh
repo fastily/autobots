@@ -3,7 +3,7 @@
 #: Apply some default settings for Ubuntu.  Configures OpenSSH and lightdm, and installs fail2ban.
 #: Not 100% automatic, there may be prompts/dialogs.
 #: 
-#: Tested on Ubuntu Desktop 18.04
+#: Tested on Ubuntu Desktop 18.04.1
 #: Author: Fastily
 
 cd "${0%/*}" &> /dev/null
@@ -31,7 +31,7 @@ sudo sed -i 's/^\[global\]/\[global\]\nusershare owner only = false/' /etc/samba
 
 ## Apply custom settings for ssh
 printf "Apply settings for ssh\n"
-sudo mv "/etc/ssh/sshd_config" "/tmp/sshd_config_backup.txt" # create backup in /tmp
+sudo mv "/etc/ssh/sshd_config" "/etc/ssh/sshd_config_BACKUP.txt" # create backup
 sudo cp "${res}/sshd_config" "/etc/ssh/"
 
 ## create user ssh directories
