@@ -1,6 +1,8 @@
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${HOME}/bin
 export PATH
 
+alias b64d='base64 -D -i '
+alias b64e='base64 -i '
 alias ffprobe='ffprobe -hide_banner '
 alias gcbp='gradle clean build publishToMavenLocal -x test'
 alias nrd='npm run dev'
