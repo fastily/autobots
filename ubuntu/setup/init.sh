@@ -13,7 +13,7 @@ res="../../shared" # resources folder
 
 ## Install some software
 sudo apt update && \
-sudo apt -y install curl fail2ban openssh-client openssh-server samba hfsprogs exfat-utils exfat-fuse
+sudo apt -y install curl fail2ban openssh-client openssh-server samba hfsprogs exfat-utils exfat-fuse screen
 
 ## Hide guest account from login screen
 if [[ "$( lsb_release -r -s | tr -d '.' )" -lt 1710 ]]; then
