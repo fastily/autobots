@@ -41,7 +41,7 @@ brew tap caskroom/versions
 brew cask install java8
 
 brew install exiftool
-brew install eye-d3
+#brew install eye-d3
 brew install ffmpeg --with-theora --with-libvorbis --with-libvpx --with-opus --with-fdk-aac --with-x265 --with-tools 
 brew install gradle
 #brew install imagemagick --with-librsvg --with-webp
@@ -49,14 +49,14 @@ brew install mysql
 brew install nmap
 brew install nodejs
 brew install python
-# brew install ruby
-brew install sox --with-libao --with-opusfile --with-opencore-amr
+#brew install ruby
+#brew install sox --with-libao --with-opusfile --with-opencore-amr
 brew install unrar
 brew install wget
 brew install youtube-dl
 
 ## Install Apps
-# brew cask install atom
+#brew cask install atom
 brew cask install firefox
 brew cask install iina
 brew cask install mysqlworkbench
@@ -66,7 +66,7 @@ brew cask install sts
 brew cask install sublime-text
 brew cask install rekordbox
 brew cask install visual-studio-code
-# brew cask install vlc
+#brew cask install vlc
 
 ## Patch Antiques
 brew install bash
