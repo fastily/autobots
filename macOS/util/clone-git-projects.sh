@@ -44,11 +44,10 @@ git clone "${GITHUB}/text2hash-toollabs.git"
 
 ## Setup eclipse environment
 cloneAndBuild "$GITHUB" "jwiki" 'publishToMavenLocal -x test'
-cloneAndBuild "$GITHUB" "fastilybot" ':fastilybot-shared:publishToMavenLocal'
+cloneAndBuild "$GITHUB" "wp-toolbox" 'publishToMavenLocal -x test'
+
+cloneAndBuild "$GITHUB" "fastilybot"
 cloneAndBuild "$GITHUB" "mtc"
 cloneAndBuild "$GITHUB" "mtc-rest"
-cloneAndBuild "$GITHUB" "mw-oauth"
 
-# cloneAndBuild "$BITBUCKET" "code-puzzles"
 cloneAndBuild "$BITBUCKET" "flabs"
-# cloneAndBuild "$BITBUCKET" "spring-course"
