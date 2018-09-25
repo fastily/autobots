@@ -61,10 +61,11 @@ brew cask install firefox
 brew cask install iina
 brew cask install mysqlworkbench
 brew cask install private-internet-access
+brew cask install postgres
 brew cask install postman
 brew cask install sts
 brew cask install sublime-text
-brew cask install rekordbox
+# brew cask install rekordbox
 brew cask install visual-studio-code
 #brew cask install vlc
 
@@ -77,7 +78,7 @@ brew install rsync
 
 ## Install global npm packages
 # npm install -g bootlint
-npm install -g eslint
+# npm install -g eslint
 
 ## Install Gems
 # gem install jekyll bundler
