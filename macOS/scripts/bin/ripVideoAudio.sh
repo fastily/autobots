@@ -16,5 +16,3 @@ done
 for f in **/*.{mp4,mov}; do
 	ffmpeg -n -i "$f" -vn -c:a copy -map_metadata 0 -map_metadata:s:a 0:s:a -hide_banner "${f%.*}".m4a
 done
-
-# -write_id3v2 1

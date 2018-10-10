@@ -76,6 +76,9 @@ brew install openssh
 brew install rsync
 #brew install vim --with-override-system-vi
 
+## Install python packages
+pip3 install pylint
+
 ## Install global npm packages
 # npm install -g bootlint
 # npm install -g eslint

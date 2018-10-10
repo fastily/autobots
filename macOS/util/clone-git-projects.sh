@@ -39,6 +39,7 @@ cd "$GIT_DIR"
 git clone "${GITHUB}/cli-notebook.git"
 git clone "${GITHUB}/fastilybot-toollabs.git"
 git clone "${GITHUB}/ip-range-calc.git"
+git clone "${GITHUB}/simple-commons-uploader"
 git clone "${GITHUB}/text2hash-toollabs.git"
 
 
