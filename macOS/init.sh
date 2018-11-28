@@ -1,13 +1,10 @@
 #!/bin/bash
 
-#: Generic, set up my working environment.
-#:
-#: PRECONDITION:
-#:		1) Xcode or Xcode tools are installed
+#: Sets up my Mac.
 #:
 #: Author: Fastily
 
-## Setup Custom Scripts
+## Deploy custom scripts
 cd "${0%/*}" &> /dev/null
 bash scripts/deploy.sh
 
@@ -77,12 +74,18 @@ brew install rsync
 #brew install vim --with-override-system-vi
 
 ## Install python packages
+pip3 install psycopg2-binary
 pip3 install django
 pip3 install pillow
 pip3 install pylint
 pip3 install pylint-django
 pip3 install requests
 pip3 install virtualenv
+
+## Install VSCode settings and extensions
+code --install-extension ms-python.python
+
+printf '{"python.linting.pylintArgs": ["--load-plugins=pylint_django"],}' > ~/'Library/Application Support/Code/User/settings.json'
 
 ## Install global npm packages
 # npm install -g bootlint
