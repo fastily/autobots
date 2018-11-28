@@ -45,7 +45,7 @@ brew install exiftool
 brew install ffmpeg --with-theora --with-libvorbis --with-libvpx --with-opus --with-fdk-aac --with-x265 --with-tools 
 brew install gradle
 #brew install imagemagick --with-librsvg --with-webp
-brew install mysql
+# brew install mysql
 brew install nmap
 brew install nodejs
 brew install python
@@ -77,7 +77,12 @@ brew install rsync
 #brew install vim --with-override-system-vi
 
 ## Install python packages
+pip3 install django
+pip3 install pillow
 pip3 install pylint
+pip3 install pylint-django
+pip3 install requests
+pip3 install virtualenv
 
 ## Install global npm packages
 # npm install -g bootlint
