@@ -49,6 +49,6 @@ cloneAndBuild "$GITHUB" "wp-toolbox" 'publishToMavenLocal -x test'
 
 cloneAndBuild "$GITHUB" "fastilybot"
 cloneAndBuild "$GITHUB" "mtc"
-cloneAndBuild "$GITHUB" "mtc-rest"
+# cloneAndBuild "$GITHUB" "mtc-rest"
 
 cloneAndBuild "$BITBUCKET" "flabs"

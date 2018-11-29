@@ -39,7 +39,7 @@ brew cask install java8
 
 brew install exiftool
 #brew install eye-d3
-brew install ffmpeg --with-theora --with-libvorbis --with-libvpx --with-opus --with-fdk-aac --with-x265 --with-tools 
+brew install ffmpeg --with-fdk-aac
 brew install gradle
 #brew install imagemagick --with-librsvg --with-webp
 # brew install mysql
@@ -60,7 +60,7 @@ brew cask install mysqlworkbench
 brew cask install private-internet-access
 brew cask install postgres
 brew cask install postman
-brew cask install sts
+brew cask install springtoolsuite
 brew cask install sublime-text
 # brew cask install rekordbox
 brew cask install visual-studio-code
@@ -85,6 +85,7 @@ pip3 install virtualenv
 ## Install VSCode settings and extensions
 code --install-extension ms-python.python
 
+mkdir -p ~/'Library/Application Support/Code/User/'
 printf '{"python.linting.pylintArgs": ["--load-plugins=pylint_django"],}' > ~/'Library/Application Support/Code/User/settings.json'
 
 ## Install global npm packages
@@ -94,7 +95,8 @@ printf '{"python.linting.pylintArgs": ["--load-plugins=pylint_django"],}' > ~/'L
 ## Install Gems
 # gem install jekyll bundler
 
-## Misc Settings
+
+## OS Settings
 defaults write com.apple.TextEdit RichText -int 0 # Start TextEdit in plain text mode
 
 defaults write com.apple.finder FXDefaultSearchScope -string SCcf # Finder searches in the current folder
@@ -105,17 +107,17 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false  # 
 
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true  # don't create .DS_STORE in SMB shares
 
-# defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2HyperlinkAuditingEnabled -bool false # Disable trackers
-defaults write com.apple.Safari AutoOpenSafeDownloads -bool false  # disable auto-opening of downloads
-defaults write com.apple.Safari CanPromptForPushNotifications -bool false # prevent websites from asking for push notifications
-defaults write com.apple.Safari DownloadsClearingPolicy -bool false # don't remove downloads 
-defaults write com.apple.Safari PreloadTopHit -bool false # don't preload top hit in background
-defaults write com.apple.Safari PrintHeadersAndFooters -bool false # don't print webpage headers and footers
-defaults write com.apple.Safari NewTabBehavior -int 1 # new tabs open in empty page
-defaults write com.apple.Safari NewWindowBehavior -int 0 # new windows open to homepage
-defaults write com.apple.Safari IncludeDevelopMenu -bool true # show develop menu
-defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false # match on contains instead of startswith
-defaults write com.apple.Safari ShowOverlayStatusBar -bool true # always show status bar in bottom left corner
+## May be broken due to way Mojave sets permissions - wating on workaround
+# defaults write com.apple.Safari AutoOpenSafeDownloads -bool false  # disable auto-opening of downloads
+# defaults write com.apple.Safari CanPromptForPushNotifications -bool false # prevent websites from asking for push notifications
+# defaults write com.apple.Safari DownloadsClearingPolicy -bool false # don't remove downloads 
+# defaults write com.apple.Safari PreloadTopHit -bool false # don't preload top hit in background
+# defaults write com.apple.Safari PrintHeadersAndFooters -bool false # don't print webpage headers and footers
+# defaults write com.apple.Safari NewTabBehavior -int 1 # new tabs open in empty page
+# defaults write com.apple.Safari NewWindowBehavior -int 0 # new windows open to homepage
+# defaults write com.apple.Safari IncludeDevelopMenu -bool true # show develop menu
+# defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false # match on contains instead of startswith
+# defaults write com.apple.Safari ShowOverlayStatusBar -bool true # always show status bar in bottom left corner
 
 defaults -currentHost write com.apple.screensaver idleTime -int 0 # disable screensaver
 
@@ -126,8 +128,10 @@ defaults write com.apple.Terminal NewTabWorkingDirectoryBehavior -int 1 # New ta
 
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true # prevent Photos from opening when iPhone is connected
 
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad USBMouseStopsTrackpad -bool true # disable trackpad in clamshell mode
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true # tap to click
+## May be broken
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad USBMouseStopsTrackpad -bool true # disable trackpad in clamshell mode
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true # tap to click
+
 
 ## Setup .ssh
 printf "Creating .ssh folder in home directory\n"
