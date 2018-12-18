@@ -132,9 +132,7 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true # p
 # defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad USBMouseStopsTrackpad -bool true # disable trackpad in clamshell mode
 # defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true # tap to click
 
-
-## Setup .ssh
-printf "Creating .ssh folder in home directory\n"
-mkdir -p ~/.ssh
+## Create .ssh and scripts folders
+mkdir -p ~/.ssh ~/Documents/scripts
 
 printf "Done!\n"
