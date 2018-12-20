@@ -12,7 +12,7 @@ res="../shared"
 
 ## Install packages
 sudo apt update
-sudo apt -y install openjdk-8-jre fail2ban samba samba-common-bin
+sudo apt -y install openjdk-8-jre fail2ban
 
 ## Setup ssh
 printf "Apply settings for ssh\n"
@@ -32,6 +32,5 @@ printf '\nalias uuu="sudo apt update && sudo apt upgrade -y"' >> ~/.bash_aliases
 ## Install fail2ban
 sudo cp "${res}/jail.local" /etc/fail2ban/ && \
 sudo service fail2ban restart
-
 
 printf "Done!\n"
