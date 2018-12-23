@@ -19,11 +19,11 @@ printf "Apply settings for ssh\n"
 sudo mv /etc/ssh/sshd_config /etc/ssh/sshd_config_BACKUP.txt
 sudo cp "${res}/sshd_config" /etc/ssh/
 
-# mkdir -p ~/.ssh
-# touch ~/.ssh/authorized_keys
+mkdir -p ~/.ssh
+touch ~/.ssh/authorized_keys
 
-# sudo systemctl enable ssh
-# sudo systemctl start ssh
+sudo systemctl enable ssh
+sudo systemctl start ssh
 
 ## Setup bin and aliases
 mkdir -p ~/bin
