@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#: Applies my preferred settings for Mac
+#:
+#: Author: Fastily
+
 ## OS Settings
 defaults write com.apple.TextEdit RichText -int 0 # Start TextEdit in plain text mode
 
@@ -11,7 +15,7 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false  # 
 
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true  # don't create .DS_STORE in SMB shares
 
-## May be broken due to way Mojave sets permissions - wating on workaround
+## May be broken due to way Mojave sets permissions - waiting on workaround
 # defaults write com.apple.Safari AutoOpenSafeDownloads -bool false  # disable auto-opening of downloads
 # defaults write com.apple.Safari CanPromptForPushNotifications -bool false # prevent websites from asking for push notifications
 # defaults write com.apple.Safari DownloadsClearingPolicy -bool false # don't remove downloads 

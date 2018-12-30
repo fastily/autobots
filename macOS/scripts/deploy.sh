@@ -11,7 +11,7 @@ cd "${0%/*}" &> /dev/null
 printf "Copying scripts to bin\n"
 
 mkdir -p ~/bin
-cp -f bin/* ~/bin/
+cp -p -f bin/* ~/bin/
 chflags hidden ~/bin
 
 printf "Copying bash profile\n"
