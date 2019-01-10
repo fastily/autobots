@@ -86,6 +86,7 @@ pip3 install pillow
 pip3 install pylint
 pip3 install pylint-django
 pip3 install requests
+pip3 install twine
 pip3 install virtualenv
 
 ## Install VSCode settings and extensions
