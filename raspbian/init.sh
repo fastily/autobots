@@ -29,8 +29,4 @@ sudo systemctl start ssh
 mkdir -p ~/bin
 printf '\nalias uuu="sudo apt update && sudo apt upgrade -y"' >> ~/.bash_aliases
 
-## Install fail2ban
-sudo cp "${res}/jail.local" /etc/fail2ban/ && \
-sudo service fail2ban restart
-
 printf "Done!\n"

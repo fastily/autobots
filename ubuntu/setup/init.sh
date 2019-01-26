@@ -21,10 +21,6 @@ if [[ "$( lsb_release -r -s | tr -d '.' )" -lt 1710 ]]; then
 	sudo bash ./hideGuest.sh
 fi
 
-## Apply custom settings for fail2ban
-printf "Apply settings for fail2ban\n"
-sudo cp "${res}/jail.local" "/etc/fail2ban/"
-
 ## Apply custom settings for samba
 printf "Apply settings for samba\n"
 sudo sed -i 's/^\[global\]/\[global\]\nusershare owner only = false/' /etc/samba/smb.conf
@@ -43,7 +39,6 @@ mkdir -p ~/bin
 ## Restart affected services
 printf "Restarting affected services\n"
 sudo service sshd restart
-sudo service fail2ban restart
 sudo service smbd restart
 
 printf "Done!\n"
