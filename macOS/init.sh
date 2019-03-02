@@ -43,6 +43,7 @@ git config --global user.email 'fastily@users.noreply.github.com'
 brew tap caskroom/versions
 brew cask install java8
 
+brew install bash-completion
 brew install exiftool
 #brew install eye-d3
 brew install ffmpeg --with-fdk-aac
@@ -91,9 +92,16 @@ pip3 install virtualenv
 
 ## Install VSCode settings and extensions
 code --install-extension ms-python.python
+code --install-extension peterjausovec.vscode-docker
 
 mkdir -p ~/'Library/Application Support/Code/User/'
 printf '{"python.linting.pylintArgs": ["--load-plugins=pylint_django"], "python.pythonPath": "/usr/local/bin/python3"}' > ~/'Library/Application Support/Code/User/settings.json'
+
+## bash-completions for docker
+DOCKERETC="/Applications/Docker.app/Contents/Resources/etc"
+ln -s "${DOCKERETC}/docker.bash-completion" "$(brew --prefix)/etc/bash_completion.d/docker"
+ln -s "${DOCKERETC}/docker-machine.bash-completion" "$(brew --prefix)/etc/bash_completion.d/docker-machine"
+ln -s "${DOCKERETC}/docker-compose.bash-completion" "$(brew --prefix)/etc/bash_completion.d/docker-compose"
 
 ## Install global npm packages
 # npm install -g bootlint

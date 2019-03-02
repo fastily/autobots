@@ -6,8 +6,8 @@
 #: Intended for Ubuntu 18.04
 #: Author: Fastily
 
-DLURL='https://download.virtualbox.org/virtualbox/6.0.2/virtualbox-6.0_6.0.2-128162~Ubuntu~bionic_amd64.deb'
-EXTPACKURL='https://download.virtualbox.org/virtualbox/6.0.2/Oracle_VM_VirtualBox_Extension_Pack-6.0.2.vbox-extpack'
+DLURL='https://download.virtualbox.org/virtualbox/6.0.4/virtualbox-6.0_6.0.4-128413~Ubuntu~bionic_amd64.deb'
+EXTPACKURL='https://download.virtualbox.org/virtualbox/6.0.4/Oracle_VM_VirtualBox_Extension_Pack-6.0.4.vbox-extpack'
 TARGETDIR="/tmp/vboxsetup"
 
 mkdir -p "$TARGETDIR"

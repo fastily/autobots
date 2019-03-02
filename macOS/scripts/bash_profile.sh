@@ -1,6 +1,11 @@
+# bash completions
+[[ -r '/usr/local/etc/profile.d/bash_completion.sh' ]] && . '/usr/local/etc/profile.d/bash_completion.sh'
+
+# make sure ~/bin is included in PATH variable
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${HOME}/bin
 export PATH
 
+# random aliases
 alias b64d='base64 -D -i '
 alias b64e='base64 -i '
 alias buu='brew update && brew upgrade'
