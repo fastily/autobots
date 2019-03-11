@@ -8,4 +8,4 @@
 sudo apt update && sudo apt -y install ibus-pinyin
 ibus restart
 
-prtinf "Done!\nNow, go to Settings -> Region & Language -> Input Sources (+) and add Pinyin\n"
+printf "Done!\nNow, go to Settings -> Region & Language -> Input Sources (+) and add Pinyin\n"
