@@ -22,6 +22,7 @@ touch "$BASHALIASES"
 if ! grep -q 'uuu' "$BASHALIASES" ; then 
 	printf "Installing uuu alias into %s\n" "$BASHALIASES"
 	printf '\nalias uuu="sudo apt update && sudo apt upgrade -y"' >> "$BASHALIASES"
+	printf '\nalias aaa="sudo apt autoclean && sudo apt autoremove -y"' >> "$BASHALIASES"
 fi
 
 printf "Done!\n"

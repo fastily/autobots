@@ -9,6 +9,6 @@
 
 cd /tmp
 
-wget 'https://dl.ubnt.com/unifi/5.9.29/unifi_sysvinit_all.deb'
+wget 'https://dl.ubnt.com/unifi/5.10.20/unifi_sysvinit_all.deb'
 sudo dpkg -i unifi_sysvinit_all.deb
 sudo apt-get install -f -y
