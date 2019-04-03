@@ -12,10 +12,6 @@
 #: Tested on Ubuntu 17.04
 #: Author: Fastily
 
-cd "${0%/*}" &> /dev/null
-source ../../shared/autobotUtils.sh
-confirmRunAsRoot
-
 ##
 # Prints usage and exits
 ##
@@ -30,7 +26,7 @@ fi
 
 ## Fetch target UUID and perform sanity checks
 targetDrive="/dev/${1}"
-targetUUID=$( blkid -s UUID -o value "$targetDrive" )
+targetUUID=$( sudo blkid -s UUID -o value "$targetDrive" )
 
 if [[ -z $targetUUID ]]; then
    printf "Error: ${targetDrive} does not exist\n"
@@ -41,6 +37,6 @@ mountPoint="/mnt/${2}"
 
 ## Perform changes
 mkdir -p "$mountPoint"
-printf "\nUUID=${targetUUID} ${mountPoint} auto nosuid,nodev,nofail,rw 0 2" >> /etc/fstab
+printf "\nUUID=${targetUUID} ${mountPoint} auto nosuid,nodev,nofail,rw 0 2" | sudo tee -a /etc/fstab > /dev/null
 
 printf "OK: ${targetDrive} will mount on ${mountPoint} on next reboot.\n"

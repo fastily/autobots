@@ -13,10 +13,6 @@
 #: 
 #: Author: Fastily
 
-cd "${0%/*}" &> /dev/null
-source ../../shared/autobotUtils.sh
-confirmRunAsRoot
-
 ## Ensure that the the target drive volume exists
 if [ "$#" -lt 2 ]; then
 	printf "[Usage]: writeISOtoUSB <PATH_TO_ISO> <DISK_ID_NUMBER>\n"
@@ -45,9 +41,9 @@ if [ ! -b "$targetDisk" ] || [ ! -c "$targetDiskRaw" ]; then
 fi
 
 printf "[INFO]: Unmounting '%s'\n" "$targetDisk"
-diskutil unmountDisk "$targetDisk"
+sudo diskutil unmountDisk "$targetDisk"
 
 printf "[INFO]: Writing '%s' to '%s'\n" "$1" "$targetDiskRaw"
-dd if="$1" of="$targetDiskRaw" bs=1m
+sudo dd if="$1" of="$targetDiskRaw" bs=1m
 
 printf "Done!\n"

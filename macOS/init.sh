@@ -92,6 +92,7 @@ pip3 install virtualenv
 
 ## Install VSCode settings and extensions
 code --install-extension ms-python.python
+code --install-extension octref.vetur
 code --install-extension peterjausovec.vscode-docker
 
 mkdir -p ~/'Library/Application Support/Code/User/'
