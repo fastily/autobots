@@ -8,7 +8,7 @@
 #: Author: Fastily
 
 ## Setting up folder env variables
-ffmpegNAME="ffmpeg-4.1"
+ffmpegNAME="ffmpeg-4.1.3"
 
 rootsrc="/tmp/FFMPEG"
 src="${rootsrc}/src"

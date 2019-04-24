@@ -1,15 +1,8 @@
 #!/bin/bash
 
-#: Sets up my Mac.
+#: Installs my working environment and preferred applications
 #:
 #: Author: Fastily
-
-## Make sure xcode is installed
-which xcrun &> /dev/null
-if [ $? -ne 0 ]; then
-	printf "[ERROR]: Xcode is not installed.  Exiting.\n"
-	exit 1
-fi
 
 ## Install Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -40,13 +33,13 @@ git config --global user.name "fastily"
 git config --global user.email 'fastily@users.noreply.github.com'
 
 ## Install script dependencies
-brew tap caskroom/versions
-brew cask install java8
+brew tap homebrew/cask-versions
+brew cask install adoptopenjdk8
 
 brew install bash-completion
 brew install exiftool
 #brew install eye-d3
-brew install ffmpeg --with-fdk-aac
+brew install ffmpeg
 brew install gradle
 #brew install imagemagick --with-librsvg --with-webp
 # brew install mysql
@@ -71,14 +64,12 @@ brew cask install springtoolsuite
 brew cask install sublime-text
 # brew cask install rekordbox
 brew cask install visual-studio-code
-#brew cask install vlc
 
 ## Patch Antiques
 brew install bash
 brew install less
 brew install openssh
 brew install rsync
-#brew install vim --with-override-system-vi
 
 ## Install python packages
 pip3 install psycopg2-binary
@@ -112,6 +103,7 @@ ln -s "${DOCKERETC}/docker-compose.bash-completion" "$(brew --prefix)/etc/bash_c
 # gem install jekyll bundler
 
 ## Create .ssh and scripts folders
-mkdir -p ~/.ssh ~/Documents/scripts
+mkdir -p ~/.ssh ~/Documents/git ~/Documents/scripts ~/Documents/workspace
+
 
 printf "Done!\n"
