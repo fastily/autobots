@@ -39,7 +39,9 @@ cd "$GIT_DIR"
 git clone "${GITHUB}/cli-notebook.git"
 git clone "${GITHUB}/fastilybot-toollabs.git"
 git clone "${GITHUB}/ip-range-calc.git"
+git clone "${GITHUB}/jwiki-starter"
 git clone "${GITHUB}/simple-commons-uploader"
+git clone "${GITHUB}/stardew-valley-saves"
 git clone "${GITHUB}/text2hash-toollabs.git"
 
 
