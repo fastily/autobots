@@ -37,6 +37,6 @@ mountPoint="/mnt/${2}"
 
 ## Perform changes
 mkdir -p "$mountPoint"
-printf "\nUUID=${targetUUID} ${mountPoint} auto nosuid,nodev,nofail,rw 0 2" | sudo tee -a /etc/fstab > /dev/null
+printf "\nUUID=${targetUUID} ${mountPoint} auto defaults,nofail 0 0" | sudo tee -a /etc/fstab > /dev/null
 
 printf "OK: ${targetDrive} will mount on ${mountPoint} on next reboot.\n"

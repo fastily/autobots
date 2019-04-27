@@ -41,7 +41,7 @@ brew install exiftool
 #brew install eye-d3
 brew install ffmpeg
 brew install gradle
-#brew install imagemagick --with-librsvg --with-webp
+brew install imagemagick
 # brew install mysql
 brew install nmap
 brew install nodejs
