@@ -30,7 +30,7 @@ targets=( "${targets[@]/#//dev/}" )
 sudo apt update && sudo apt install -y mdadm
 
 # create array and automount at reboot
-sudo mdadm --create --verbose "/dev/${dest}" --level=0 --raid-devices="$(($# -1))" "${targets[@]}" && \
+sudo mdadm --create --verbose "/dev/${dest}" --level=0 --raid-devices="$#" "${targets[@]}" && \
 sudo mkfs.ext4 -F "/dev/${dest}" && \
 sudo mkdir -p "/mnt/${dest}" && \
 sudo mount "/dev/${dest}" "/mnt/${dest}" && \
