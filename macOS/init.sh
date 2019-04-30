@@ -34,7 +34,7 @@ git config --global user.email 'fastily@users.noreply.github.com'
 
 ## Install script dependencies
 brew tap homebrew/cask-versions
-brew cask install adoptopenjdk8
+brew cask install java11
 
 brew install bash-completion
 brew install exiftool
