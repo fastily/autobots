@@ -13,7 +13,7 @@ sudo apt update
 sudo apt install -y curl gcc make perl
 
 cd /tmp
-wget "https://download.oracle.com/virtualbox/${VBOXVERSION}/${ISOFILE}"
+wget "https://download.virtualbox.org/virtualbox/${VBOXVERSION}/${ISOFILE}"
 
 sudo mkdir -p "$MOUNTDIR"
 sudo mount -o loop,ro "$ISOFILE" "$MOUNTDIR"

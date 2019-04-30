@@ -8,8 +8,8 @@
 
 # install virtualbox
 printf "deb https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib\n" | sudo tee -a "/etc/apt/sources.list" > /dev/null
-wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O - | sudo apt-key add -
-wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O - | sudo apt-key add -
+wget -q 'https://www.virtualbox.org/download/oracle_vbox_2016.asc' -O - | sudo apt-key add -
+wget -q 'https://www.virtualbox.org/download/oracle_vbox.asc' -O - | sudo apt-key add -
 
 sudo apt update && sudo apt install -y virtualbox-6.0
 
