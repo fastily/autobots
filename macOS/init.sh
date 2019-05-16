@@ -47,7 +47,7 @@ brew install nmap
 brew install nodejs
 brew install python
 #brew install ruby
-#brew install sox --with-libao --with-opusfile --with-opencore-amr
+brew install sox
 brew install unrar
 brew install wget
 brew install youtube-dl

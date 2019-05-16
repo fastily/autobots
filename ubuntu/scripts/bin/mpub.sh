@@ -1,13 +1,13 @@
 #!/bin/bash
 
-#: Sets permissions of items the owned by the current user in ~/Public and/or /mnt/stuff to a+r
+#: Sets permissions of items the owned by the current user in $arr to a+r
 #: 
 #: Tested on Ubuntu Server 17.04.
 #: Author: Fastily
 
 ME=$( whoami )
 
-arr=("${HOME}/Public" "/mnt/stuff")
+arr=("${HOME}/Public" "/mnt/md0/Dump")
 
 for f in "${arr[@]}"; do
 	if [ -d "$f" ]; then

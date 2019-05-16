@@ -41,7 +41,7 @@ if [ ! -b "$targetDisk" ] || [ ! -c "$targetDiskRaw" ]; then
 fi
 
 printf "[INFO]: Unmounting '%s'\n" "$targetDisk"
-sudo diskutil unmountDisk "$targetDisk"
+diskutil unmountDisk "$targetDisk"
 
 printf "[INFO]: Writing '%s' to '%s'\n" "$1" "$targetDiskRaw"
 sudo dd if="$1" of="$targetDiskRaw" bs=1m
