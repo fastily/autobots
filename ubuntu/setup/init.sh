@@ -15,12 +15,6 @@ res="../../shared" # resources folder
 sudo apt update && \
 sudo apt -y install curl fail2ban openssh-client openssh-server samba hfsprogs exfat-utils exfat-fuse screen net-tools
 
-## Hide guest account from login screen
-if [[ "$( lsb_release -r -s | tr -d '.' )" -lt 1710 ]]; then
-	printf "Configuring lightdm\n"
-	sudo bash ./hideGuest.sh
-fi
-
 ## Apply custom settings for samba
 printf "Apply settings for samba\n"
 sudo sed -i 's/^\[global\]/\[global\]\nusershare owner only = false/' /etc/samba/smb.conf

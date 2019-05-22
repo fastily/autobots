@@ -16,8 +16,8 @@ sudo apt -y install openjdk-8-jre fail2ban
 
 ## Setup ssh
 printf "Apply settings for ssh\n"
-sudo mv /etc/ssh/sshd_config /etc/ssh/sshd_config_BACKUP.txt
-sudo cp "${res}/sshd_config" /etc/ssh/
+sudo mv "/etc/ssh/sshd_config" "/etc/ssh/sshd_config_BACKUP.txt"
+sudo cp "${res}/sshd_config" "/etc/ssh/"
 
 mkdir -p ~/.ssh
 touch ~/.ssh/authorized_keys

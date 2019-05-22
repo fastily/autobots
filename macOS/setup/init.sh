@@ -24,7 +24,7 @@ fi
 
 ## Deploy custom scripts
 cd "${0%/*}" &> /dev/null
-bash scripts/deploy.sh
+bash ../scripts/deploy.sh
 bash settings.sh
 
 ## Initialize git name and email
