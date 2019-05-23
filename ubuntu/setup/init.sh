@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#: Apply some default settings for Ubuntu.  Configures OpenSSH and lightdm, and installs fail2ban.
+#: Apply some default settings for Ubuntu.  Configures OpenSSH and installs fail2ban.
 #: Not 100% automatic, there may be prompts/dialogs.
 #: 
 #: Tested on Ubuntu Desktop 18.04.1
@@ -13,11 +13,10 @@ res="../../shared" # resources folder
 
 ## Install some software
 sudo apt update && \
-sudo apt -y install curl fail2ban openssh-client openssh-server samba hfsprogs exfat-utils exfat-fuse screen net-tools
+sudo apt -y install curl fail2ban openssh-client openssh-server hfsprogs exfat-utils exfat-fuse screen net-tools
 
-## Apply custom settings for samba
-printf "Apply settings for samba\n"
-sudo sed -i 's/^\[global\]/\[global\]\nusershare owner only = false/' /etc/samba/smb.conf
+# Install Samba
+bash ../installers/Samba.sh
 
 ## Apply custom settings for ssh
 printf "Apply settings for ssh\n"
