@@ -25,4 +25,4 @@ directory mask = 0777
 Public = yes
 Guest ok = yes\n" | sudo tee -a "/etc/samba/smb.conf" > /dev/null
 
-/etc/init.d/samba restart
+sudo service smbd restart
