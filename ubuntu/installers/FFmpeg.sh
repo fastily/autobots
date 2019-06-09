@@ -24,7 +24,7 @@ sudo apt update
 sudo apt -y install autoconf automake build-essential cmake libsdl2-dev libtheora-dev \
 libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev \
 pkg-config texinfo zlib1g-dev yasm libx264-dev libmp3lame-dev libopus-dev libfdk-aac-dev \
-flac libx265-dev libnuma-dev libnuma-dev nasm libvpx-dev ||  { printf "installing dependencies failed, cannot proceed.\n"; exit 1; }
+flac libx265-dev libnuma-dev nasm libvpx-dev ||  { printf "installing dependencies failed, cannot proceed.\n"; exit 1; }
 
 ## Install libvpx
 # cd "$src" && \
@@ -45,7 +45,7 @@ flac libx265-dev libnuma-dev libnuma-dev nasm libvpx-dev ||  { printf "installin
 ## Install FFmpeg
 cd "$src" && \
 wget "https://www.ffmpeg.org/releases/${ffmpegNAME}.tar.bz2" && \
-tar xjvf "${ffmpegNAME}.tar.bz2" && \
+tar -xjf "${ffmpegNAME}.tar.bz2" && \
 cd "$ffmpegNAME"
 
 PATH="${bin}:${PATH}" PKG_CONFIG_PATH="${build}/lib/pkgconfig" ./configure \

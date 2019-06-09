@@ -26,9 +26,9 @@ wget "https://www.makemkv.com/download/${mkvBIN}.tar.gz"
 wget "https://www.makemkv.com/download/${mkvOSS}.tar.gz"
 wget "https://www.ffmpeg.org/releases/${ffmpegBIN}.tar.bz2"
 
-tar -xvzf "${mkvBIN}.tar.gz"
-tar -xvzf "${mkvOSS}.tar.gz"
-tar -xvjf "${ffmpegBIN}.tar.bz2"
+tar -xzf "${mkvBIN}.tar.gz"
+tar -xzf "${mkvOSS}.tar.gz"
+tar -xjf "${ffmpegBIN}.tar.bz2"
 
 
 # --extra-libs="-lpthread -lm"
