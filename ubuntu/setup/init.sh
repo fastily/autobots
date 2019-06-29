@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#: Apply some default settings for Ubuntu.  Configures OpenSSH and installs fail2ban.
+#: Apply some default settings for Ubuntu Desktop.  Configures OpenSSH and installs fail2ban.
 #: Not 100% automatic, there may be prompts/dialogs.
 #: 
 #: Tested on Ubuntu Desktop 18.04.1
@@ -33,5 +33,11 @@ mkdir -p ~/bin
 printf "Restarting affected services\n"
 sudo service sshd restart
 sudo service smbd restart
+
+
+## Apply GUI Settings
+gsettings set org.gnome.desktop.session idle-delay 0
+gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
+gsettings set org.gnome.desktop.media-handling autorun-never true
 
 printf "Done!\n"
