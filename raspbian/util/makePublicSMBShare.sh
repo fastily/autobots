@@ -16,13 +16,13 @@ mkdir -p "$1"
 chmod a+rwx "$1"
 
 printf "[$( basename "$1" )]
-Path = ${1}
-Browseable = yes
-Writeable = Yes
-only guest = no
-create mask = 0777
-directory mask = 0777
-Public = yes
-Guest ok = yes\n" | sudo tee -a "/etc/samba/smb.conf" > /dev/null
+   path = ${1}
+   browseable = yes
+   writeable = Yes
+   only guest = no
+   create mask = 0777
+   directory mask = 0777
+   public = yes
+   guest ok = yes\n" | sudo tee -a "/etc/samba/smb.conf" > /dev/null
 
 /etc/init.d/samba restart

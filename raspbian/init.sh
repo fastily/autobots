@@ -11,8 +11,7 @@ cd "${0%/*}" &> /dev/null
 res="../shared"
 
 ## Install packages
-sudo apt update
-sudo apt -y install openjdk-8-jre fail2ban
+sudo apt update && sudo apt -y install fail2ban
 
 ## Setup ssh
 printf "Apply settings for ssh\n"
@@ -20,7 +19,7 @@ sudo mv "/etc/ssh/sshd_config" "/etc/ssh/sshd_config_BACKUP.txt"
 sudo cp "${res}/sshd_config" "/etc/ssh/"
 
 mkdir -p ~/.ssh
-touch ~/.ssh/authorized_keys
+curl 'https://gist.githubusercontent.com/fastily/4695d2bca65d91958f602bfb8d497def/raw/fd1b441b9f36c620ac0a3f1d9db5cb87b5cd4d3d/pi.pub' >> ~/.ssh/authorized_keys
 
 sudo systemctl enable ssh
 sudo systemctl start ssh
@@ -29,8 +28,5 @@ sudo systemctl start ssh
 mkdir -p ~/bin
 printf '\nalias uuu="sudo apt update && sudo apt upgrade -y"' >> ~/.bash_aliases
 printf '\nalias aaa="sudo apt autoclean && sudo apt autoremove -y"' >> ~/.bash_aliases
-
-## Configure timezone
-# sudo timedatectl set-timezone UTC
 
 printf "Done!\n"
