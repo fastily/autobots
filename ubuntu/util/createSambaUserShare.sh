@@ -18,4 +18,4 @@ printf "[$( basename "$1" )]
    read only = no
    valid users = $(whoami)\n" | sudo tee -a "/etc/samba/smb.conf" > /dev/null
 
-testparm && sudo service smbd restart
+testparm -s && sudo service smbd restart

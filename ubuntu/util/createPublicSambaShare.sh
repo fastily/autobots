@@ -25,4 +25,4 @@ printf "[$( basename "$1" )]
    public = yes
    guest ok = yes\n" | sudo tee -a "/etc/samba/smb.conf" > /dev/null
 
-testparm && sudo service smbd restart
+testparm -s && sudo service smbd restart

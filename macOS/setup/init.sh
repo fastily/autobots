@@ -72,14 +72,7 @@ brew install openssh
 brew install rsync
 
 ## Install python packages
-pip3 install psycopg2-binary
-pip3 install django
-pip3 install pillow
-pip3 install pylint
-pip3 install pylint-django
-pip3 install requests
-pip3 install twine
-pip3 install virtualenv
+pip3 install django pillow psycopg2-binary pylint pylint-django requests twine virtualenv
 
 ## Install VSCode settings and extensions
 code --install-extension ms-python.python
