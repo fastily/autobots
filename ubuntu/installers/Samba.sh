@@ -7,4 +7,5 @@
 
 sudo apt update && \
 sudo apt -y install samba && \
-sudo sed -i 's/^\[global\]/\[global\]\n   usershare owner only = false/' "/etc/samba/smb.conf"
+sudo sed -i 's/^\[global\]/\[global\]\n   usershare owner only = false/' "/etc/samba/smb.conf" && \
+sudo service smbd restart

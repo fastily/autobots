@@ -1,39 +1,32 @@
 #!/bin/bash
 
-#: Apply some default settings for Ubuntu Desktop.  Configures OpenSSH and installs fail2ban.
-#: Not 100% automatic, there may be prompts/dialogs.
+#: Install some helpful packages and apply sane settings for Ubuntu Server/Desktop.
 #: 
-#: Tested on Ubuntu Desktop 18.04.1
+#: Tested on Ubuntu Desktop 18.04.2
 #: Author: Fastily
 
 cd "${0%/*}" &> /dev/null
 
-## Some global vars
-res="../../shared" # resources folder
-
-## Install some software
+## Install packages
 sudo apt update && \
-sudo apt -y install curl fail2ban openssh-client openssh-server hfsprogs exfat-utils exfat-fuse screen net-tools
+sudo apt -y install curl exfat-fuse exfat-utils fail2ban hfsprogs net-tools openssh-client openssh-server screen
 
-# Install Samba
+## Install Samba
 bash ../installers/Samba.sh
 
 ## Apply custom settings for ssh
-printf "Apply settings for ssh\n"
-sudo mv "/etc/ssh/sshd_config" "/etc/ssh/sshd_config_BACKUP.txt" # create backup
-sudo cp "${res}/sshd_config" "/etc/ssh/"
+sshdConfig="/etc/ssh/sshd_config"
+sudo cp "$sshdConfig" "${sshdConfig}_BACKUP.txt" # create backup
+sudo sed -i -E 's/^\#?PermitRootLogin .*/PermitRootLogin no/' "$sshdConfig"
+sudo sed -i -E 's/^\#?PasswordAuthentication .*/PasswordAuthentication no/' "$sshdConfig"
+sudo service sshd restart
 
-## create user ssh directories
-mkdir -p ~/.ssh
+## configure ssh, user bin, and aliases
+mkdir -p ~/.ssh ~/bin
 touch ~/.ssh/authorized_keys
 
-mkdir -p ~/bin
-
-## Restart affected services
-printf "Restarting affected services\n"
-sudo service sshd restart
-sudo service smbd restart
-
+printf '\nalias uuu="sudo apt update && sudo apt upgrade -y"' >> ~/.bash_aliases
+printf '\nalias aaa="sudo apt autoclean && sudo apt autoremove -y"' >> ~/.bash_aliases
 
 ## Apply GUI Settings if possible
 if hash gsettings 2>/dev/null; then
