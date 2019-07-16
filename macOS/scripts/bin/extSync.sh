@@ -1,36 +1,36 @@
 #!/usr/bin/env bash
 
 ##
-#: Performs a backup of the specified folders of one volume to my local NAS box.
+#: Perform a backup of the specified folders on an external hard drive attached to my computer to my local NAS.
 #:
-#: PRECONDITION:
-#: 		1. The remote destination contains each of the specified local folders to copy under the /archive directory. For example,
-#: 				if the source volume is "Foo", then the remote destination must be named "/archive/Foo".
+#: PRECONDITIONS:
+#: 		1. The remote destination contains each of the specified local folders to copy under the /mnt/archive directory. For example,
+#: 				if the source volume is "Foo", then the remote destination must be named "/mnt/archive/USERNAME/Foo".
 #: PARAMETERS:
 #: 		$1 - base name of the source volume
-#:		$2 - THe remote host.  Use ssh format. For example, if user is "bar" and host address is 192.168.1.1 then specify
-#:				"bar@192.168.1.1"
-#:		$3 - base names of directories in the source volume to copy to the dest volume
+#: 		$2 - The path suffix of the destination archive (e.g. "username/Pictures")
+#:		$3 - THe remote host, accessible via ssh.  (e.g. for user "bar" on server address 192.168.1.1, use "bar@192.168.1.1")
+#:		$4 - base names of directories in the source volume to copy to the destination volume
 #:
 #: Author: Fastily
 ##
 
 src="/Volumes/${1}"
-remoteDest="/archive/${1}"
-dest="${2}:${remoteDest}"
+remoteDest="/mnt/archive/${2}"
+dest="${3}:${remoteDest}"
 
 if [ $# -lt 3 ]; then
 	printf "Usage: extSync <SRC_VOLUME_BASENAME> <REMOTE_HOST> <DIRS_TO_COPY...>\n"
     exit 1
 fi
 
-if ([ ! -d "$src" ] || ssh "$2" "[ ! -d ${remoteDest} ]"); then
-	printf "ERROR: \"%s\" or \"%s\" does not exist!\n" "$src" "$dest"
+if ([ ! -d "$src" ] || ssh "$3" "[ ! -d ${remoteDest} ]"); then
+	printf 'ERROR: "%s" or "%s" does not exist!\n' "$src" "$dest"
     exit 1
 fi
 
 ## fetch target paths as an Array.
-shift 2
+shift 3
 targets=("$@")
 
 ddss.sh "$src"
