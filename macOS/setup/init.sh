@@ -47,7 +47,7 @@ brew install nmap
 brew install nodejs
 brew install python
 #brew install ruby
-brew install sox
+# brew install sox
 brew install unrar
 brew install wget
 brew install youtube-dl
@@ -56,6 +56,7 @@ brew install youtube-dl
 brew cask install docker
 brew cask install firefox
 brew cask install iina
+brew cask install knockknock
 brew cask install mysqlworkbench
 brew cask install private-internet-access
 brew cask install postgres
