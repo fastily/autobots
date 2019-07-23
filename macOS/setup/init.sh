@@ -53,15 +53,17 @@ brew install wget
 brew install youtube-dl
 
 ## Install Apps
+brew cask install chromium
 brew cask install docker
-brew cask install firefox
+brew cask install eclipse-java
+# brew cask install firefox
 brew cask install iina
 brew cask install knockknock
-brew cask install mysqlworkbench
+# brew cask install mysqlworkbench
 brew cask install private-internet-access
 brew cask install postgres
 brew cask install postman
-brew cask install springtoolsuite
+# brew cask install springtoolsuite
 brew cask install sublime-text
 # brew cask install rekordbox
 brew cask install visual-studio-code
@@ -72,6 +74,9 @@ brew install less
 brew install openssh
 brew install rsync
 
+## Homebrew Other
+brew install sass/sass/sass
+
 ## Install python packages
 pip3 install django pillow psycopg2-binary pylint pylint-django requests twine virtualenv
 
@@ -79,6 +84,7 @@ pip3 install django pillow psycopg2-binary pylint pylint-django requests twine v
 code --install-extension ms-python.python
 code --install-extension octref.vetur
 code --install-extension peterjausovec.vscode-docker
+code --install-extension ritwickdey.liveserver
 
 mkdir -p ~/'Library/Application Support/Code/User/'
 printf '{"python.linting.pylintArgs": ["--load-plugins=pylint_django"], "python.pythonPath": "/usr/local/bin/python3"}' > ~/'Library/Application Support/Code/User/settings.json'
