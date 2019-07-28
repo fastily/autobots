@@ -7,8 +7,10 @@
 #: 
 #: Author: Fastily
 
+sudo apt update && sudo apt install -y haveged openjdk-8-jre-headless
+
 cd /tmp
 
-wget 'https://dl.ubnt.com/unifi/5.10.20/unifi_sysvinit_all.deb'
+wget 'https://dl.ui.com/unifi/5.10.25/unifi_sysvinit_all.deb'
 sudo dpkg -i unifi_sysvinit_all.deb
 sudo apt-get install -f -y
