@@ -9,7 +9,7 @@
 ##
 
 if [ ! -f "$1" ]; then
-	printf "Usage: makeTransparent.sh <IMAGE_FILE>\n"
+	printf "Usage: %s <IMAGE_FILE>\n" "${0##*/}"
 	exit 1
 fi
 

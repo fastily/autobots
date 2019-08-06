@@ -20,7 +20,7 @@ remoteDest="/mnt/archive/${2}"
 dest="${3}:${remoteDest}"
 
 if [ $# -lt 3 ]; then
-	printf "Usage: extSync <SRC_VOLUME_BASENAME> <REMOTE_HOST> <DIRS_TO_COPY...>\n"
+	printf "Usage: %s <SRC_VOLUME_BASENAME> <REMOTE_HOST> <DIRS_TO_COPY...>\n" "${0##*/}"
     exit 1
 fi
 

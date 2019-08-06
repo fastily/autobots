@@ -14,7 +14,7 @@ shopt -s globstar nullglob nocaseglob
 usage()
 {
 	printf "Usage:\n"
-	printf "toOgv.sh [-m] [-h]\n"
+	printf "%s [-m] [-h]\n" "${0##*/}"
 	printf "\t-m: Turn audio transcoding on (off by default)\n"
 	printf "\t-h: Show this message and exit\n"
 	exit 1

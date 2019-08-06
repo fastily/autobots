@@ -15,7 +15,7 @@ shopt -s globstar nullglob nocaseglob
 usage()
 {
 	printf "Usage:\n"
-	printf "toWebm.sh [-a] [-s] [-h]\n"
+	printf "%s [-a] [-s] [-h]\n" "${0##*/}"
 	printf "\t-a: Turn audio transcoding on (off by default)\n"
 	printf "\t-s: Enable slow-motion encoding (8x slowdown @ 30fps)\n"
 	printf "\t-h: Show this message and exit\n"

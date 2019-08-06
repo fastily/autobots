@@ -9,7 +9,7 @@
 
 
 if [ $# -lt 1 ]; then
-	printf "Usage: backupHome.sh <BACKUP_DIRECTORY>\n"
+	printf "Usage: %s <BACKUP_DIRECTORY>\n" "${0##*/}"
 	exit
 fi
 

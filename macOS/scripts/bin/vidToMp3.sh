@@ -15,7 +15,7 @@ shopt -s globstar nullglob nocaseglob
 usage()
 {
 	printf "Usage:\n"
-	printf "vidToMp3.sh [-q] [-h]\n"
+	printf "%s [-q] [-h]\n" "${0##*/}"
 	printf "\t-q: Force high qulity rips (i.e. 320kbps)\n"
 	printf "\t-h: Show this message and exit\n"
 	exit

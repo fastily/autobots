@@ -15,7 +15,7 @@
 
 ## Ensure that the the target drive volume exists
 if [ "$#" -lt 2 ]; then
-	printf "[Usage]: writeISOtoUSB <PATH_TO_ISO> <DISK_ID_NUMBER>\n"
+	printf "[Usage]: %s <PATH_TO_ISO> <DISK_ID_NUMBER>\n" "${0##*/}"
 	exit 1
 fi
 

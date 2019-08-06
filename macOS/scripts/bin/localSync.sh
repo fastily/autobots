@@ -17,12 +17,12 @@ src="/Volumes/${1}"
 dest="${src}2"
 
 if [ $# -lt 2 ]; then
-	printf "Usage: localSync <SRC_VOLUME_BASENAME> <DIRS_TO_COPY...>\n"
+	printf "Usage: %s <SRC_VOLUME_BASENAME> <DIRS_TO_COPY...>\n" "${0##*/}"
     exit 1
 fi
 
 if [ ! -d "$src" ] || [ ! -d "$dest" ]; then
-	printf "ERROR: \"%s\" or \"%s\" does not exist!\n" "$src" "$dest"
+	printf 'ERROR: "%s" or "%s" does not exist!\n' "$src" "$dest"
     exit 1
 fi
 

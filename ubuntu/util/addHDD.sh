@@ -16,7 +16,7 @@
 # Prints usage and exits
 ##
 usage() {
-  printf "Usage: addHDD <device id> <mount destination>\n"
+  printf "Usage: %s <device id> <mount destination>\n" "${0##*/}"
   exit 1
 }
 

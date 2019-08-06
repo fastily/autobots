@@ -7,7 +7,7 @@
 ##
 
 if [ "$#" -ne 1 ]; then
-	printf "Usage: archiveYT <YT_PATH>\n"
+	printf "Usage: %s <YT_PATH>\n" "${0##*/}"
 	exit 1
 fi
 

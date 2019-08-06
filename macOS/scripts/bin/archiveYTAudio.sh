@@ -12,7 +12,7 @@
 ##
 
 if [ "$#" -ne 4 ]; then
-	printf "Usage: archiveYTAudio <YT_PATH> <ARTIST> <ALUBM> <PATH_TO_ARTWORK>\n"
+	printf "Usage: %s <YT_PATH> <ARTIST> <ALUBM> <PATH_TO_ARTWORK>\n" "${0##*/}"
 	exit 1
 fi
 

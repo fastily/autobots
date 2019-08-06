@@ -11,7 +11,7 @@
 # Prints usage and exits
 ##
 usage() {
-  printf "Usage: lazyRAID.sh <new_mount_id> <device_name_1> <device_name_2> <device_name_3>...\n"
+  printf "Usage: %s <new_mount_id> <device_name_1> <device_name_2> <device_name_3>...\n" "${0##*/}"
   exit
 }
 

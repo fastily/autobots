@@ -8,7 +8,7 @@
 #: Author: Fastily
 
 if [ "$#" -ne 1 ]; then
-	printf "Usage: createPublicSambaShare <PATH_TO_DIRECTORY>\n"
+	printf "Usage: %s <PATH_TO_DIRECTORY>\n" "${0##*/}"
 	exit 1
 fi
 

@@ -9,7 +9,7 @@
 ##
 
 if [ ! -f "$1" ]; then
-	printf "Usage: toMp3 <PATH_TO_MEDIA_FILE>\n"
+	printf "Usage: %s <PATH_TO_MEDIA_FILE>\n" "${0##*/}"
 	exit 1
 fi
 
