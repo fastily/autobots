@@ -54,12 +54,12 @@ brew install youtube-dl
 
 ## Install Apps
 brew cask install chromium
+brew cask install dbeaver-community
 brew cask install docker
 brew cask install eclipse-java
 # brew cask install firefox
 brew cask install iina
 brew cask install knockknock
-# brew cask install mysqlworkbench
 brew cask install private-internet-access
 brew cask install postgres
 brew cask install postman
@@ -85,6 +85,7 @@ code --install-extension ms-python.python
 code --install-extension octref.vetur
 code --install-extension peterjausovec.vscode-docker
 code --install-extension ritwickdey.liveserver
+code --install-extension zignd.html-css-class-completion
 
 mkdir -p ~/'Library/Application Support/Code/User/'
 printf '{"python.linting.pylintArgs": ["--load-plugins=pylint_django"], "python.pythonPath": "/usr/local/bin/python3"}' > ~/'Library/Application Support/Code/User/settings.json'
