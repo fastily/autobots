@@ -83,7 +83,7 @@ pip3 install django pillow psycopg2-binary pylint pylint-django requests twine v
 ## Install VSCode settings and extensions
 code --install-extension ms-python.python
 code --install-extension octref.vetur
-code --install-extension peterjausovec.vscode-docker
+code --install-extension ms-azuretools.vscode-docker
 code --install-extension ritwickdey.liveserver
 code --install-extension zignd.html-css-class-completion
 
