@@ -18,7 +18,6 @@ mkdir -p "$rootsrc" "$src" "$build" "$bin"
 
 ## Install FFmpeg and dependencies
 sudo apt update
-
 sudo apt -y install autoconf automake build-essential cmake libsdl2-dev libtheora-dev \
 libtool libva-dev libvdpau-dev libvorbis-dev libxcb1-dev libxcb-shm0-dev libxcb-xfixes0-dev \
 pkg-config texinfo zlib1g-dev yasm libx264-dev libmp3lame-dev libopus-dev libfdk-aac-dev \
@@ -50,5 +49,3 @@ PATH="${bin}:${PATH}" PKG_CONFIG_PATH="${build}/lib/pkgconfig" ./configure \
 
 PATH="${bin}:${PATH}" make && \
 sudo make install
-
-printf "All done!\n"

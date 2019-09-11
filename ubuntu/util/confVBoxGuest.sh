@@ -5,7 +5,7 @@
 #: Tested on Ubuntu Desktop 18.04
 #: Author: Fastily
 
-VBOXVERSION="6.0.10"
+VBOXVERSION=$(wget -q -O - "https://download.virtualbox.org/virtualbox/LATEST.TXT")
 ISOFILE="VBoxGuestAdditions_${VBOXVERSION}.iso"
 MOUNTDIR="/media/vboxGuestExt"
 
