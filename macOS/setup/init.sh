@@ -36,43 +36,15 @@ git config --global user.email 'fastily@users.noreply.github.com'
 brew tap homebrew/cask-versions
 brew cask install java11
 
-brew install bash-completion
-brew install exiftool
+brew install bash-completion exiftool ffmpeg gradle imagemagick nmap nodejs python unrar wget youtube-dl
 #brew install eye-d3
-brew install ffmpeg
-brew install gradle
-brew install imagemagick
-# brew install mysql
-brew install nmap
-brew install nodejs
-brew install python
-#brew install ruby
-# brew install sox
-brew install unrar
-brew install wget
-brew install youtube-dl
 
 ## Install Apps
-brew cask install chromium
-brew cask install dbeaver-community
-brew cask install docker
-brew cask install eclipse-java
-# brew cask install firefox
-brew cask install iina
-brew cask install knockknock
-brew cask install private-internet-access
-brew cask install postgres
-brew cask install postman
-# brew cask install springtoolsuite
-brew cask install sublime-text
-# brew cask install rekordbox
-brew cask install visual-studio-code
+brew cask install chromium dbeaver-community docker eclipse-java firefox iina knockknock private-internet-access postgres postman sublime-text visual-studio-code
+# brew cask install rekordbox springtoolsuite 
 
 ## Patch Antiques
-brew install bash
-brew install less
-brew install openssh
-brew install rsync
+brew install bash less openssh rsync
 
 ## Homebrew Other
 brew install sass/sass/sass
@@ -88,7 +60,7 @@ code --install-extension ritwickdey.liveserver
 code --install-extension zignd.html-css-class-completion
 
 mkdir -p ~/'Library/Application Support/Code/User/'
-printf '{"python.linting.pylintArgs": ["--load-plugins=pylint_django"], "python.pythonPath": "/usr/local/bin/python3"}' > ~/'Library/Application Support/Code/User/settings.json'
+printf '{"python.linting.pylintArgs": ["--load-plugins=pylint_django"], "python.pythonPath": "/usr/local/bin/python3", "html.format.wrapLineLength": 0}' > ~/'Library/Application Support/Code/User/settings.json'
 
 ## bash-completions for docker
 DOCKERETC="/Applications/Docker.app/Contents/Resources/etc"
@@ -100,11 +72,7 @@ ln -s "${DOCKERETC}/docker-compose.bash-completion" "$(brew --prefix)/etc/bash_c
 # npm install -g bootlint
 # npm install -g eslint
 
-## Install Gems
-# gem install jekyll bundler
-
 ## Create .ssh and scripts folders
 mkdir -p ~/.ssh ~/Documents/git ~/Documents/scripts ~/Documents/workspace
-
 
 printf "Done!\n"
