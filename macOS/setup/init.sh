@@ -50,7 +50,7 @@ brew install bash less openssh rsync
 brew install sass/sass/sass
 
 ## Install python packages
-pip3 install django pillow psycopg2-binary pylint pylint-django requests twine virtualenv
+pip3 install autopep8 django pillow psycopg2-binary pylint pylint-django requests twine virtualenv whitenoise
 
 ## Install VSCode settings and extensions
 code --install-extension ms-python.python
@@ -60,7 +60,11 @@ code --install-extension ritwickdey.liveserver
 code --install-extension zignd.html-css-class-completion
 
 mkdir -p ~/'Library/Application Support/Code/User/'
-printf '{"python.linting.pylintArgs": ["--load-plugins=pylint_django"], "python.pythonPath": "/usr/local/bin/python3", "html.format.wrapLineLength": 0}' > ~/'Library/Application Support/Code/User/settings.json'
+printf '{
+	"python.linting.pylintArgs": ["--load-plugins", "pylint_django"],
+	"python.pythonPath": "/usr/local/bin/python3",
+	"python.formatting.autopep8Args": ["--max-line-length", "180"],
+	"html.format.wrapLineLength": 0}' > ~/'Library/Application Support/Code/User/settings.json'
 
 ## bash-completions for docker
 DOCKERETC="/Applications/Docker.app/Contents/Resources/etc"
