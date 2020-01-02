@@ -11,7 +11,7 @@ printf "deb https://download.virtualbox.org/virtualbox/debian $(lsb_release -cs)
 wget -q 'https://www.virtualbox.org/download/oracle_vbox_2016.asc' -O - | sudo apt-key add -
 wget -q 'https://www.virtualbox.org/download/oracle_vbox.asc' -O - | sudo apt-key add -
 
-sudo apt update && sudo apt install -y virtualbox-6.0
+sudo apt update && sudo apt install -y virtualbox-6.1
 
 # install extension pack
 VBOXVERSION=$(wget -q -O - "https://download.virtualbox.org/virtualbox/LATEST.TXT")
