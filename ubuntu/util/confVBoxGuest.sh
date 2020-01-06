@@ -9,6 +9,14 @@ VBOXVERSION=$(wget -q -O - "https://download.virtualbox.org/virtualbox/LATEST.TX
 ISOFILE="VBoxGuestAdditions_${VBOXVERSION}.iso"
 MOUNTDIR="/media/vboxGuestExt"
 
+## Apply GUI Settings if possible
+if hash gsettings 2>/dev/null; then
+	gsettings set org.gnome.desktop.session idle-delay 0
+	gsettings set org.gnome.desktop.media-handling autorun-never true
+	gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
+fi
+
+## install and configure vbox guest additions
 sudo apt update
 sudo apt install -y curl gcc make perl
 
