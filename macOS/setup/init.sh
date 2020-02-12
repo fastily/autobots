@@ -33,8 +33,8 @@ git config --global user.name "fastily"
 git config --global user.email 'fastily@users.noreply.github.com'
 
 ## Install script dependencies
-brew tap homebrew/cask-versions
-brew cask install java11
+brew tap AdoptOpenJDK/openjdk
+brew cask install adoptopenjdk11
 
 brew install bash-completion exiftool ffmpeg gradle imagemagick nmap nodejs python unrar wget youtube-dl
 #brew install eye-d3
