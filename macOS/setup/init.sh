@@ -40,8 +40,8 @@ brew install bash-completion exiftool ffmpeg gradle imagemagick nmap nodejs pyth
 #brew install eye-d3
 
 ## Install Apps
-brew cask install chromium dbeaver-community docker eclipse-java firefox iina knockknock private-internet-access postgres postman sublime-text visual-studio-code
-# brew cask install rekordbox springtoolsuite 
+brew cask install chromium dbeaver-community docker eclipse-java firefox iina knockknock postgres postman private-internet-access steam sublime-text visual-studio-code
+# brew cask install elgato-game-capture-hd rekordbox springtoolsuite 
 
 ## Patch Antiques
 brew install bash less openssh rsync
@@ -53,9 +53,10 @@ brew install sass/sass/sass
 pip3 install autopep8 django pillow psycopg2-binary pylint pylint-django requests twine virtualenv whitenoise
 
 ## Install VSCode settings and extensions
-code --install-extension ms-python.python
-code --install-extension octref.vetur
 code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-python.python
+code --install-extension njpwerner.autodocstring
+code --install-extension octref.vetur
 code --install-extension ritwickdey.liveserver
 code --install-extension zignd.html-css-class-completion
 
