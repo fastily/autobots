@@ -36,7 +36,7 @@ git config --global user.email 'fastily@users.noreply.github.com'
 brew tap AdoptOpenJDK/openjdk
 brew cask install adoptopenjdk11
 
-brew install bash-completion exiftool ffmpeg gradle imagemagick nmap nodejs python unrar wget youtube-dl
+brew install bash-completion exiftool ffmpeg gradle imagemagick nmap nodejs python@3.8 unrar wget youtube-dl
 #brew install eye-d3
 
 ## Install Apps
