@@ -33,6 +33,7 @@ defaults write com.apple.Terminal SecureKeyboardEntry -bool true # enable termin
 defaults write com.apple.Terminal "Default Window Settings" -string Pro # set default terminal window to Pro
 defaults write com.apple.Terminal "Startup Window Settings" -string Pro # set startup window to Pro
 defaults write com.apple.Terminal NewTabWorkingDirectoryBehavior -int 1 # New tabs should open with default working dir
+defaults write com.apple.Terminal Shell -string "/usr/local/bin/bash" # set shell to locally patched bash
 
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true # prevent Photos from opening when iPhone is connected
 
