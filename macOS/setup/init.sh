@@ -36,7 +36,7 @@ git config --global user.email 'fastily@users.noreply.github.com'
 brew tap AdoptOpenJDK/openjdk
 brew cask install adoptopenjdk11
 
-brew install bash-completion exiftool ffmpeg gradle imagemagick nmap nodejs python@3.8 unrar wget youtube-dl
+brew install bash-completion exiftool ffmpeg gradle imagemagick nmap nodejs python unrar wget youtube-dl
 #brew install eye-d3
 
 ## Install Apps
@@ -50,15 +50,10 @@ brew install bash less openssh rsync
 brew install sass/sass/sass
 
 ## Install python packages
-pip3 install autopep8 django pillow psycopg2-binary pylint pylint-django requests twine virtualenv whitenoise
+pip3 install autopep8 django Flask pillow psycopg2-binary pylint pylint-django requests twine virtualenv watchdog websockets whitenoise
 
 ## Install VSCode settings and extensions
-code --install-extension ms-azuretools.vscode-docker
-code --install-extension ms-python.python
-code --install-extension njpwerner.autodocstring
-code --install-extension octref.vetur
-code --install-extension ritwickdey.liveserver
-code --install-extension zignd.html-css-class-completion
+code --install-extension ms-azuretools.vscode-docker --install-extension ms-python.python --install-extension njpwerner.autodocstring --install-extension octref.vetur --install-extension ritwickdey.liveserver --install-extension zignd.html-css-class-completion
 
 mkdir -p ~/'Library/Application Support/Code/User/'
 printf '{
@@ -73,11 +68,7 @@ ln -s "${DOCKERETC}/docker.bash-completion" "$(brew --prefix)/etc/bash_completio
 ln -s "${DOCKERETC}/docker-machine.bash-completion" "$(brew --prefix)/etc/bash_completion.d/docker-machine"
 ln -s "${DOCKERETC}/docker-compose.bash-completion" "$(brew --prefix)/etc/bash_completion.d/docker-compose"
 
-## Install global npm packages
-# npm install -g bootlint
-# npm install -g eslint
-
 ## Create .ssh and scripts folders
-mkdir -p ~/.ssh ~/Documents/git ~/Documents/scripts ~/Documents/workspace
+mkdir -p ~/.ssh ~/Documents/git ~/Documents/scripts
 
 printf "Done!\n"

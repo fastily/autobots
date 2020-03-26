@@ -29,6 +29,8 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true  # 
 
 defaults -currentHost write com.apple.screensaver idleTime -int 0 # disable screensaver
 
+defaults write com.apple.dock "show-recents" -int 0 # hide recent applications from dock (applied after reboot or killall dock)
+
 defaults write com.apple.Terminal SecureKeyboardEntry -bool true # enable terminal secure keyboard entry
 defaults write com.apple.Terminal "Default Window Settings" -string Pro # set default terminal window to Pro
 defaults write com.apple.Terminal "Startup Window Settings" -string Pro # set startup window to Pro
