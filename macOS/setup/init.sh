@@ -4,14 +4,15 @@
 #:
 #: Author: Fastily
 
-## Install Homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+## Install Homebrew if not installed
+if ! command -v brew; then
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-## Make sure the install worked
-which brew &> /dev/null
-if [ $? -ne 0 ]; then
-	printf "[ERROR]: Homebrew is not installed.  Something went wrong!\n"
-	exit 1
+	# sanity check
+	if ! command -v brew; then
+		printf "[ERROR]: Homebrew doesn't seem to be installed or isn't working right.  Abort."
+		exit 1
+	fi
 fi
 
 brew doctor

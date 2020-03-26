@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#: Installs Docker on Raspbian.  Adapted from [https://docs.docker.com/install/linux/docker-ce/debian/#install-using-the-convenience-script]
+#: Installs Java 14 on Raspbian.  Using binaries from AdoptOpenJDK: https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
 #: 
 #: Author: Fastily
 
