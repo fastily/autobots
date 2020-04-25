@@ -6,7 +6,7 @@
 
 ## Install Homebrew if not installed
 if ! command -v brew; then
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 	# sanity check
 	if ! command -v brew; then
@@ -38,7 +38,7 @@ git config --global user.email 'fastily@users.noreply.github.com'
 # brew cask install adoptopenjdk11
 brew cask install java
 
-brew install bash-completion exiftool ffmpeg gradle imagemagick nmap nodejs python unrar wget youtube-dl
+brew install bash-completion exiftool ffmpeg gradle gnupg imagemagick nmap nodejs python unrar wget youtube-dl
 #brew install eye-d3
 
 ## Install Apps
@@ -71,6 +71,12 @@ ln -s "${DOCKERETC}/docker-machine.bash-completion" "$(brew --prefix)/etc/bash_c
 ln -s "${DOCKERETC}/docker-compose.bash-completion" "$(brew --prefix)/etc/bash_completion.d/docker-compose"
 
 ## Create .ssh and scripts folders
-mkdir -p ~/.ssh ~/Documents/git ~/Documents/scripts
+mkdir -p ~./gradle ~/Documents/git ~/Documents/scripts
+
+## Create symlinks
+cd "$HOME"
+ln -s ~/Documents/keys/gradle.properties ./gradle/gradle.properties
+ln -s ~/Documents/keys/gnupg .gnupg
+ln -s ~/Documents/keys/ssh .ssh
 
 printf "Done!\n"
