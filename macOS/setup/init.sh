@@ -42,7 +42,7 @@ brew install bash-completion exiftool ffmpeg gradle gnupg imagemagick nmap nodej
 #brew install eye-d3
 
 ## Install Apps
-brew cask install chromium dbeaver-community docker eclipse-java firefox iina knockknock lulu postgres postman private-internet-access steam sublime-text taskexplorer visual-studio-code
+brew cask install chromium dbeaver-community docker eclipse-java firefox iina knockknock lulu postgres postman private-internet-access steam sublime-text taskexplorer visual-studio-code zoomus
 # brew cask install elgato-game-capture-hd rekordbox springtoolsuite 
 
 ## Patch Antiques
@@ -71,11 +71,11 @@ ln -s "${DOCKERETC}/docker-machine.bash-completion" "$(brew --prefix)/etc/bash_c
 ln -s "${DOCKERETC}/docker-compose.bash-completion" "$(brew --prefix)/etc/bash_completion.d/docker-compose"
 
 ## Create .ssh and scripts folders
-mkdir -p ~./gradle ~/Documents/git ~/Documents/scripts
+mkdir -p ~/.gradle ~/Documents/git ~/Documents/scripts
 
 ## Create symlinks
 cd "$HOME"
-ln -s ~/Documents/keys/gradle.properties ./gradle/gradle.properties
+ln -s ~/Documents/keys/gradle.properties .gradle/gradle.properties
 ln -s ~/Documents/keys/gnupg .gnupg
 ln -s ~/Documents/keys/ssh .ssh
 
