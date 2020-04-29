@@ -49,6 +49,7 @@ brew cask install chromium dbeaver-community docker eclipse-java firefox iina kn
 brew install bash less openssh rsync
 
 ## Homebrew Other
+brew install heroku/brew/heroku
 brew install sass/sass/sass
 
 ## Install python packages
