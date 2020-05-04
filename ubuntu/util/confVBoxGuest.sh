@@ -16,6 +16,10 @@ if hash gsettings 2>/dev/null; then
 	gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
 fi
 
+## apply configuration
+cd "${0%/*}" &> /dev/null
+bash confEnv.sh
+
 ## install and configure vbox guest additions
 sudo apt update
 sudo apt install -y curl gcc make perl
