@@ -6,7 +6,7 @@
 
 cd /tmp
 
-debFile="fahclient_7.6.9_amd64.deb"
+debFile="fahclient_7.6.13_amd64.deb"
 
 wget 'https://download.foldingathome.org/releases/public/release/fahclient/debian-stable-64bit/v7.6/${debFile}'
 sudo dpkg -i "$debFile"

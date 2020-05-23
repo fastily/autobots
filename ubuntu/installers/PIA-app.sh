@@ -4,7 +4,7 @@
 #: 
 #: Author: Fastily
 
-runFile="pia-linux-2.0.1-04518.run"
+runFile="pia-linux-2.0.2-04704.run"
 
 cd /tmp
 wget 'https://installers.privateinternetaccess.com/download/${runFile}' && \
