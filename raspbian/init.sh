@@ -5,7 +5,7 @@
 #: Tested on Raspbian Buster
 #: Author: Fastily
 
-# cd "${0%/*}" &> /dev/null
+cd "${0%/*}" &> /dev/null
 
 ## Install packages
 sudo apt update && sudo apt -y install fail2ban
@@ -25,6 +25,8 @@ sudo systemctl restart ssh
 
 ## Setup bin and aliases
 mkdir -p ~/bin
+cp -v util/* ~/bin
+
 printf '\nalias uuu="sudo apt update && sudo apt upgrade -y"' >> ~/.bash_aliases
 printf '\nalias aaa="sudo apt autoclean && sudo apt autoremove -y"' >> ~/.bash_aliases
 printf '\nalias showRaspbianVersion="cat /etc/os-release"' >> ~/.bash_aliases
