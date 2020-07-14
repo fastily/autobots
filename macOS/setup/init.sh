@@ -53,7 +53,7 @@ brew install heroku/brew/heroku
 brew install sass/sass/sass
 
 ## Install python packages
-pip3 install autopep8 pylint pylint-django twine virtualenv
+pip3 install autopep8 Django pylint pylint-django twine virtualenv
 
 ## Install VSCode settings and extensions
 code --install-extension ms-azuretools.vscode-docker --install-extension ms-python.python --install-extension njpwerner.autodocstring --install-extension octref.vetur --install-extension ritwickdey.liveserver --install-extension zignd.html-css-class-completion
