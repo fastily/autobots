@@ -6,6 +6,7 @@ PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${HOME}/bin
 export PATH
 
 # random aliases
+alias 4cRip='wget -e robots=off -nd -r -l 1 -H -D is2.4chan.org,i.4cdn.org -A png,gif,jpg,jpeg,webm --reject-regex ".*s.jpg" '
 alias b64d='base64 -D -i '
 alias b64e='base64 -i '
 alias buu='brew update && brew upgrade'

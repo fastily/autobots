@@ -5,11 +5,11 @@
 #: Author: Fastily
 
 ## Install Homebrew if not installed
-if ! command -v brew; then
+if ! command -v brew &> /dev/null; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 	# sanity check
-	if ! command -v brew; then
+	if ! command -v brew &> /dev/null; then
 		printf "[ERROR]: Homebrew doesn't seem to be installed or isn't working right.  Abort."
 		exit 1
 	fi
