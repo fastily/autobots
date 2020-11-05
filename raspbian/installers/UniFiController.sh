@@ -11,6 +11,6 @@ sudo apt update && sudo apt install -y haveged openjdk-8-jre-headless
 
 cd /tmp
 
-wget 'https://dl.ui.com/unifi/5.14.22/unifi_sysvinit_all.deb'
+wget 'https://dl.ui.com/unifi/6.0.28/unifi_sysvinit_all.deb'
 sudo dpkg -i unifi_sysvinit_all.deb
 sudo apt-get install -f -y
