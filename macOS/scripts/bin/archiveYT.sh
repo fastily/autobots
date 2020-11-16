@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 ##
-#: Archive a YouTube video, channel, or playlist.  Skips already downloaded content via skip file: archive.txt.
+#: Archive a YouTube channel.  Skips already downloaded content via skip file: archive.txt.
 #: PARAMETERS:
-#: 		$1 - URL to archive, excluding "https://www.youtube.com/" prefix
+#: 		$1 - URL to archive, excluding "https://www.youtube.com/" prefix.
 ##
 
 if [ "$#" -ne 1 ]; then
