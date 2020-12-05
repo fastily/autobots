@@ -42,7 +42,7 @@ brew install bash-completion exiftool ffmpeg gradle gnupg imagemagick nmap nodej
 #brew install eye-d3
 
 ## Install Apps
-brew cask install chromium dbeaver-community docker eclipse-java firefox iina knockknock lulu postgres postman private-internet-access steam sublime-text taskexplorer visual-studio-code zoomus
+brew cask install chromium dbeaver-community docker eclipse-java firefox iina knockknock lulu postgres postman private-internet-access steam sublime-text taskexplorer visual-studio-code zoom
 # brew cask install elgato-game-capture-hd rekordbox springtoolsuite 
 
 ## Patch Antiques
