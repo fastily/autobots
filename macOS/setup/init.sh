@@ -35,14 +35,14 @@ git config --global user.email 'fastily@users.noreply.github.com'
 
 ## Install script dependencies
 brew tap AdoptOpenJDK/openjdk
-brew cask install adoptopenjdk11
+brew install --cask adoptopenjdk11
 # brew cask install java
 
 brew install bash-completion exiftool ffmpeg gradle gnupg imagemagick nmap nodejs python unrar wget youtube-dl
 #brew install eye-d3
 
 ## Install Apps
-brew cask install chromium dbeaver-community docker eclipse-java firefox iina knockknock lulu postgres postman private-internet-access steam sublime-text taskexplorer visual-studio-code zoom
+brew install --cask chromium dbeaver-community docker eclipse-java firefox iina knockknock lulu postgres postman private-internet-access steam sublime-text taskexplorer visual-studio-code zoom
 # brew cask install elgato-game-capture-hd rekordbox springtoolsuite 
 
 ## Patch Antiques
@@ -56,13 +56,14 @@ brew install sass/sass/sass
 pip3 install autopep8 Django pylint pylint-django twine virtualenv
 
 ## Install VSCode settings and extensions
-code --install-extension ms-azuretools.vscode-docker --install-extension ms-python.python --install-extension njpwerner.autodocstring --install-extension octref.vetur --install-extension ritwickdey.liveserver --install-extension zignd.html-css-class-completion
+code --install-extension ms-azuretools.vscode-docker --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension njpwerner.autodocstring --install-extension octref.vetur --install-extension ritwickdey.liveserver --install-extension zignd.html-css-class-completion
 
 mkdir -p ~/'Library/Application Support/Code/User/'
 printf '{
 	"python.linting.pylintArgs": ["--load-plugins", "pylint_django", "-d", "C0103,C0301,W0703"],
 	"python.pythonPath": "/usr/local/bin/python3",
-	"python.formatting.autopep8Args": ["--max-line-length", "180"],
+	"python.formatting.autopep8Args": ["--max-line-length", "220"],
+	"python.languageServer": "Pylance",
 	"html.format.wrapLineLength": 0}' > ~/'Library/Application Support/Code/User/settings.json'
 
 ## bash-completions for docker
