@@ -42,3 +42,6 @@ defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true # p
 ## May be broken
 # defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad USBMouseStopsTrackpad -bool true # disable trackpad in clamshell mode
 # defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true # tap to click
+
+# 3rd party
+defaults write com.pixelmatorteam.pixelmator.x fullSizeQuickLookPreview -bool true

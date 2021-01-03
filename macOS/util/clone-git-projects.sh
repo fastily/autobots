@@ -28,7 +28,8 @@ mkdir -p "$GIT_DIR"
 cd "$GIT_DIR"
 
 ## Setup general projects
-repos=( "backup-utils" "bootstrap-course" "cheatsheet" "fastilybot-toolforge" "fcpx-presets" "ip-range-calc" "jinja2html" "jwiki-starter" "simple-commons-uploader" "stardew-valley-saves" "text2hash" )
+repos=( "backup-utils" "cheatsheet" "fastilybot-toolforge" "fcpx-presets" "ftools" "jinja2html" \
+	"littlewood-saves" "notebook" "pwiki" "simple-commons-uploader" "snippets" "stardew-valley-saves" )
 for repo in "${repos[@]}"; do
 	git clone "${GITHUB}/${repo}.git"
 done

@@ -6,7 +6,7 @@
 
 ## Install Homebrew if not installed
 if ! command -v brew &> /dev/null; then
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 	# sanity check
 	if ! command -v brew &> /dev/null; then
@@ -38,33 +38,36 @@ brew tap AdoptOpenJDK/openjdk
 brew install --cask adoptopenjdk11
 # brew cask install java
 
-brew install bash-completion exiftool ffmpeg gradle gnupg imagemagick nmap nodejs python unrar wget youtube-dl
+brew install bash-completion exiftool ffmpeg gradle gnupg imagemagick nmap nodejs p7zip python wget youtube-dl
 #brew install eye-d3
 
 ## Install Apps
-brew install --cask chromium dbeaver-community docker eclipse-java firefox iina knockknock lulu postgres postman private-internet-access steam sublime-text taskexplorer visual-studio-code zoom
-# brew cask install elgato-game-capture-hd rekordbox springtoolsuite 
+brew install --cask chromium dbeaver-community docker eclipse-java firefox iina knockknock lulu postman private-internet-access steam sublime-text taskexplorer visual-studio-code zoom
+# brew cask install elgato-game-capture-hd rekordbox postgres springtoolsuite
 
 ## Patch Antiques
 brew install bash less openssh rsync
 
 ## Homebrew Other
-brew install heroku/brew/heroku
-brew install sass/sass/sass
+# brew install heroku/brew/heroku
+# brew install sass/sass/sass
 
 ## Install python packages
-pip3 install autopep8 Django pylint pylint-django twine virtualenv
+pip3 install autopep8 twine virtualenv
+# pip3 install Django pylint pylint-django
 
 ## Install VSCode settings and extensions
-code --install-extension ms-azuretools.vscode-docker --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension njpwerner.autodocstring --install-extension octref.vetur --install-extension ritwickdey.liveserver --install-extension zignd.html-css-class-completion
+code --install-extension ms-azuretools.vscode-docker --install-extension ms-python.python --install-extension ms-python.vscode-pylance \
+	--install-extension njpwerner.autodocstring --install-extension octref.vetur --install-extension ritwickdey.liveserver --install-extension zignd.html-css-class-completion
 
 mkdir -p ~/'Library/Application Support/Code/User/'
 printf '{
-	"python.linting.pylintArgs": ["--load-plugins", "pylint_django", "-d", "C0103,C0301,W0703"],
+	"python.linting.pylintArgs": ["-d", "C0103,C0301,W0703"],
 	"python.pythonPath": "/usr/local/bin/python3",
-	"python.formatting.autopep8Args": ["--max-line-length", "220"],
+	"python.formatting.autopep8Args": ["--max-line-length", "250"],
 	"python.languageServer": "Pylance",
 	"html.format.wrapLineLength": 0}' > ~/'Library/Application Support/Code/User/settings.json'
+#"python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
 
 ## bash-completions for docker
 DOCKERETC="/Applications/Docker.app/Contents/Resources/etc"
