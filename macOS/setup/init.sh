@@ -53,8 +53,8 @@ brew install bash less openssh rsync
 # brew install sass/sass/sass
 
 ## Install python packages
-pip3 install autopep8 twine virtualenv
-# pip3 install Django pylint pylint-django
+pip3 install twine virtualenv
+# pip3 install autopep8 Django pylint pylint-django
 
 ## Install VSCode settings and extensions
 code --install-extension ms-azuretools.vscode-docker --install-extension ms-python.python --install-extension ms-python.vscode-pylance \
@@ -63,10 +63,10 @@ code --install-extension ms-azuretools.vscode-docker --install-extension ms-pyth
 mkdir -p ~/'Library/Application Support/Code/User/'
 printf '{
 	"python.linting.pylintArgs": ["-d", "C0103,C0301,W0703"],
-	"python.pythonPath": "/usr/local/bin/python3",
 	"python.formatting.autopep8Args": ["--max-line-length", "250"],
 	"python.languageServer": "Pylance",
-	"html.format.wrapLineLength": 0}' > ~/'Library/Application Support/Code/User/settings.json'
+	"html.format.wrapLineLength": 0
+}' > ~/'Library/Application Support/Code/User/settings.json'
 #"python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
 
 ## bash-completions for docker
