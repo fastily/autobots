@@ -4,10 +4,11 @@
 #: 
 #: Author: Fastily
 
-cd /tmp && \
-git clone --depth 1 "https://github.com/pi-hole/pi-hole.git" && \
-sudo bash "pi-hole/automated install/basic-install.sh" --unattended
+curl -sSL 'https://install.pi-hole.net' | bash
 
+# cd /tmp && \
+# git clone --depth 1 "https://github.com/pi-hole/pi-hole.git" && \
+# sudo bash "pi-hole/automated install/basic-install.sh" --unattended
 
 # setup automatic updates via cron - Saturdays @ 14:00 UTC
 # CTF="/tmp/currctab"
