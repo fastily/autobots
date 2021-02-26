@@ -58,7 +58,7 @@ code --install-extension ms-azuretools.vscode-docker --install-extension ms-pyth
 mkdir -p ~/'Library/Application Support/Code/User/'
 printf '{
 	"python.linting.pylintArgs": ["-d", "C0103,C0301,W0703"],
-	"python.formatting.autopep8Args": ["--max-line-length", "250"],
+	"python.formatting.autopep8Args": ["--max-line-length", "300"],
 	"python.languageServer": "Pylance",
 	"html.format.wrapLineLength": 0
 }' > ~/'Library/Application Support/Code/User/settings.json'
