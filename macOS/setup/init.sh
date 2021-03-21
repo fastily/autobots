@@ -33,7 +33,7 @@ brew tap AdoptOpenJDK/openjdk
 brew install --cask adoptopenjdk11
 # brew cask install java
 
-brew install bash-completion@2 exiftool ffmpeg gradle gnupg imagemagick nmap node p7zip python wget youtube-dl
+brew install bash-completion@2 exiftool ffmpeg gradle gnupg imagemagick iperf3 nmap node p7zip python wget youtube-dl
 #brew install eye-d3
 
 ## Install Apps
