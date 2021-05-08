@@ -2,11 +2,13 @@
 [[ -r '/usr/local/etc/profile.d/bash_completion.sh' ]] && . '/usr/local/etc/profile.d/bash_completion.sh'
 
 # make sure ~/bin is included in PATH variable
-PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${HOME}/bin
-export PATH
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${HOME}/bin"
+
+if [ -d '/opt/homebrew/bin' ]; then
+	export PATH="/opt/homebrew/bin:${PATH}"
+fi
 
 # random aliases
-alias 4cRip='wget -e robots=off -nd -r -l 1 -H -D is2.4chan.org,i.4cdn.org -A png,gif,jpg,jpeg,webm --reject-regex ".*s.jpg" '
 alias b64d='base64 -D -i '
 alias b64e='base64 -i '
 alias buu='brew update && brew upgrade'
