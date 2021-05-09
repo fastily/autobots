@@ -1,14 +1,14 @@
 # bash completions
 [[ -r '/usr/local/etc/profile.d/bash_completion.sh' ]] && . '/usr/local/etc/profile.d/bash_completion.sh'
 
-# make sure ~/bin is included in PATH variable
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${HOME}/bin"
+# configure path
+for d in "${HOME}/bin" "/opt/homebrew/sbin" "/opt/homebrew/bin"; do
+	if [ -d "$d" ]; then
+		export PATH="${d}:${PATH}"
+	fi
+done
 
-if [ -d '/opt/homebrew/bin' ]; then
-	export PATH="/opt/homebrew/bin:${PATH}"
-fi
-
-# random aliases
+# aliases
 alias b64d='base64 -D -i '
 alias b64e='base64 -i '
 alias buu='brew update && brew upgrade'
