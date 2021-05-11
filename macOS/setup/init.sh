@@ -8,6 +8,11 @@
 if ! command -v brew &> /dev/null; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+	# brew bin/sbin not automatically on path for Apple Silicon
+	if [ $(uname -m) == "arm64" ]; then
+		export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}"
+	fi
+
 	# sanity check
 	if ! command -v brew &> /dev/null; then
 		printf "[ERROR]: Homebrew doesn't seem to be installed or isn't working right.  Abort."
@@ -60,7 +65,7 @@ printf '{
 	"python.linting.pylintArgs": ["-d", "C0103,C0301,W0703"],
 	"python.formatting.autopep8Args": ["--max-line-length", "300"],
 	"python.languageServer": "Pylance",
-	"terminal.integrated.shell.osx": "/opt/homebrew/bin/bash",
+	"terminal.integrated.defaultProfile.osx": "bash",
 	"html.format.wrapLineLength": 0
 }' > ~/'Library/Application Support/Code/User/settings.json'
 #"python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
