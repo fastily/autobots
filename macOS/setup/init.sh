@@ -34,16 +34,16 @@ git config --global user.name "fastily"
 git config --global user.email 'fastily@users.noreply.github.com'
 
 ## Install script dependencies
-brew tap AdoptOpenJDK/openjdk
-brew install --cask adoptopenjdk11
+# brew tap AdoptOpenJDK/openjdk
+# brew install --cask adoptopenjdk11
 # brew cask install java
 
-brew install bash-completion@2 exiftool ffmpeg gradle gnupg imagemagick iperf3 nmap node p7zip python wget youtube-dl
-#brew install eye-d3
+brew install bash-completion@2 exiftool ffmpeg gnupg imagemagick iperf3 nmap node p7zip python wget youtube-dl
+#brew install gradle eye-d3
 
 ## Install Apps
-brew install --cask chromium dbeaver-community docker eclipse-java firefox iina knockknock lulu postman private-internet-access steam sublime-text taskexplorer visual-studio-code zoom
-# brew cask install elgato-game-capture-hd rekordbox postgres springtoolsuite
+brew install --cask chromium dbeaver-community docker firefox knockknock postman private-internet-access steam sublime-text taskexplorer visual-studio-code
+# brew cask install eclipse-java elgato-game-capture-hd iina lulu rekordbox postgres zoom
 
 ## Patch Antiques
 brew install bash less openssh rsync
@@ -53,7 +53,7 @@ brew install bash less openssh rsync
 # brew install sass/sass/sass
 
 ## Install python packages
-pip3 install twine virtualenv
+pip3 install build twine virtualenv
 # pip3 install autopep8 Django pylint pylint-django
 
 ## Install VSCode settings and extensions
@@ -71,17 +71,17 @@ printf '{
 #"python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
 
 ## bash-completions for docker
-DOCKERETC="/Applications/Docker.app/Contents/Resources/etc"
-ln -s "${DOCKERETC}/docker.bash-completion" "$(brew --prefix)/etc/bash_completion.d/docker"
-ln -s "${DOCKERETC}/docker-machine.bash-completion" "$(brew --prefix)/etc/bash_completion.d/docker-machine"
-ln -s "${DOCKERETC}/docker-compose.bash-completion" "$(brew --prefix)/etc/bash_completion.d/docker-compose"
+# DOCKERETC="/Applications/Docker.app/Contents/Resources/etc"
+# ln -s "${DOCKERETC}/docker.bash-completion" "$(brew --prefix)/etc/bash_completion.d/docker"
+# ln -s "${DOCKERETC}/docker-machine.bash-completion" "$(brew --prefix)/etc/bash_completion.d/docker-machine"
+# ln -s "${DOCKERETC}/docker-compose.bash-completion" "$(brew --prefix)/etc/bash_completion.d/docker-compose"
 
 ## Create .ssh and scripts folders
-mkdir -p ~/.gradle ~/Documents/git ~/Documents/scripts
+mkdir -p ~/Documents/git ~/Documents/scripts # ~/.gradle
 
 ## Create symlinks
 cd "$HOME"
-ln -s ~/Documents/keys/gradle.properties .gradle/gradle.properties
+# ln -s ~/Documents/keys/gradle.properties .gradle/gradle.properties
 ln -s ~/Documents/keys/gnupg .gnupg
 ln -s ~/Documents/keys/ssh .ssh
 
