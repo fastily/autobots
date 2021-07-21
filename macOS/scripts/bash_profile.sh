@@ -2,11 +2,14 @@
 [[ -r '/usr/local/etc/profile.d/bash_completion.sh' ]] && . '/usr/local/etc/profile.d/bash_completion.sh'
 
 # configure path
-for d in "${HOME}/bin" "/opt/homebrew/sbin" "/opt/homebrew/bin"; do
-	if [ -d "$d" ]; then
-		export PATH="${d}:${PATH}"
-	fi
-done
+eval $($([ -f '/opt/homebrew/bin/brew' ] && printf '/opt/homebrew/bin/brew' || printf '/usr/local/bin/brew') shellenv)
+export PATH="${HOME}/bin:${PATH}"
+
+# for d in "${HOME}/bin" "/opt/homebrew/sbin" "/opt/homebrew/bin"; do
+# 	if [ -d "$d" ]; then
+# 		export PATH="${d}:${PATH}"
+# 	fi
+# done
 
 # aliases
 alias b64d='base64 -D -i '
