@@ -2,14 +2,12 @@
 [[ -r '/usr/local/etc/profile.d/bash_completion.sh' ]] && . '/usr/local/etc/profile.d/bash_completion.sh'
 
 # configure path
-eval $($([ -f '/opt/homebrew/bin/brew' ] && printf '/opt/homebrew/bin/brew' || printf '/usr/local/bin/brew') shellenv)
-export PATH="${HOME}/bin:${PATH}"
+[ "$(uname -m)" == "arm64" ] && my_brew="/opt/homebrew/bin/brew" || my_brew="/usr/local/bin/brew"
+if [ -f "$my_brew" ]; then
+	eval $("$my_brew" shellenv)
+fi
 
-# for d in "${HOME}/bin" "/opt/homebrew/sbin" "/opt/homebrew/bin"; do
-# 	if [ -d "$d" ]; then
-# 		export PATH="${d}:${PATH}"
-# 	fi
-# done
+export PATH="${HOME}/bin:${PATH}"
 
 # aliases
 alias b64d='base64 -D -i '
@@ -29,3 +27,9 @@ alias simpleWS='python3 -m http.server 8000'
 alias undoLastCommit='git reset --soft HEAD~1'
 alias whatIsMyIP='curl icanhazip.com'
 alias ytAudio='youtube-dl -i -w -f bestaudio --add-metadata '
+
+
+# local settings
+if [ -f ~/".bash_local" ]; then
+	source ~/".bash_local"
+fi
