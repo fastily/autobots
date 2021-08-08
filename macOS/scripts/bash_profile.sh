@@ -30,6 +30,7 @@ alias ytAudio='youtube-dl -i -w -f bestaudio --add-metadata '
 
 
 # local settings
-if [ -f ~/".bash_local" ]; then
-	source ~/".bash_local"
+bash_local=~/".bash_local"
+if [ -f "$bash_local" ]; then
+	source "$bash_local"
 fi
