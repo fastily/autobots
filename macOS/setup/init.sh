@@ -54,14 +54,10 @@ EOF
 
 #"python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
 
-## Create .ssh and scripts folders
-mkdir -p ~/Documents/{git,scripts}
-
-## Create symlinks
-cd "$HOME"
-ln -s ~/Documents/keys/ssh .ssh
-
-sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
+## Create folders and symlinks
+cd ~
+mkdir -p Documents/{git,keys,scripts}
+ln -s Documents/keys/ssh .ssh
 
 ## App Store
 mas install 1440147259 # AdGuard for Safari
@@ -72,5 +68,8 @@ mas install 497799835  # Xcode
 sudo xcode-select -s "/Applications/Xcode.app/Contents/Developer"
 sudo xcodebuild -license accept
 sudo xcodebuild -runFirstLaunch
+
+## Harden
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
 
 echo "Done!"

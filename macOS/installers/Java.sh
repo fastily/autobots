@@ -7,6 +7,7 @@
 brew install --cask adoptopenjdk eclipse-java
 brew install gnupg gradle
 
-mkdir -p ~/.gradle
-ln -s ~/Documents/keys/gradle.properties .gradle/gradle.properties
-ln -s ~/Documents/keys/gnupg .gnupg
+cd ~
+mkdir -p .gradle
+ln -s Documents/keys/gradle.properties .gradle/gradle.properties
+ln -s Documents/keys/gnupg .gnupg

@@ -15,6 +15,8 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false  # 
 
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true  # don't create .DS_STORE in SMB shares
 
+# sudo systemsetup -setcomputersleep "Never"  # Disable sleep
+
 ## May be broken due to way Mojave sets permissions - waiting on workaround
 # defaults write com.apple.Safari AutoOpenSafeDownloads -bool false  # disable auto-opening of downloads
 # defaults write com.apple.Safari CanPromptForPushNotifications -bool false # prevent websites from asking for push notifications
@@ -35,7 +37,7 @@ defaults write com.apple.Terminal SecureKeyboardEntry -bool true # enable termin
 defaults write com.apple.Terminal "Default Window Settings" -string Pro # set default terminal window to Pro
 defaults write com.apple.Terminal "Startup Window Settings" -string Pro # set startup window to Pro
 defaults write com.apple.Terminal NewTabWorkingDirectoryBehavior -int 1 # New tabs should open with default working dir
-defaults write com.apple.Terminal Shell -string "/usr/local/bin/bash" # set shell to locally patched bash
+defaults write com.apple.Terminal Shell -string "/opt/homebrew/bin/bash" # set shell to locally patched bash
 
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true # prevent Photos from opening when iPhone is connected
 
