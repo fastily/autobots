@@ -23,11 +23,21 @@ alias pip='pip3'
 alias po='pip3 list --outdated '
 alias pu='pip3 install --upgrade '
 alias resetFileGit='git checkout HEAD -- '
-alias simpleWS='python3 -m http.server 8000'
 alias undoLastCommit='git reset --soft HEAD~1'
 alias whatIsMyIP='curl icanhazip.com'
 alias ytAudio='youtube-dl -i -w -f bestaudio --add-metadata '
 
+
+##
+# starts a fileserver in the current working directory
+##
+simpleWS() {
+	localIP.sh | while read -r line; do
+		printf "Server (probably) reachable at http//%s:8000\n" "$line"
+	done
+
+	python3 -m http.server 8000
+}
 
 # local settings
 bash_local=~/".bash_local"
