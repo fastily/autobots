@@ -21,10 +21,8 @@ if [ $(uname -m) == "arm64" ]; then
 fi
 
 ## Install Apps
-brew install bash-completion@2 exiftool ffmpeg imagemagick iperf3 mas nmap node p7zip python wget youtube-dl
-#brew install eye-d3
+brew install bash-completion@2 exiftool ffmpeg imagemagick iperf3 mas nmap node p7zip python wget yt-dlp
 brew install --cask blackhole-2ch chromium dbeaver-community firefox knockknock postman private-internet-access steam sublime-text taskexplorer visual-studio-code
-# brew cask install elgato-game-capture-hd lulu rekordbox postgres zoom
 
 ## Patch Antiques
 brew install bash less openssh rsync

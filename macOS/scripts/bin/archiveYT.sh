@@ -11,4 +11,4 @@ if [ "$#" -ne 1 ]; then
 	exit 1
 fi
 
-youtube-dl -i -w --add-metadata --download-archive archive.txt -o '%(upload_date)s - %(title)s - [%(id)s].%(ext)s' "https://www.youtube.com/${1}/videos"
+yt-dlp -w --add-metadata --download-archive archive.txt -o '%(upload_date)s - %(title)s - [%(id)s].%(ext)s' "https://www.youtube.com/${1}"
