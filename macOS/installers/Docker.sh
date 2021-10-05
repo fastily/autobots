@@ -4,7 +4,7 @@
 #:
 #: Author: Fastily
 
-brew install --cask docker
+brew install --cask docker visual-studio-code
 
 ## Vscode extension
 code --install-extension ms-azuretools.vscode-docker

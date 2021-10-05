@@ -39,6 +39,22 @@ simpleWS() {
 	python3 -m http.server 8000
 }
 
+##
+# Creates a directory and sets it to the current working directory.
+#
+#: PARAMETERS:
+#: 		$1 - the name of the directory to create
+##
+mkcd() {
+	if [ -v "$1" ]; then
+		echo "Need to specify at least one argument!"
+		return 1
+	fi
+
+	mkdir -p "$1" && cd "$1"
+}
+
+
 # local settings
 bash_local=~/".bash_local"
 if [ -f "$bash_local" ]; then
