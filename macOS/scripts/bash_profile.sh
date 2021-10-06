@@ -46,7 +46,7 @@ simpleWS() {
 #: 		$1 - the name of the directory to create
 ##
 mkcd() {
-	if [ -v "$1" ]; then
+	if [ -z ${1+x} ]; then
 		echo "Need to specify at least one argument!"
 		return 1
 	fi
