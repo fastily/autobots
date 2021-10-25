@@ -36,7 +36,7 @@ simpleWS() {
 		printf "Server (probably) reachable at http//%s:8000\n" "$line"
 	done
 
-	python3 -m http.server 8000
+	python3 -m http.server
 }
 
 ##

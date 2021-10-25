@@ -17,7 +17,7 @@ bash ../installers/Samba.sh
 bash ../installers/OpenSSH.sh
 
 ## Configure ~/bin and aliases
-bash ../util/confEnv.sh
+bash confEnv.sh
 
 ## Apply GUI Settings if possible
 if hash gsettings 2>/dev/null; then
