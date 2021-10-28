@@ -21,7 +21,7 @@ if [ $(uname -m) == "arm64" ]; then
 fi
 
 ## Install Apps
-brew install bash-completion@2 exiftool ffmpeg imagemagick iperf3 mas nmap node p7zip python wget yt-dlp
+brew install bash-completion@2 exiftool ffmpeg imagemagick iperf3 mas nmap node p7zip python rdfind wget yt-dlp
 brew install --cask blackhole-2ch chromium dbeaver-community firefox knockknock postman private-internet-access steam sublime-text taskexplorer visual-studio-code
 
 ## Patch Antiques
@@ -33,7 +33,6 @@ brew install bash less openssh rsync
 
 ## Global python packages
 pip3 install build twine virtualenv
-# pip3 install autopep8 Django pylint pylint-django
 
 ## VSCode settings and extensions
 code --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension njpwerner.autodocstring --install-extension octref.vetur --install-extension ritwickdey.liveserver --install-extension zignd.html-css-class-completion
