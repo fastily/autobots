@@ -13,6 +13,7 @@ export PATH="${HOME}/bin:${PATH}"
 alias b64d='base64 -D -i '
 alias b64e='base64 -i '
 alias buu='brew update && brew upgrade'
+alias clean_py_build='rm -rf build dist *.egg-info'
 alias drs='python3 manage.py runserver'
 alias ffprobe='ffprobe -hide_banner '
 # alias gcp='gradle clean publishToMavenLocal -x test'
