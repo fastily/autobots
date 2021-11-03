@@ -55,6 +55,7 @@ EOF
 cd ~
 mkdir -p Documents/{git,keys,scripts}
 ln -s Documents/keys/ssh .ssh
+ln -s Documents/keys/pypirc.txt .pypirc
 
 ## App Store
 mas install 1440147259 # AdGuard for Safari
@@ -65,6 +66,20 @@ mas install 497799835  # Xcode
 sudo xcode-select -s "/Applications/Xcode.app/Contents/Developer"
 sudo xcodebuild -license accept
 sudo xcodebuild -runFirstLaunch
+
+## Xcode settings
+XCODE_DIR=~"/Library/Developer/Xcode/UserData"
+mkdir -p "$XCODE_DIR"
+cat > "${XCODE_DIR}/IDETemplateMacros.plist" <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>FILEHEADER</key>
+    <string></string>
+</dict>
+</plist>
+EOF
 
 ## Harden
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
