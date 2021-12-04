@@ -22,9 +22,9 @@ cd "$BASE_DIR"
 while read l || [[ -n $l ]]; do
 	d="${l%=*}"
 
-	if [ -d "$d" ]; then
-		pushd "$d"
-		yt-dlp -w --add-metadata --download-archive archive.txt -o '%(upload_date)s - %(title)s - [%(id)s].%(ext)s' "https://www.youtube.com/${l#*=}"
-		popd
-	fi
+	mkdir -p "$d"
+	pushd "$d"
+	yt-dlp -w --add-metadata --download-archive archive.txt -o '%(upload_date)s - %(title)s - [%(id)s].%(ext)s' "https://www.youtube.com/${l#*=}"
+	popd
+
 done < "$CHANNELS"
