@@ -21,7 +21,7 @@ if [ $(uname -m) == "arm64" ]; then
 fi
 
 ## Install Apps
-brew install bash-completion@2 exiftool ffmpeg imagemagick iperf3 mas nmap node p7zip python rdfind wget yt-dlp
+brew install bash-completion@2 exiftool ffmpeg imagemagick iperf3 nmap node p7zip python rdfind wget yt-dlp # mas
 brew install --cask blackhole-2ch chromium dbeaver-community firefox knockknock postman private-internet-access steam sublime-text taskexplorer visual-studio-code
 
 ## Patch Antiques
@@ -58,14 +58,14 @@ ln -s Documents/keys/ssh .ssh
 ln -s Documents/keys/pypirc.txt .pypirc
 
 ## App Store
-mas install 1440147259 # AdGuard for Safari
-mas install 424389933  # Final Cut Pro
-mas install 1289583905 # Pixelmator Pro
-mas install 497799835  # Xcode
+# mas install 1440147259 # AdGuard for Safari
+# mas install 424389933  # Final Cut Pro
+# mas install 1289583905 # Pixelmator Pro
+# mas install 497799835  # Xcode
 
-sudo xcode-select -s "/Applications/Xcode.app/Contents/Developer"
-sudo xcodebuild -license accept
-sudo xcodebuild -runFirstLaunch
+# sudo xcode-select -s "/Applications/Xcode.app/Contents/Developer"
+# sudo xcodebuild -license accept
+# sudo xcodebuild -runFirstLaunch
 
 ## Xcode settings
 XCODE_DIR=~"/Library/Developer/Xcode/UserData"
