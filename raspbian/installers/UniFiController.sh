@@ -1,16 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-#: Installs the UniFi Controller.  Inspired by [https://community.ubnt.com/t5/UniFi-Routing-Switching/Step-By-Step-Tutorial-Guide-Raspberry-Pi-with-UniFi-controller/td-p/2470231]
-#:
-#: PRECONDITION:
-#:		1) java 8 or better is installed
+#: Set up apt repo for UniFi Controller.  Adapted from [https://help.ui.com/hc/en-us/articles/220066768-UniFi-Network-How-to-Install-and-Update-via-APT-on-Debian-or-Ubuntu]
 #: 
 #: Author: Fastily
 
-sudo apt update && sudo apt install -y haveged openjdk-8-jre-headless
-
-cd /tmp
-
-wget 'https://dl.ui.com/unifi/6.0.28/unifi_sysvinit_all.deb'
-sudo dpkg -i unifi_sysvinit_all.deb
-sudo apt-get install -f -y
+sudo apt update && sudo apt install -y ca-certificates apt-transport-https
+echo 'deb https://www.ui.com/downloads/unifi/debian stable ubiquiti' | sudo tee "/etc/apt/sources.list.d/100-ubnt-unifi.list"
+sudo wget -O "/etc/apt/trusted.gpg.d/unifi-repo.gpg" "https://dl.ui.com/unifi/unifi-repo.gpg"
+sudo apt update && sudo apt install -y unifi
