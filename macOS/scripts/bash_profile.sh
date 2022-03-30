@@ -34,7 +34,7 @@ alias youtube_audio='yt-dlp -w -f bestaudio --add-metadata '
 ##
 simpleWS() {
 	localIP.sh | while read -r line; do
-		printf "Server (probably) reachable at http//%s:8000\n" "$line"
+		printf "Server (probably) reachable at http://%s:8000\n" "$line"
 	done
 
 	python3 -m http.server
