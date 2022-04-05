@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#: Install some helpful packages and apply sane settings for Raspbian
+#: Install some helpful packages and apply sane settings for Raspberry Pi OS
 #: 
-#: Tested on Raspbian Buster
+#: Tested on Raspberry Pi OS Buster
 #: Author: Fastily
 
 cd "${0%/*}" &> /dev/null

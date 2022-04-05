@@ -5,6 +5,7 @@
 #: PRECONDITION: Samba is installed.
 #: PARAMETERS:
 #: 		$1 - path to directory to share.  Please choose a path without spaces for best results.
+#:
 #: Author: Fastily
 
 if [ "$#" -ne 1 ]; then
