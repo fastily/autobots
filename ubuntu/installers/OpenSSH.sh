@@ -8,11 +8,13 @@
 sudo apt update && sudo apt -y install openssh-client openssh-server
 
 ## Harden sshd - disallow root login and password auth
-sshdConfig="/etc/ssh/sshd_config"
-sudo cp "$sshdConfig" "${sshdConfig}_BACKUP.txt" # create backup
-sudo sed -i -E 's/^\#?PermitRootLogin .*/PermitRootLogin no/' "$sshdConfig"
-sudo sed -i -E 's/^\#?PasswordAuthentication .*/PasswordAuthentication no/' "$sshdConfig"
-sudo service sshd restart
+SSH_CONFIG="/etc/ssh/sshd_config"
+
+sudo cp "$SSH_CONFIG" "/tmp/" # create temp backup
+sudo sed -i -E 's/^\#?PermitRootLogin .*/PermitRootLogin no/' "$SSH_CONFIG"
+sudo sed -i -E 's/^\#?PasswordAuthentication .*/PasswordAuthentication no/' "$SSH_CONFIG"
+
+sudo systemctl restart ssh
 
 ## create config files
 mkdir -p ~/.ssh

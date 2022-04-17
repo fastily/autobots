@@ -1,12 +1,11 @@
 #!/bin/bash
 
-#: Install the offical PIA app on Ubuntu.  Related: https://www.privateinternetaccess.com/pages/changelog
+#: Install the offical PIA app on Ubuntu.
 #: 
 #: Author: Fastily
 
-runFile="pia-linux-2.1-04977.run"
+PIA_VERSION="3.3.1-06924"
+RUN_FILE="pia-linux-${PIA_VERSION}.run"
 
-cd /tmp
-wget 'https://installers.privateinternetaccess.com/download/${runFile}' && \
-chmod a+x "$runFile" && \
-./"$runFile"
+cd "/tmp"
+wget 'https://installers.privateinternetaccess.com/download/${RUN_FILE}' && sh "$RUN_FILE"
