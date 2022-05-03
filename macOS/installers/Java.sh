@@ -4,7 +4,7 @@
 #:
 #: Author: Fastily
 
-brew install --cask temurin eclipse-java
+brew install --cask eclipse-java openjdk@17 # temurin
 brew install gnupg gradle
 
 cd ~

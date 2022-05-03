@@ -5,6 +5,7 @@
 #: PRECONDITIONS: 
 #:		1) You have an empty USB thumb drive to create the bootable installer on
 #: 		2) Install macOS Big Sur.app has been downloaded from the app store
+#:
 #: ARGUMENTS:
 #: 		$1 - The full path to the target USB Thumb Drive (e.g. '/Volumes/MyDrive')
 #: 

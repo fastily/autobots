@@ -8,13 +8,12 @@
 
 cd "${0%/*}" &> /dev/null
 
-printf "Copying scripts to bin\n"
-
+echo "Copying scripts to bin"
 mkdir -p ~/bin
 cp -p -f bin/* ~/bin/
 chflags hidden ~/bin
 
-printf "Copying bash profile\n"
-cat bash_profile.sh > ~/.bash_profile
+echo "Copying bash profile"
+cp bash_profile.sh ~/.bash_profile
 
-printf "Done!\n"
+echo "Done!"

@@ -2,40 +2,36 @@
 
 #: Installs my working environment and preferred applications
 #:
+#: PRECONDITIONS: 
+#:		1) Homebrew is installed
+#:
 #: Author: Fastily
 
 ## custom scripts and settings
 cd "${0%/*}" &> /dev/null
+
 bash ../scripts/deploy.sh
 bash settings.sh
-
-## Install Homebrew
-sudo -k && sudo -v
-echo | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 set -e
 
 # brew not automatically on PATH for Apple Silicon
-if [ $(uname -m) == "arm64" ]; then
+if [[ $(arch) == "arm64" ]]; then
 	eval $("/opt/homebrew/bin/brew" shellenv)
 fi
 
 ## Install Apps
-brew install bash-completion@2 exiftool ffmpeg imagemagick iperf3 nmap node p7zip python rdfind wget yt-dlp # mas
-brew install --cask blackhole-2ch chromium dbeaver-community firefox knockknock postman private-internet-access steam sublime-text taskexplorer visual-studio-code
+brew install bash-completion@2 exiftool ffmpeg gnu-tar imagemagick iperf3 nmap node p7zip python rdfind wget yt-dlp # mas
+brew install --cask blackhole-2ch dbeaver-community firefox knockknock postman steam sublime-text visual-studio-code vlc # private-internet-access taskexplorer
 
 ## Patch Antiques
 brew install bash less openssh rsync
 
-## Homebrew Other
-# brew install heroku/brew/heroku
-# brew install sass/sass/sass
-
 ## Global python packages
-pip3 install build twine virtualenv
+pip3 install virtualenv
 
 ## VSCode settings and extensions
-code --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension njpwerner.autodocstring --install-extension octref.vetur --install-extension ritwickdey.liveserver --install-extension zignd.html-css-class-completion
+code --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension njpwerner.autodocstring --install-extension octref.vetur --install-extension ritwickdey.liveserver # --install-extension zignd.html-css-class-completion
 
 VSCODE_DIR=~/'Library/Application Support/Code/User'
 mkdir -p "$VSCODE_DIR"
@@ -80,8 +76,5 @@ cat > "${XCODE_DIR}/IDETemplateMacros.plist" <<EOF
 </dict>
 </plist>
 EOF
-
-## Harden
-sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
 
 echo "Done!"

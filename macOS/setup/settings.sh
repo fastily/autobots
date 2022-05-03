@@ -37,13 +37,17 @@ defaults write com.apple.Terminal SecureKeyboardEntry -bool true # enable termin
 defaults write com.apple.Terminal "Default Window Settings" -string Pro # set default terminal window to Pro
 defaults write com.apple.Terminal "Startup Window Settings" -string Pro # set startup window to Pro
 defaults write com.apple.Terminal NewTabWorkingDirectoryBehavior -int 1 # New tabs should open with default working dir
-defaults write com.apple.Terminal Shell -string "/opt/homebrew/bin/bash" # set shell to locally patched bash
+
+[[ "$(arch)" == "arm64" ]] && my_bash="/opt/homebrew/bin/bash" || my_bash="/usr/local/bin/bash"
+defaults write com.apple.Terminal Shell -string "$my_bash" # set shell to locally patched bash
 
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true # prevent Photos from opening when iPhone is connected
+
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on # turn on firewall
 
 ## May be broken
 # defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad USBMouseStopsTrackpad -bool true # disable trackpad in clamshell mode
 # defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true # tap to click
 
-# 3rd party
+## 3rd party
 defaults write com.pixelmatorteam.pixelmator.x fullSizeQuickLookPreview -bool true

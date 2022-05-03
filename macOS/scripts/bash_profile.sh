@@ -2,10 +2,8 @@
 [[ -r '/usr/local/etc/profile.d/bash_completion.sh' ]] && . '/usr/local/etc/profile.d/bash_completion.sh'
 
 # configure path
-[ "$(uname -m)" == "arm64" ] && my_brew="/opt/homebrew/bin/brew" || my_brew="/usr/local/bin/brew"
-if [ -f "$my_brew" ]; then
-	eval $("$my_brew" shellenv)
-fi
+[[ "$(arch)" == "arm64" ]] && my_brew="/opt/homebrew/bin/brew" || my_brew="/usr/local/bin/brew"
+[[ -r "$my_brew" ]] && eval $("$my_brew" shellenv)
 
 export PATH="${HOME}/bin:${PATH}"
 
@@ -24,6 +22,7 @@ alias pip='pip3'
 alias po='pip3 list --outdated '
 alias pu='pip3 install --upgrade '
 alias resetFileGit='git checkout HEAD -- '
+alias tar='gtar'
 alias undoLastCommit='git reset --soft HEAD~1'
 alias whatIsMyIP='curl icanhazip.com'
 alias youtube_audio='yt-dlp -w -f bestaudio --add-metadata '
@@ -55,9 +54,5 @@ mkcd() {
 	mkdir -p "$1" && cd "$1"
 }
 
-
 # local settings
-bash_local=~/".bash_local"
-if [ -f "$bash_local" ]; then
-	source "$bash_local"
-fi
+[[ -r ~/.bash_local ]] && . ~/.bash_local
