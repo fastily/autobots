@@ -10,10 +10,10 @@
 ## custom scripts and settings
 cd "${0%/*}" &> /dev/null
 
+set -e
+
 bash ../scripts/deploy.sh
 bash settings.sh
-
-set -e
 
 # brew not automatically on PATH for Apple Silicon
 if [[ $(arch) == "arm64" ]]; then
@@ -21,7 +21,7 @@ if [[ $(arch) == "arm64" ]]; then
 fi
 
 ## Install Apps
-brew install bash-completion@2 exiftool ffmpeg gnu-tar imagemagick iperf3 nmap node p7zip python rdfind wget yt-dlp # mas
+brew install bash-completion@2 exiftool ffmpeg gnu-tar imagemagick iperf3 nmap p7zip python rdfind wget yt-dlp # mas node
 brew install --cask blackhole-2ch dbeaver-community firefox knockknock postman steam sublime-text visual-studio-code vlc # private-internet-access taskexplorer
 
 ## Patch Antiques
@@ -31,7 +31,7 @@ brew install bash less openssh rsync
 pip3 install virtualenv
 
 ## VSCode settings and extensions
-code --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension njpwerner.autodocstring --install-extension octref.vetur --install-extension ritwickdey.liveserver # --install-extension zignd.html-css-class-completion
+code --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension njpwerner.autodocstring --install-extension octref.vetur --install-extension ritwickdey.liveserver --install-extension github.copilot # --install-extension zignd.html-css-class-completion
 
 VSCODE_DIR=~/'Library/Application Support/Code/User'
 mkdir -p "$VSCODE_DIR"
@@ -64,7 +64,7 @@ ln -s Documents/keys/pypirc.txt .pypirc
 # sudo xcodebuild -runFirstLaunch
 
 ## Xcode settings
-XCODE_DIR=~"/Library/Developer/Xcode/UserData"
+XCODE_DIR=~/"Library/Developer/Xcode/UserData"
 mkdir -p "$XCODE_DIR"
 cat > "${XCODE_DIR}/IDETemplateMacros.plist" <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
