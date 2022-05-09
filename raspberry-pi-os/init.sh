@@ -7,12 +7,14 @@
 
 cd "${0%/*}" &> /dev/null
 
+set -e
+
 ## Install packages
 sudo apt update && sudo apt -y install fail2ban
 
 ## Apply custom settings for ssh
 sshdConfig="/etc/ssh/sshd_config"
-sudo cp "$sshdConfig" "${sshdConfig}_BACKUP.txt" # create backup
+sudo mv "$sshdConfig" /tmp
 sudo sed -i -E 's/^\#?PermitRootLogin .*/PermitRootLogin no/' "$sshdConfig"
 sudo sed -i -E 's/^\#?PasswordAuthentication .*/PasswordAuthentication no/' "$sshdConfig"
 
