@@ -14,7 +14,7 @@ sudo apt update && sudo apt -y install fail2ban
 
 ## Apply custom settings for ssh
 sshdConfig="/etc/ssh/sshd_config"
-sudo mv "$sshdConfig" /tmp
+cp "$sshdConfig" /tmp
 sudo sed -i -E 's/^\#?PermitRootLogin .*/PermitRootLogin no/' "$sshdConfig"
 sudo sed -i -E 's/^\#?PasswordAuthentication .*/PasswordAuthentication no/' "$sshdConfig"
 
