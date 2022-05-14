@@ -27,7 +27,6 @@ sudo tee -a "/etc/security/limits.conf" > /dev/null <<EOF
 root - nofile ${MAX_FILES_OPEN}
 EOF
 
-# printf "\n* - nofile %d\n" "$MAX_FILES_OPEN" | sudo tee -a "/etc/security/limits.conf"
 ulimit -n "$MAX_FILES_OPEN"
 
 printf "Done!\n"
