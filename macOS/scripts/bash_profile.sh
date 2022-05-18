@@ -24,7 +24,8 @@ alias pu='pip3 install --upgrade '
 alias resetFileGit='git checkout HEAD -- '
 alias tar='gtar'
 alias undoLastCommit='git reset --soft HEAD~1'
-alias whatIsMyIP='curl icanhazip.com'
+alias weather='curl https://wttr.in'
+alias whatIsMyIP='curl https://icanhazip.com'
 alias youtube_audio='yt-dlp -w -f bestaudio --add-metadata '
 
 
