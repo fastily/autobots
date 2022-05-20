@@ -21,7 +21,7 @@ if [[ $(arch) == "arm64" ]]; then
 fi
 
 ## Install Apps
-brew install bash-completion@2 exiftool ffmpeg gnu-tar imagemagick iperf3 nmap p7zip python rdfind wget yt-dlp # mas node
+brew install bash-completion@2 exiftool ffmpeg gnu-tar imagemagick iperf3 nmap p7zip python rdfind rg wget yt-dlp # mas node
 brew install --cask blackhole-2ch dbeaver-community firefox knockknock postman steam sublime-text visual-studio-code vlc # private-internet-access taskexplorer
 
 ## Patch Antiques
