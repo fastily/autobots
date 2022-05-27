@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ##
-#: Recursively check git statues in a directory and indiciate if dirty
+#: Recursively check git statuses in a directory and indiciate if dirty
 #:
 #: Author: Fastily
 ##
