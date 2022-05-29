@@ -10,9 +10,6 @@ cd "${0%/*}" &> /dev/null
 ## Install packages
 sudo apt update && sudo apt -y install curl exfat-fuse exfat-utils fail2ban hfsprogs iperf3 net-tools screen smartmontools
 
-## Install Samba
-bash ../installers/Samba.sh
-
 ## Install OpenSSH
 bash ../installers/OpenSSH.sh
 
