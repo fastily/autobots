@@ -7,7 +7,7 @@
 
 ## apply shared configuration
 cd "${0%/*}" &> /dev/null
-bash confEnv.sh
+bash configure_env.sh
 
 
 ## Add config for mounting shared folders.  Assumes shared folder w/ Driver (Default), Mode (Squash), Target path (/hostshare)

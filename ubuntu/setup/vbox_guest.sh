@@ -11,7 +11,7 @@ MOUNTDIR="/media/vboxGuestExt"
 
 ## apply configuration
 cd "${0%/*}" &> /dev/null
-bash confEnv.sh
+bash configure_env.sh
 
 ## install and configure vbox guest additions
 sudo apt update

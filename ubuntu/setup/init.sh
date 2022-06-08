@@ -14,7 +14,7 @@ sudo apt update && sudo apt -y install curl exfat-fuse exfat-utils fail2ban hfsp
 bash ../installers/OpenSSH.sh
 
 ## Configure ~/bin and aliases
-bash confEnv.sh
+bash configure_env.sh
 
 ## Configure file limits
 MAX_FILES_OPEN=65536
