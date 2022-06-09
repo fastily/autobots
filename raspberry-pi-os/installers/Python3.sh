@@ -4,9 +4,9 @@
 #: 
 #: Author: Fastily
 
-$PYVERSION="3.9.2"
-$PYFOLDER="Python-${PYVERSION}"
-$PYTAR="${PYFOLDER}.tgz"
+PYVERSION="3.9.2"
+PYFOLDER="Python-${PYVERSION}"
+PYTAR="${PYFOLDER}.tgz"
 
 set -e
 
