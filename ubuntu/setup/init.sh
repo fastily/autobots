@@ -17,7 +17,7 @@ bash ../installers/OpenSSH.sh
 bash configure_env.sh
 
 ## Configure file limits
-MAX_FILES_OPEN=65536
+MAX_FILES_OPEN=131072
 sudo tee -a "/etc/security/limits.conf" > /dev/null <<EOF
 
 * - nofile ${MAX_FILES_OPEN}
