@@ -77,4 +77,7 @@ cat > "${XCODE_DIR}/IDETemplateMacros.plist" <<EOF
 </plist>
 EOF
 
+## patch misconfigured default nfs config
+printf "\nnfs.client.mount.options = vers=4\n" | sudo tee -a "/etc/nfs.conf" > /dev/null
+
 echo "Done!"
