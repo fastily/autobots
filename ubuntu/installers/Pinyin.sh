@@ -2,7 +2,7 @@
 
 #: Installs prerequisites to add pinyin as an input source in ubuntu
 #: 
-#: Tested on Ubuntu 18.04
+#: Tested on Ubuntu 20.04
 #: Author: Fastily
 
 set -e
