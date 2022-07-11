@@ -24,6 +24,6 @@ printf "[$( basename "$1" )]
    create mask = 0777
    directory mask = 0777
    public = yes
-   guest ok = yes\n" | sudo tee -a "/etc/samba/smb.conf" > /dev/null
+   guest ok = yes\n\n" | sudo tee -a "/etc/samba/smb.conf" > /dev/null
 
 testparm -s && sudo systemctl restart smbd
