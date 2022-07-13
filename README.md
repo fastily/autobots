@@ -3,4 +3,4 @@
 
 My scripts and dotfiles for configuring & bootstrapping new system setup.  Also inculdes my (bin) scripts for automating tasks in the Terminal.
 
-Old scripts (unmaintained, but still useful for reference)  are [here](fastily/autobots/tree/junkyard).
+Old scripts (unmaintained, but still useful for reference)  are [here](https://github.com/fastily/autobots/tree/junkyard).
