@@ -21,8 +21,8 @@ if [[ $(arch) == "arm64" ]]; then
 fi
 
 ## Install Apps
-brew install bash-completion@2 exiftool ffmpeg gnu-tar imagemagick iperf3 nmap p7zip python rdfind rg wget yt-dlp # mas node
-brew install --cask blackhole-2ch dbeaver-community firefox knockknock postman steam sublime-text visual-studio-code vlc # private-internet-access taskexplorer
+brew install bash-completion@2 exiftool ffmpeg gnu-sed gnu-tar imagemagick iperf3 nmap p7zip python rdfind rg wget yt-dlp # mas node
+brew install --cask dbeaver-community firefox knockknock postman steam sublime-text visual-studio-code vlc # blackhole-2ch private-internet-access taskexplorer
 
 ## Patch Antiques
 brew install bash less openssh rsync
@@ -52,32 +52,5 @@ cd ~
 mkdir -p Documents/{git,keys,scripts}
 ln -s Documents/keys/ssh .ssh
 ln -s Documents/keys/pypirc.txt .pypirc
-
-## App Store
-# mas install 1440147259 # AdGuard for Safari
-# mas install 424389933  # Final Cut Pro
-# mas install 1289583905 # Pixelmator Pro
-# mas install 497799835  # Xcode
-
-# sudo xcode-select -s "/Applications/Xcode.app/Contents/Developer"
-# sudo xcodebuild -license accept
-# sudo xcodebuild -runFirstLaunch
-
-## Xcode settings
-XCODE_DIR=~/"Library/Developer/Xcode/UserData"
-mkdir -p "$XCODE_DIR"
-cat > "${XCODE_DIR}/IDETemplateMacros.plist" <<EOF
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>FILEHEADER</key>
-    <string></string>
-</dict>
-</plist>
-EOF
-
-## patch misconfigured default nfs config
-printf "\nnfs.client.mount.options = vers=4\n" | sudo tee -a "/etc/nfs.conf" > /dev/null
 
 echo "Done!"

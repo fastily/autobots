@@ -49,5 +49,8 @@ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on # turn 
 # defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad USBMouseStopsTrackpad -bool true # disable trackpad in clamshell mode
 # defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true # tap to click
 
+## patch misconfigured default nfs config
+printf "\nnfs.client.mount.options = vers=4\n" | sudo tee -a "/etc/nfs.conf" > /dev/null
+
 ## 3rd party
 defaults write com.pixelmatorteam.pixelmator.x fullSizeQuickLookPreview -bool true
