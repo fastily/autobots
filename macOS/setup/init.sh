@@ -49,7 +49,7 @@ EOF
 
 ## Create folders and symlinks
 cd ~
-mkdir -p Documents/{git,keys,scripts}
+mkdir -p Documents/{git,keys/ssh,scripts}
 ln -s Documents/keys/ssh .ssh
 ln -s Documents/keys/pypirc.txt .pypirc
 

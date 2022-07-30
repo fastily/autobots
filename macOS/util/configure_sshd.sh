@@ -13,3 +13,5 @@ SSHD_CONFIG="/etc/ssh/sshd_config"
 sudo gsed -i -E 's/^\#?PermitRootLogin .*/PermitRootLogin no/' "$SSHD_CONFIG"
 sudo gsed -i -E 's/^\#?PasswordAuthentication .*/PasswordAuthentication no/' "$SSHD_CONFIG"
 sudo gsed -i -E 's/^\#?ChallengeResponseAuthentication .*/ChallengeResponseAuthentication no/' "$SSHD_CONFIG"
+
+touch ~/.ssh/authorized_keys
