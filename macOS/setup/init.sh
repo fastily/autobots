@@ -7,13 +7,11 @@
 #:
 #: Author: Fastily
 
-## custom scripts and settings
 cd "${0%/*}" &> /dev/null
 
 set -e
 
-bash ../scripts/deploy.sh
-bash settings.sh
+bash base.sh
 
 # brew not automatically on PATH for Apple Silicon
 if [[ $(arch) == "arm64" ]]; then
@@ -21,14 +19,8 @@ if [[ $(arch) == "arm64" ]]; then
 fi
 
 ## Install Apps
-brew install bash-completion@2 exiftool ffmpeg gnu-sed gnu-tar imagemagick iperf3 nmap p7zip python rdfind rg wget yt-dlp # mas node
-brew install --cask dbeaver-community firefox knockknock postman steam sublime-text visual-studio-code vlc # blackhole-2ch private-internet-access taskexplorer
-
-## Patch Antiques
-brew install bash less openssh rsync
-
-## Global python packages
-pip3 install virtualenv
+brew install exiftool ffmpeg imagemagick p7zip yt-dlp # node
+brew install --cask dbeaver-community postman steam visual-studio-code vlc # blackhole-2ch private-internet-access taskexplorer
 
 ## VSCode settings and extensions
 code --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension njpwerner.autodocstring --install-extension octref.vetur --install-extension ritwickdey.liveserver --install-extension github.copilot # --install-extension zignd.html-css-class-completion
@@ -47,10 +39,8 @@ EOF
 
 #"python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
 
-## Create folders and symlinks
+## Create symlinks
 cd ~
-mkdir -p Documents/{git,keys/ssh,scripts}
-ln -s Documents/keys/ssh .ssh
 ln -s Documents/keys/pypirc.txt .pypirc
 
 echo "Done!"
