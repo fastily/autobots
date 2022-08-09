@@ -21,8 +21,8 @@ bash ../scripts/deploy.sh
 bash settings.sh
 
 # brew not automatically on PATH for Apple Silicon
-if [[ $(arch) == "arm64" ]]; then
-	eval $("/opt/homebrew/bin/brew" shellenv)
+if [[ $(arch) == "arm64" ]] && ! command -v brew; then
+    eval $("/opt/homebrew/bin/brew" shellenv)
 fi
 
 ## Install Apps

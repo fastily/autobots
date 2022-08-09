@@ -14,7 +14,7 @@ set -e
 bash base.sh
 
 # brew not automatically on PATH for Apple Silicon
-if [[ $(arch) == "arm64" ]]; then
+if [[ $(arch) == "arm64" ]] && ! command -v brew; then
 	eval $("/opt/homebrew/bin/brew" shellenv)
 fi
 
@@ -36,8 +36,10 @@ cat > "${VSCODE_DIR}/settings.json" <<EOF
 	"html.format.wrapLineLength": 0
 }
 EOF
-
 #"python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
+
+## Configure Pixelmator
+defaults write com.pixelmatorteam.pixelmator.x fullSizeQuickLookPreview -bool true
 
 ## Create symlinks
 cd ~

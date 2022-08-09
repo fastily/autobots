@@ -28,6 +28,8 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true  # 
 # defaults write com.apple.Safari IncludeDevelopMenu -bool true # show develop menu
 # defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false # match on contains instead of startswith
 # defaults write com.apple.Safari ShowOverlayStatusBar -bool true # always show status bar in bottom left corner
+# defaults write com.apple.Safari IncludeDevelopMenu -bool true # enable Develop menu
+
 
 defaults -currentHost write com.apple.screensaver idleTime -int 0 # disable screensaver
 
@@ -51,6 +53,3 @@ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on # turn 
 
 ## patch misconfigured default nfs config
 printf "\nnfs.client.mount.options = vers=4\n" | sudo tee -a "/etc/nfs.conf" > /dev/null
-
-## 3rd party
-defaults write com.pixelmatorteam.pixelmator.x fullSizeQuickLookPreview -bool true
