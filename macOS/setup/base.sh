@@ -42,6 +42,7 @@ ln -s Documents/keys/ssh .ssh
 ## OS Settings
 defaults write com.apple.TextEdit RichText -int 0 # Start TextEdit in plain text mode
 
+defaults write com.apple.finder NewWindowTarget -string PfHm # New Finder windows open with home directory
 defaults write com.apple.finder FXDefaultSearchScope -string SCcf # Finder searches in the current folder
 defaults write com.apple.finder ShowRecentTags -bool false # hide recent tags
 
@@ -50,7 +51,6 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false  # 
 
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true  # don't create .DS_STORE in SMB shares
 
-# sudo systemsetup -setcomputersleep "Never"  # Disable sleep
 defaults -currentHost write com.apple.screensaver idleTime -int 0 # disable screensaver
 
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false  # disable auto-opening of downloads
@@ -78,8 +78,8 @@ plutil -replace "Window Settings.Pro.columnCount" -integer 180 ~/Library/Prefere
 plutil -replace "Window Settings.Pro.noWarnProcesses" -array ~/Library/Preferences/com.apple.Terminal.plist
 count=0
 for s in "screen" "tmux" "-bash"; do
-    plutil -replace "Window Settings.Pro.noWarnProcesses" -dictionary -append ~/Library/Preferences/com.apple.Terminal.plist
-    plutil -insert "Window Settings.Pro.noWarnProcesses.${count}.ProcessName" -string "$s" ~/Library/Preferences/com.apple.Terminal.plist
+    plutil -insert "Window Settings.Pro.noWarnProcesses" -dictionary -append ~/Library/Preferences/com.apple.Terminal.plist
+    plutil -replace "Window Settings.Pro.noWarnProcesses.${count}.ProcessName" -string "$s" ~/Library/Preferences/com.apple.Terminal.plist
     ((count++))
 done
 

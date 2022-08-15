@@ -18,6 +18,10 @@ if [[ $(arch) == "arm64" ]] && ! command -v brew; then
     eval $("/opt/homebrew/bin/brew" shellenv)
 fi
 
+# Disable sleep
+sudo systemsetup -setcomputersleep "Off" &> /dev/null
+sudo systemsetup -setdisplaysleep "Off" &> /dev/null
+
 ## Configure ssh server
 SSHD_CONFIG="/etc/ssh/sshd_config"
 sudo gsed -i -E 's/^\#?PermitRootLogin .*/PermitRootLogin no/' "$SSHD_CONFIG"
