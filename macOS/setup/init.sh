@@ -41,8 +41,11 @@ EOF
 ## Configure Pixelmator
 defaults write com.pixelmatorteam.pixelmator.x fullSizeQuickLookPreview -bool true
 
+## turn on firewall
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
+
 ## Create symlinks
 cd ~
 ln -s Documents/keys/pypirc.txt .pypirc
 
-echo "Done!"
+echo "Done, please reboot for changes to take effect"

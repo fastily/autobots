@@ -1,5 +1,9 @@
 # bash completions
-[[ -r '/usr/local/etc/profile.d/bash_completion.sh' ]] && . '/usr/local/etc/profile.d/bash_completion.sh'
+if [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]]; then
+	. "/opt/homebrew/etc/profile.d/bash_completion.sh"
+elif [[ -r '/usr/local/etc/profile.d/bash_completion.sh' ]]; then
+	. '/usr/local/etc/profile.d/bash_completion.sh'
+fi
 
 # configure path
 [[ "$(arch)" == "arm64" ]] && my_brew="/opt/homebrew/bin/brew" || my_brew="/usr/local/bin/brew"

@@ -13,6 +13,11 @@ set -e
 
 bash base.sh
 
+# brew not automatically on PATH for Apple Silicon
+if [[ $(arch) == "arm64" ]] && ! command -v brew; then
+    eval $("/opt/homebrew/bin/brew" shellenv)
+fi
+
 ## Configure ssh server
 SSHD_CONFIG="/etc/ssh/sshd_config"
 sudo gsed -i -E 's/^\#?PermitRootLogin .*/PermitRootLogin no/' "$SSHD_CONFIG"
@@ -24,7 +29,7 @@ touch ~/.ssh/authorized_keys
 ## Set default shell to homebrew bash
 [[ "$(arch)" == "arm64" ]] && my_bash="/opt/homebrew/bin/bash" || my_bash="/usr/local/bin/bash"
 echo "$my_bash" | sudo tee -a /etc/shells &> /dev/null
-sudo chsh -s "$my_bash"
+sudo chsh -s "$my_bash" $(whoami)
 
 
-echo "Done!"
+echo "Done, please reboot for changes to take effect"
