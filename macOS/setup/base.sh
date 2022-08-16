@@ -40,6 +40,8 @@ mkdir -p Documents/{git,keys/ssh,scripts}
 ln -s Documents/keys/ssh .ssh
 
 ## OS Settings
+defaults write -globalDomain CGDisableCursorLocationMagnification -bool true # disable shake mouse pointer to locate
+
 defaults write com.apple.TextEdit RichText -int 0 # Start TextEdit in plain text mode
 
 defaults write com.apple.finder NewWindowTarget -string PfHm # New Finder windows open with home directory
@@ -50,6 +52,8 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false # 
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false  # disable autocorrect smart-dashes
 
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true  # don't create .DS_STORE in SMB shares
+
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true # prevent Photos from opening when iPhone is connected
 
 defaults -currentHost write com.apple.screensaver idleTime -int 0 # disable screensaver
 
@@ -86,7 +90,9 @@ done
 [[ "$(arch)" == "arm64" ]] && my_bash="/opt/homebrew/bin/bash" || my_bash="/usr/local/bin/bash"
 defaults write com.apple.Terminal Shell -string "$my_bash" # set shell to locally patched bash
 
-defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true # prevent Photos from opening when iPhone is connected
+## Set default shell to homebrew bash
+echo "$my_bash" | sudo tee -a /etc/shells &> /dev/null
+sudo chsh -s "$my_bash" $(whoami)
 
 ## patch misconfigured default nfs config
 printf "\nnfs.client.mount.options = vers=4\n" | sudo tee -a "/etc/nfs.conf" > /dev/null

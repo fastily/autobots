@@ -30,10 +30,4 @@ sudo gsed -i -E 's/^\#?ChallengeResponseAuthentication .*/ChallengeResponseAuthe
 
 touch ~/.ssh/authorized_keys
 
-## Set default shell to homebrew bash
-[[ "$(arch)" == "arm64" ]] && my_bash="/opt/homebrew/bin/bash" || my_bash="/usr/local/bin/bash"
-echo "$my_bash" | sudo tee -a /etc/shells &> /dev/null
-sudo chsh -s "$my_bash" $(whoami)
-
-
 echo "Done, please reboot for changes to take effect"
