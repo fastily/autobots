@@ -59,7 +59,7 @@ defaults -currentHost write com.apple.screensaver idleTime -int 0 # disable scre
 
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false  # disable auto-opening of downloads
 defaults write com.apple.Safari CanPromptForPushNotifications -bool false # prevent websites from asking for push notifications
-defaults write com.apple.Safari DownloadsClearingPolicy -bool false # don't remove downloads 
+defaults write com.apple.Safari DownloadsClearingPolicy -bool false # don't remove downloads
 defaults write com.apple.Safari PreloadTopHit -bool false # don't preload top hit in background
 defaults write com.apple.Safari PrintHeadersAndFooters -bool false # don't print webpage headers and footers
 defaults write com.apple.Safari NewTabBehavior -int 1 # new tabs open in empty page
@@ -67,6 +67,8 @@ defaults write com.apple.Safari NewWindowBehavior -int 0 # new windows open to h
 defaults write com.apple.Safari IncludeDevelopMenu -bool true # show develop menu
 defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false # match on contains instead of startswith
 defaults write com.apple.Safari ShowOverlayStatusBar -bool true # always show status bar in bottom left corner
+defaults write com.apple.Safari HomePage -string "https://google.com/" # Set homepage
+defaults write com.apple.Safari HistoryAgeInDaysLimit -int 365000 # don't automatically clear history
 
 defaults write com.apple.dock "show-recents" -int 0 # hide recent applications from dock (applied after reboot or killall dock)
 
@@ -91,8 +93,8 @@ done
 defaults write com.apple.Terminal Shell -string "$my_bash" # set shell to locally patched bash
 
 ## Set default shell to homebrew bash
-echo "$my_bash" | sudo tee -a /etc/shells &> /dev/null
+echo "$my_bash" | sudo tee -a "/etc/shells" &> /dev/null
 sudo chsh -s "$my_bash" $(whoami)
 
 ## patch misconfigured default nfs config
-printf "\nnfs.client.mount.options = vers=4\n" | sudo tee -a "/etc/nfs.conf" > /dev/null
+printf "\nnfs.client.mount.options = vers=4\n" | sudo tee -a "/etc/nfs.conf" &> /dev/null
