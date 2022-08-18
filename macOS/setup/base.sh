@@ -29,7 +29,7 @@ brew install bash-completion@2 gnu-sed gnu-tar iperf3 nmap python rdfind rg wget
 brew install --cask firefox knockknock sublime-text
 
 ## Patch Antiques
-brew install bash less openssh rsync
+brew install less openssh rsync
 
 ## Global python packages
 pip3 install virtualenv
