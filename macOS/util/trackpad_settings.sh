@@ -9,5 +9,12 @@ if [ ! -r "/Library/Preferences/com.apple.TimeMachine.plist" ]; then
     exit 1
 fi
 
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad USBMouseStopsTrackpad -int 1 # disable trackpad in clamshell mode
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1 # tap to click
+## disable trackpad in clamshell mode
+# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad USBMouseStopsTrackpad -int 1
+defaults write com.apple.AppleMultitouchTrackpad USBMouseStopsTrackpad -int 1
+
+## Tap to click
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1
+defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
+
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
