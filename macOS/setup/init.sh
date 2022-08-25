@@ -44,8 +44,26 @@ defaults write com.pixelmatorteam.pixelmator.x fullSizeQuickLookPreview -bool tr
 ## turn on firewall
 sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
 
+## Disable sleep and set display sleep to 30 mins while plugged in
+sudo pmset -c sleep 0
+sudo pmset -c displaysleep 30
+
 ## Create symlinks
 cd ~
 ln -s Documents/keys/pypirc.txt .pypirc
+
+## Macbook specific settings
+if [[ "$(sysctl hw.model)" == *"MacBook"* ]]; then
+	## disable trackpad in clamshell mode
+	# defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad USBMouseStopsTrackpad -int 1
+	defaults write com.apple.AppleMultitouchTrackpad USBMouseStopsTrackpad -int 1
+
+	## Tap to click
+	defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1
+	defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
+
+	defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+fi
+
 
 echo "Done, please reboot for changes to take effect"
