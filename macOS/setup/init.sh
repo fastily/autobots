@@ -19,11 +19,11 @@ if [[ $(arch) == "arm64" ]] && ! command -v brew; then
 fi
 
 ## Install Apps
-brew install exiftool ffmpeg imagemagick p7zip yt-dlp # node
+brew install exiftool ffmpeg imagemagick yt-dlp # node p7zip
 brew install --cask dbeaver-community postman steam visual-studio-code vlc # blackhole-2ch private-internet-access taskexplorer
 
 ## VSCode settings and extensions
-code --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension njpwerner.autodocstring --install-extension octref.vetur --install-extension ritwickdey.liveserver --install-extension github.copilot # --install-extension zignd.html-css-class-completion
+code --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension ms-vscode.live-server --install-extension njpwerner.autodocstring --install-extension octref.vetur  # --install-extension zignd.html-css-class-completion
 
 VSCODE_DIR=~/'Library/Application Support/Code/User'
 mkdir -p "$VSCODE_DIR"
@@ -51,6 +51,8 @@ sudo pmset -c displaysleep 30
 ## Create symlinks
 cd ~
 ln -s Documents/keys/pypirc.txt .pypirc
+ln -s Documents/keys/px.txt .px.txt
+ln -s Documents/keys/scu.px.txt .scu.px.txt
 
 ## Macbook specific settings
 if [[ "$(sysctl hw.model)" == *"MacBook"* ]]; then
