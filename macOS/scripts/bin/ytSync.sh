@@ -24,7 +24,7 @@ while read l || [[ -n $l ]]; do
 
 	mkdir -p "$d"
 	pushd "$d"
-	yt-dlp -w --add-metadata --download-archive archive.txt -o '%(upload_date)s - %(title)s - [%(id)s].%(ext)s' "https://www.youtube.com/${l#*=}"
+	yt-dlp -w --match-filters '!is_live' --add-metadata --download-archive archive.txt -o '%(upload_date)s - %(title)s - [%(id)s].%(ext)s' "https://www.youtube.com/${l#*=}"
 	popd
 
 done < "$CHANNELS"
