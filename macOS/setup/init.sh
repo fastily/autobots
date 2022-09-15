@@ -20,7 +20,11 @@ fi
 
 ## Install Apps
 brew install exiftool ffmpeg imagemagick yt-dlp # node p7zip
-brew install --cask dbeaver-community postman steam visual-studio-code vlc # blackhole-2ch private-internet-access taskexplorer
+brew install --cask dbeaver-community postman visual-studio-code vlc # blackhole-2ch private-internet-access taskexplorer
+
+if [[ "$(sysctl hw.model)" == *"Macmini"* ]]; then
+	brew install --cask steam
+fi
 
 ## VSCode settings and extensions
 code --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension ms-vscode.live-server --install-extension njpwerner.autodocstring --install-extension octref.vetur  # --install-extension zignd.html-css-class-completion
