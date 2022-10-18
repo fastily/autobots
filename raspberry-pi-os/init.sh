@@ -29,7 +29,11 @@ sudo systemctl restart ssh
 mkdir -p ~/bin
 cp -v util/* ~/bin
 
-printf '\nalias uuaa="sudo apt update && sudo apt upgrade -y && sudo apt autoclean && sudo apt autoremove -y"' >> ~/.bash_aliases
-printf '\nalias showRaspbianVersion="cat /etc/os-release"' >> ~/.bash_aliases
+cat << EOF >> ~/".bash_aliases"
+
+alias uuaa="sudo apt update && sudo apt upgrade -y && sudo apt autoclean && sudo apt autoremove -y"
+alias uuaar="uuaa && sudo reboot"
+alias showRaspbianVersion="cat /etc/os-release"
+EOF
 
 printf "Done!\n"

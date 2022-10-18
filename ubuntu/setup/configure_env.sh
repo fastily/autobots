@@ -7,7 +7,12 @@
 
 ## create user bin and aliases
 mkdir -p ~/bin
-printf '\nalias uuaa="sudo apt update && sudo apt upgrade -y && sudo apt autoclean && sudo apt autoremove -y"' >> ~/.bash_aliases
+
+cat << EOF >> ~/".bash_aliases"
+
+alias uuaa="sudo apt update && sudo apt upgrade -y && sudo apt autoclean && sudo apt autoremove -y"
+alias uuaar="uuaa && sudo reboot"
+EOF
 
 ## Apply GUI Settings if possible
 if command -v gsettings &> /dev/null; then
