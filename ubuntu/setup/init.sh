@@ -24,6 +24,10 @@ sudo tee -a "/etc/security/limits.conf" > /dev/null <<EOF
 root - nofile ${MAX_FILES_OPEN}
 EOF
 
+# for target in /etc/pam.d/common-session*; do
+#     echo "session required pam_limits.so" | sudo tee -a "$target" > /dev/null
+# done
+
 ulimit -n "$MAX_FILES_OPEN"
 
 ## Start nfs service

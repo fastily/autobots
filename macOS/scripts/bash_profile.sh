@@ -1,13 +1,13 @@
+# configure path
+[[ "$(arch)" == "arm64" ]] && my_brew="/opt/homebrew/bin/brew" || my_brew="/usr/local/bin/brew"
+[[ -r "$my_brew" ]] && eval $("$my_brew" shellenv)
+
 # bash completions
 if [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]]; then
 	. "/opt/homebrew/etc/profile.d/bash_completion.sh"
 elif [[ -r '/usr/local/etc/profile.d/bash_completion.sh' ]]; then
 	. '/usr/local/etc/profile.d/bash_completion.sh'
 fi
-
-# configure path
-[[ "$(arch)" == "arm64" ]] && my_brew="/opt/homebrew/bin/brew" || my_brew="/usr/local/bin/brew"
-[[ -r "$my_brew" ]] && eval $("$my_brew" shellenv)
 
 export PATH="${HOME}/bin:${PATH}"
 
