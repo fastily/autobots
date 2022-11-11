@@ -7,30 +7,31 @@
 
 cd "${0%/*}" &> /dev/null
 
-## Install packages
-sudo apt update && sudo apt -y install curl exfat-fuse exfat-utils fail2ban hfsprogs iperf3 net-tools nfs-kernel-server screen smartmontools
+set -e
 
-## Install OpenSSH
+# install dependencies, configure global settings
+bash base_settings.sh
 bash ../installers/OpenSSH.sh
+sudo apt -y install exfat-fuse exfat-utils fail2ban hfsprogs iperf3 net-tools nfs-kernel-server screen smartmontools
 
-## Configure ~/bin and aliases
-bash configure_env.sh
+# Configure file limits
+# MAX_FILES_OPEN=131072
+# sudo tee -a "/etc/security/limits.conf" > /dev/null <<EOF
 
-## Configure file limits
-MAX_FILES_OPEN=131072
-sudo tee -a "/etc/security/limits.conf" > /dev/null <<EOF
-
-* - nofile ${MAX_FILES_OPEN}
-root - nofile ${MAX_FILES_OPEN}
-EOF
+# * - nofile ${MAX_FILES_OPEN}
+# root - nofile ${MAX_FILES_OPEN}
+# EOF
 
 # for target in /etc/pam.d/common-session*; do
 #     echo "session required pam_limits.so" | sudo tee -a "$target" > /dev/null
 # done
 
-ulimit -n "$MAX_FILES_OPEN"
+# ulimit -n "$MAX_FILES_OPEN"
 
-## Start nfs service
+# Start nfs service
 sudo systemctl start nfs-kernel-server.service
 
-printf "Done!\n"
+# create user's home bin
+mkdir -p ~/bin
+
+echo "Done, reboot for changes to take effect."

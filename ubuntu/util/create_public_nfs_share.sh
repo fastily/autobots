@@ -16,7 +16,7 @@
 # Print usage and exits
 ##
 usage() {
-  printf "Usage: %s <PATH_OF_DIR_TO_SHARE> <CIDR_WHICH_CAN_CONNECT>>\n" "${0##*/}"
+  printf "Usage: %s <PATH_OF_DIR_TO_SHARE> <CIDR_WHICH_CAN_CONNECT>\n" "${0##*/}"
   exit 1
 }
 

@@ -5,10 +5,9 @@
 #: Tested on Ubuntu Desktop 20.04
 #: Author: Fastily
 
-## apply shared configuration
 cd "${0%/*}" &> /dev/null
-bash configure_env.sh
 
+bash base_settings.sh
 
 ## Add config for mounting shared folders.  Assumes shared folder w/ Driver (Default), Mode (Squash), Target path (/hostshare)
 STUFF_DIR="/mnt/bifrost"
