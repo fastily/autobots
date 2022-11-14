@@ -6,12 +6,13 @@
 #: Author: Fastily
 
 cd "${0%/*}" &> /dev/null
-
 set -e
+source shared.sh
 
 # install dependencies, configure global settings
-bash base_settings.sh
-bash ../installers/OpenSSH.sh
+setup_sshd
+apply_ui_settings
+setup_bash_aliases
 sudo apt -y install exfat-fuse exfat-utils fail2ban hfsprogs iperf3 net-tools nfs-kernel-server screen smartmontools
 
 # Configure file limits
