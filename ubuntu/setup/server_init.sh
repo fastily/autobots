@@ -14,7 +14,7 @@ SSH_PORT="41517"
 # install dependencies, configure global settings
 setup_sshd "$SSH_PORT"
 setup_bash_aliases
-sudo apt -y install fail2ban
+sudo apt -y install fail2ban net-tools
 
 # Install ssh key
 read -r -p "Enter ssh pubkey: "
