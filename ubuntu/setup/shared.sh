@@ -10,6 +10,8 @@
 setup_bash_aliases() {
     cat << EOF >> ~/".bash_aliases"
 
+alias dcla="docker container ls -a "
+alias dlf="docker logs -f --tail 1000 "
 alias uuaa="sudo apt update && sudo apt upgrade -y && sudo apt autoclean && sudo apt autoremove -y"
 alias uuaar="uuaa && sleep 5 && sudo reboot"
 alias uuaas="uuaa && sleep 5 && sudo shutdown -h now"
@@ -32,7 +34,7 @@ apply_ui_settings() {
 #   $1 - Configure sshd to use an alternative port (i.e. not 22).  Optional - leave blank to disable.
 ##
 setup_sshd() {
-    sudo apt update && sudo apt -y install openssh-server
+    sudo apt-get update && sudo apt-get -y install openssh-server
 
     local SSH_CONFIG="/etc/ssh/sshd_config"
     cp "$SSH_CONFIG" "/tmp/"

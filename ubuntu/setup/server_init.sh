@@ -14,11 +14,11 @@ SSH_PORT="41517"
 # install dependencies, configure global settings
 setup_sshd "$SSH_PORT"
 setup_bash_aliases
-sudo apt -y install fail2ban net-tools
+sudo apt-get -y install fail2ban net-tools
 
 # Install ssh key
-read -r -p "Enter ssh pubkey: "
-echo "$REPLY" >> ~/.ssh/authorized_keys
+# read -r -p "Enter ssh pubkey: "
+# echo "$REPLY" >> ~/.ssh/authorized_keys
 
 # Configure firewall
 sudo ufw default allow outgoing
