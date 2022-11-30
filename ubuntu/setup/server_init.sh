@@ -26,4 +26,7 @@ sudo ufw default deny incoming
 sudo ufw allow "${SSH_PORT}/tcp"
 echo "y" | sudo ufw enable
 
+# create containers
+mkdir -p ~/containers
+
 echo "Done, reboot for changes to take effect."

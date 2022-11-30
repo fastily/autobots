@@ -32,7 +32,7 @@ sudo apt -y install exfat-fuse exfat-utils fail2ban hfsprogs iperf3 net-tools nf
 # Start nfs service
 sudo systemctl start nfs-kernel-server.service
 
-# create user's home bin
-mkdir -p ~/bin
+# create user's home bin & containers
+mkdir -p ~/{bin,containers}
 
 echo "Done, reboot for changes to take effect."
