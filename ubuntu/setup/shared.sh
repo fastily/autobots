@@ -5,9 +5,10 @@
 #: Author: Fastily
 
 ##
-# Installs bash aliases
+# Applies general, shared settings.
 ##
-setup_bash_aliases() {
+general_settings() {
+    # setup bash aliases
     cat << EOF >> ~/".bash_aliases"
 
 alias dcla="docker container ls -a "
@@ -16,6 +17,12 @@ alias uuaa="sudo apt update && sudo apt upgrade -y && sudo apt autoclean && sudo
 alias uuaar="uuaa && sleep 5 && sudo reboot"
 alias uuaas="uuaa && sleep 5 && sudo shutdown -h now"
 EOF
+
+    # suppress irritating apt prompt in >= 22.04
+    NR_CONF="/etc/needrestart/needrestart.conf"
+    if [ -f "$NR_CONF" ]; then
+        sudo sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' "$NR_CONF"
+    fi
 }
 
 ##

@@ -10,7 +10,7 @@ set -e
 source shared.sh
 
 apply_ui_settings
-setup_bash_aliases
+general_settings
 
 ## Add config for mounting shared folders.  Assumes shared folder w/ Driver (Default), Mode (Squash), Target path (/hostshare)
 STUFF_DIR="/mnt/bifrost"

@@ -13,7 +13,7 @@ SSH_PORT="41517"
 
 # install dependencies, configure global settings
 setup_sshd "$SSH_PORT"
-setup_bash_aliases
+general_settings
 sudo apt-get -y install fail2ban net-tools
 
 # Install ssh key
