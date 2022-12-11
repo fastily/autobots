@@ -19,7 +19,7 @@ alias uuaas="uuaa && sleep 5 && sudo shutdown -h now"
 EOF
 
     # suppress irritating apt prompt in >= 22.04
-    NR_CONF="/etc/needrestart/needrestart.conf"
+    local NR_CONF="/etc/needrestart/needrestart.conf"
     if [ -f "$NR_CONF" ]; then
         sudo sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' "$NR_CONF"
     fi
