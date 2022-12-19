@@ -33,7 +33,7 @@ cat << EOF >> ~/".bash_aliases"
 
 alias uuaa="sudo apt update && sudo apt upgrade -y && sudo apt autoclean && sudo apt autoremove -y"
 alias uuaar="uuaa && sleep 5 && sudo reboot"
-alias uuaas="uuaa && sleep 5 && sudo shutdown -h now"
+alias uuaas="uuaa && sleep 5 && sudo shutdown now"
 alias showRaspbianVersion="cat /etc/os-release"
 EOF
 
