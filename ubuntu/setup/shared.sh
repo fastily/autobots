@@ -32,6 +32,8 @@ apply_ui_settings() {
     gsettings set org.gnome.desktop.session idle-delay 0
     gsettings set org.gnome.desktop.media-handling autorun-never true
     gsettings set org.gnome.settings-daemon.plugins.color night-light-enabled true
+    gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 }
 
 ##

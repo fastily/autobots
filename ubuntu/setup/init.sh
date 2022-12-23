@@ -2,7 +2,7 @@
 
 #: Install some helpful packages and apply sane settings for Ubuntu Server/Desktop.
 #: 
-#: Tested on Ubuntu Desktop 18.04.2
+#: Tested on Ubuntu Desktop 22.04.1
 #: Author: Fastily
 
 cd "${0%/*}" &> /dev/null
@@ -13,7 +13,7 @@ source shared.sh
 setup_sshd
 apply_ui_settings
 general_settings
-sudo apt -y install exfat-fuse exfat-utils fail2ban hfsprogs iperf3 net-tools nfs-kernel-server screen smartmontools
+sudo apt -y install exfat-fuse exfatprogs fail2ban hfsprogs iperf3 net-tools nfs-kernel-server screen smartmontools
 
 # Configure file limits
 # MAX_FILES_OPEN=131072
