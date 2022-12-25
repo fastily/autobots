@@ -13,5 +13,3 @@
 
 printf "Recursively deleting '.DS_STORE' from '%s'\n" "$d"
 find "$d" -name '*.DS_Store' -type f -print -delete
-
-echo "Done!"
