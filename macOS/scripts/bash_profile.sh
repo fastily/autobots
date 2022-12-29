@@ -3,11 +3,11 @@
 [[ -r "$my_brew" ]] && eval $("$my_brew" shellenv)
 
 # bash completions
-if [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]]; then
-	. "/opt/homebrew/etc/profile.d/bash_completion.sh"
-elif [[ -r '/usr/local/etc/profile.d/bash_completion.sh' ]]; then
-	. '/usr/local/etc/profile.d/bash_completion.sh'
-fi
+# if [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]]; then
+# 	. "/opt/homebrew/etc/profile.d/bash_completion.sh"
+# elif [[ -r '/usr/local/etc/profile.d/bash_completion.sh' ]]; then
+# 	. '/usr/local/etc/profile.d/bash_completion.sh'
+# fi
 
 export PATH="${HOME}/bin:${PATH}"
 
@@ -15,6 +15,7 @@ export PATH="${HOME}/bin:${PATH}"
 alias b64d='base64 -D -i '
 alias b64e='base64 -i '
 alias buu='brew update && brew upgrade'
+alias buuu='buu && brew upgrade --cask firefox google-chrome'
 alias clean_py_build='rm -rf build dist *.egg-info'
 alias drs='python3 manage.py runserver'
 alias ffprobe='ffprobe -hide_banner '
@@ -38,7 +39,7 @@ alias youtube_audio='yt-dlp -w -f bestaudio --add-metadata '
 ##
 simpleWS() {
 	localIP.sh | while read -r line; do
-		printf "Server (probably) reachable at http://%s:8000\n" "$line"
+		echo "Server (probably) reachable at http://${line}:8000"
 	done
 
 	python3 -m http.server

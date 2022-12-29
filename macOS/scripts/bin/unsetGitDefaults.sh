@@ -6,7 +6,10 @@
 #: Author: Fastily
 ##
 
-git config --local user.name "" && \
-git config --local user.email "" && \
-git config --local credential.helper "" && \
-printf "OK\n"
+set -e
+
+git config --local user.name ""
+git config --local user.email ""
+git config --local credential.helper ""
+
+echo "OK"

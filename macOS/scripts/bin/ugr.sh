@@ -12,7 +12,7 @@ for d in */ ; do
 		pushd "$d" > /dev/null
 
 		if [[ -z $(git status --porcelain) ]]; then
-			printf "attempting update for %s...\n" $(basename "$d")
+			echo "attempting update for $(basename "$d")..."
 			git pull
 		fi
 

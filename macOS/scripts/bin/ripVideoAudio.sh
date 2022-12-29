@@ -15,7 +15,7 @@ shopt -s globstar nullglob nocaseglob
 # 		$1 - current file being processed
 ##
 ripMessage() {
-	printf '%s\n[INFO]: ripping audio from "%s"...\n' "$(date)" "$1"
+	echo "$(date) [INFO]: ripping audio from '${1}'"
 }
 
 

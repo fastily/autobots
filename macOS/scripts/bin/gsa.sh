@@ -12,7 +12,7 @@ for d in */ ; do
 		pushd "$d" > /dev/null
 
 		if [[ $(git status --porcelain) ]]; then
-			printf "repo changed: %s\n" $(basename "$d")
+			echo "repo changed: $(basename "$d")"
 		fi
 
 		popd > /dev/null
