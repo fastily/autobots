@@ -27,7 +27,7 @@ if [[ "$(sysctl hw.model)" == *"Macmini"* ]]; then
 fi
 
 ## VSCode settings and extensions
-code --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension ms-vscode.live-server --install-extension njpwerner.autodocstring --install-extension octref.vetur  # --install-extension zignd.html-css-class-completion
+code --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension ms-vscode.live-server --install-extension njpwerner.autodocstring --install-extension Vue.volar  # --install-extension zignd.html-css-class-completion
 
 VSCODE_DIR=~/'Library/Application Support/Code/User'
 mkdir -p "$VSCODE_DIR"
