@@ -22,6 +22,7 @@ EOF
     local NR_CONF="/etc/needrestart/needrestart.conf"
     if [ -f "$NR_CONF" ]; then
         sudo sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' "$NR_CONF"
+        sudo sed -i "s/#\$nrconf{kernelhints} = -1;/\$nrconf{kernelhints} = -1;/g" "$NR_CONF"
     fi
 }
 
