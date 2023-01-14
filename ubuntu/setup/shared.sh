@@ -18,6 +18,14 @@ alias uuaar="uuaa && sleep 5 && sudo reboot"
 alias uuaas="uuaa && sleep 5 && sudo shutdown now"
 EOF
 
+    # default apt to keeping user's config files
+    sudo tee "/etc/apt/apt.conf.d/99z-my-settings" > /dev/null << EOF
+Dpkg::Options {
+   "--force-confdef";
+   "--force-confold";
+}
+EOF
+
     # suppress irritating apt prompt in >= 22.04
     local NR_CONF="/etc/needrestart/needrestart.conf"
     if [ -f "$NR_CONF" ]; then
