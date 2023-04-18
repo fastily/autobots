@@ -35,29 +35,18 @@ alias youtube_audio='yt-dlp -w -f bestaudio --add-metadata '
 
 
 ##
-# starts a fileserver in the current working directory
-##
-simpleWS() {
-	localIP.sh | while read -r line; do
-		echo "Server (probably) reachable at http://${line}:8000"
-	done
-
-	python3 -m http.server
-}
-
-##
 # Creates a directory and sets it to the current working directory.
 #
 #: PARAMETERS:
 #: 		$1 - the name of the directory to create
 ##
 mkcd() {
-	if [ -z ${1+x} ]; then
-		echo "Need to specify at least one argument!"
-		return 1
-	fi
+    if [ -z ${1+x} ]; then
+        echo "Need to specify at least one argument!"
+        return 1
+    fi
 
-	mkdir -p "$1" && cd "$1"
+    mkdir -p "$1" && cd "$1"
 }
 
 # local settings
