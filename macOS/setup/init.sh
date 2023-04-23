@@ -35,7 +35,6 @@ cat > "${VSCODE_DIR}/settings.json" <<EOF
 {
 	"python.linting.pylintArgs": ["-d", "C0103,C0301,W0703"],
 	"python.formatting.autopep8Args": ["--max-line-length", "300"],
-	"python.languageServer": "Pylance",
 	"terminal.integrated.defaultProfile.osx": "bash",
 	"html.format.wrapLineLength": 0,
 	"security.workspace.trust.enabled": false
