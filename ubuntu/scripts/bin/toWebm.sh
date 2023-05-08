@@ -20,7 +20,7 @@ usage()
     exit 1
 }
 
-SHARED_OPTS="-y -c:v libvpx-vp9 -b:v 0 -crf 24 -tile-columns 2 -threads 8 -cpu-used 2 -map_metadata -1 -loglevel panic -f webm"
+SHARED_OPTS="-y -c:v libvpx-vp9 -b:v 0 -crf 24 -tile-columns 2 -threads 8 -cpu-used 2 -map_metadata -1 -loglevel panic"
 audio_config="-an"
 
 while getopts "ahs" flag; do

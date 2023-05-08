@@ -24,7 +24,7 @@ brew install --cask dbeaver-community google-chrome knockknock postman visual-st
 
 if [[ "$(sysctl hw.model)" == *"Macmini"* ]]; then
 	brew install --cask steam
-else
+elif [[ "$(sysctl hw.model)" == *"MacBook"* ]]; then
 	brew install --cask mullvadvpn
 fi
 
