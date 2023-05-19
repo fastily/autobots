@@ -29,7 +29,7 @@ elif [[ "$(sysctl hw.model)" == *"MacBook"* ]]; then
 fi
 
 ## VSCode settings and extensions
-code --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension ms-vscode.live-server --install-extension njpwerner.autodocstring --install-extension Vue.volar  # --install-extension zignd.html-css-class-completion
+code --install-extension ms-python.autopep8 --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension ms-vscode.live-server --install-extension njpwerner.autodocstring --install-extension Vue.volar  # --install-extension zignd.html-css-class-completion
 
 VSCODE_DIR=~/'Library/Application Support/Code/User'
 mkdir -p "$VSCODE_DIR"
@@ -40,6 +40,10 @@ cat > "${VSCODE_DIR}/settings.json" <<EOF
 	"terminal.integrated.defaultProfile.osx": "bash",
 	"html.format.wrapLineLength": 0,
 	"security.workspace.trust.enabled": false
+	"[python]": {
+		"editor.defaultFormatter": "ms-python.autopep8",
+	},
+	"autopep8.args": ["--max-line-length", "300"]
 }
 EOF
 #"python.linting.pylintArgs": ["--load-plugins", "pylint_django"]

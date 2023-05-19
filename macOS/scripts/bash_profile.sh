@@ -9,7 +9,7 @@
 # 	. '/usr/local/etc/profile.d/bash_completion.sh'
 # fi
 
-export PATH="${HOME}/bin:${PATH}"
+export PATH="${HOME}/bin:${HOME}/.docker/bin:${PATH}"
 
 # aliases
 alias b64d='base64 -D -i '
@@ -25,8 +25,8 @@ alias pdserv='php -S localhost:8080 -t '
 alias python='python3'
 alias pie='pip install --config-settings editable_mode=compat -e '
 alias pip='pip3'
-alias po='pip3 list --outdated '
-alias pu='pip3 install --upgrade '
+alias po='pip3 list -o '
+alias pu='pip3 install -U '
 alias resetFileGit='git checkout HEAD -- '
 alias tar='gtar'
 alias undoLastCommit='git reset --soft HEAD~1'
