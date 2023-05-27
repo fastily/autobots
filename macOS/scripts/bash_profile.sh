@@ -51,4 +51,6 @@ mkcd() {
 }
 
 # local settings
-[[ -r ~/.bash_local ]] && . ~/.bash_local
+for s in "local" "keys"; do
+    [[ -r ~/".bash_${s}" ]] && . ~/".bash_${s}"
+done
