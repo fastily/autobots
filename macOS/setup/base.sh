@@ -64,11 +64,13 @@ defaults write com.apple.Safari PreloadTopHit -bool false # don't preload top hi
 defaults write com.apple.Safari PrintHeadersAndFooters -bool false # don't print webpage headers and footers
 defaults write com.apple.Safari NewTabBehavior -int 1 # new tabs open in empty page
 defaults write com.apple.Safari NewWindowBehavior -int 0 # new windows open to homepage
-defaults write com.apple.Safari IncludeDevelopMenu -bool true # show develop menu
 defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false # match on contains instead of startswith
 defaults write com.apple.Safari ShowOverlayStatusBar -bool true # always show status bar in bottom left corner
 defaults write com.apple.Safari HomePage -string "https://google.com/" # Set homepage
 defaults write com.apple.Safari HistoryAgeInDaysLimit -int 365000 # don't automatically clear history
+defaults write com.apple.Safari IncludeDevelopMenu -bool true # show develop menu pt 1
+defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true # show develop menu pt 2
+defaults write com.apple.Safari WebKitPreferences.developerExtrasEnabled -bool true # show develop menu pt 3
 
 defaults write com.apple.dock "show-recents" -int 0 # hide recent applications from dock (applied after reboot or killall dock)
 
