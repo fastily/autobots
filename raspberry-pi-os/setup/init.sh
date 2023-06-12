@@ -6,7 +6,6 @@
 #: Author: Fastily
 
 cd "${0%/*}" &> /dev/null
-
 set -e
 
 ## Install packages
@@ -26,8 +25,7 @@ sudo systemctl start ssh
 sudo systemctl restart ssh
 
 ## Setup bin and aliases
-mkdir -p ~/bin
-cp -v util/* ~/bin
+bash ../scripts/deploy.sh
 
 cat << EOF >> ~/".bash_aliases"
 

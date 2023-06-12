@@ -10,10 +10,11 @@
 ##
 
 BASE_DIR="${1:-/Volumes/Other/YouTube}"
-CHANNELS="channels.txt"
+CHANNELS="${BASE_DIR}/channels.txt"
 
-if ! [ -d "$BASE_DIR" ] || ! [ -f "${BASE_DIR}/${CHANNELS}" ]; then
-	printf "'%s' does not exist or '%s/channels.txt' is missing!\nUsage: %s [ROOT_DIR]\n" "$BASE_DIR" "$BASE_DIR" "${0##*/}"
+if [[ ! -f $CHANNELS ]]; then
+	echo "[ERROR]: '${CHANNELS}' does not exist!"
+	echo "Usage: ${0##*/} [ROOT_DIR]"
 	exit 1
 fi
 

@@ -8,12 +8,16 @@
 
 cd "${0%/*}" &> /dev/null
 
-echo "Copying scripts to bin"
-mkdir -p ~/bin
-cp -p -f bin/* ~/bin/
-chflags hidden ~/bin
+DEST_BIN=~/"bin"
 
-echo "Copying bash profile"
+echo "Copying scripts to ${DEST_BIN}..."
+for s in bin ../../shared; do
+    rsync -avhP "${s}/" "$DEST_BIN"
+done
+
+chflags hidden "$DEST_BIN"
+
+echo "Copying .bash_profile"
 cp bash_profile.sh ~/.bash_profile
 
 echo "Done!"
