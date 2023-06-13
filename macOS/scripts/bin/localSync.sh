@@ -5,35 +5,32 @@
 #:
 #: PRECONDITION:
 #: 		1. The destination volume must share the same base name as the source volume, but followed by a 2. For example,
-#: 				if the source volume is "Foo", then the dest volume must be named "Foo2".
+#: 				if the source volume is "Foo", then the DEST volume must be named "Foo2".
 #: PARAMETERS:
 #: 		$1 - base name of the source volume
-#:		$2 - base names of directories in the source volume to copy to the dest volume
+#:		$2 - base names of directories in the source volume to copy to the DEST volume
 #:
 #: Author: Fastily
 ##
 
-src="/Volumes/${1}"
-dest="${src}2"
+SRC="/Volumes/${1}"
+DEST="${SRC}2"
 
-if [ $# -lt 2 ]; then
-	printf "Usage: %s <SRC_VOLUME_BASENAME> <DIRS_TO_COPY...>\n" "${0##*/}"
+
+if (( $# < 2 )); then
+	echo "Usage: ${0##*/} <SRC_VOLUME_BASENAME> <DIRS_TO_COPY...>"
+    exit 1
+elif [[ ! -d $SRC ]] || [[ ! -d $DEST ]]; then
+	echo "[ERROR]: '${SRC}' or '${DEST}' does not exist!"
     exit 1
 fi
 
-if [ ! -d "$src" ] || [ ! -d "$dest" ]; then
-	printf 'ERROR: "%s" or "%s" does not exist!\n' "$src" "$dest"
-    exit 1
-fi
+ddss.sh "$SRC"
+set -e
 
-## fetch target paths as an Array.
 shift
-targets=("$@")
-
-ddss.sh "$src"
-
-for d in "${targets[@]}"; do
-	rsync -avh --progress --delete "${src}/${d}/" "${dest}/${d}"
+for d in "$@"; do
+	rsync -avhP --delete "${SRC}/${d}/" "${DEST}/${d}"
 done
 
-printf "Done!\n"
+echo "Done!"
