@@ -18,10 +18,10 @@ DEST="${SRC}2"
 
 
 if (( $# < 2 )); then
-	echo "Usage: ${0##*/} <SRC_VOLUME_BASENAME> <DIRS_TO_COPY...>"
+    echo "Usage: ${0##*/} <SRC_VOLUME_BASENAME> <DIRS_TO_COPY...>"
     exit 1
 elif [[ ! -d $SRC ]] || [[ ! -d $DEST ]]; then
-	echo "[ERROR]: '${SRC}' or '${DEST}' does not exist!"
+    echo "[ERROR]: '${SRC}' or '${DEST}' does not exist!"
     exit 1
 fi
 
@@ -30,7 +30,7 @@ set -e
 
 shift
 for d in "$@"; do
-	rsync -avhP --delete "${SRC}/${d}/" "${DEST}/${d}"
+    rsync -avhP --delete "${SRC}/${d}/" "${DEST}/${d}"
 done
 
 echo "Done!"

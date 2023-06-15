@@ -13,19 +13,19 @@ BASE_DIR="${1:-/Volumes/Other/YouTube}"
 CHANNELS="${BASE_DIR}/channels.txt"
 
 if [[ ! -f $CHANNELS ]]; then
-	echo "[ERROR]: '${CHANNELS}' does not exist!"
-	echo "Usage: ${0##*/} [ROOT_DIR]"
-	exit 1
+    echo "[ERROR]: '${CHANNELS}' does not exist!"
+    echo "Usage: ${0##*/} [ROOT_DIR]"
+    exit 1
 fi
 
 cd "$BASE_DIR"
 
 while read l || [[ -n $l ]]; do
-	d="${l%=*}"
+    d="${l%=*}"
 
-	mkdir -p "$d"
-	pushd "$d"
-	yt-dlp -w --match-filters '!is_live' --add-metadata --download-archive archive.txt -o '%(upload_date)s - %(title)s - [%(id)s].%(ext)s' "https://www.youtube.com/${l#*=}"
-	popd
+    mkdir -p "$d"
+    pushd "$d"
+    yt-dlp -w --match-filters '!is_live' --add-metadata --download-archive archive.txt -o '%(upload_date)s - %(title)s - [%(id)s].%(ext)s' "https://www.youtube.com/${l#*=}"
+    popd
 
 done < "$CHANNELS"

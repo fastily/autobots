@@ -9,7 +9,7 @@
 #: Author: Fastily
 ##
 
-[ -z "$1" ] && d="." || d="$1"
+[[ -z $1 ]] && d="." || d="$1"
 
-printf "Recursively deleting '.DS_STORE' from '%s'\n" "$d"
+echo "Recursively deleting '.DS_STORE' from '${d}'"
 find "$d" -name '*.DS_Store' -type f -print -delete
