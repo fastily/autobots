@@ -10,6 +10,5 @@
 ##
 
 [[ -z $1 ]] && d="." || d="$1"
-
 echo "Recursively deleting '.DS_STORE' from '${d}'"
 find "$d" -name '*.DS_Store' -type f -print -delete

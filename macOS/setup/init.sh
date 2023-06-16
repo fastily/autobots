@@ -19,6 +19,7 @@ if [[ $(arch) == "arm64" ]] && ! command -v brew; then
 fi
 
 ## Install Apps
+brew install cloudflare/cloudflare/cloudflared
 brew install exiftool ffmpeg imagemagick yt-dlp # node p7zip
 brew install --cask dbeaver-community google-chrome knockknock postman visual-studio-code vlc # blackhole-2ch
 
