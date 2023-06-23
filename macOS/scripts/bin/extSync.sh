@@ -20,12 +20,12 @@ remoteDest="/mnt/archive/${2}"
 dest="${3}:${remoteDest}"
 
 if [ $# -lt 3 ]; then
-	printf "Usage: %s <SRC_VOLUME_BASENAME> <REMOTE_HOST> <DIRS_TO_COPY...>\n" "${0##*/}"
+    printf "Usage: %s <SRC_VOLUME_BASENAME> <REMOTE_HOST> <DIRS_TO_COPY...>\n" "${0##*/}"
     exit 1
 fi
 
 if ([ ! -d "$src" ] || ssh "$3" "[ ! -d ${remoteDest} ]"); then
-	printf 'ERROR: "%s" or "%s" does not exist!\n' "$src" "$dest"
+    printf 'ERROR: "%s" or "%s" does not exist!\n' "$src" "$dest"
     exit 1
 fi
 
@@ -36,7 +36,7 @@ targets=("$@")
 ddss.sh "$src"
 
 for d in "${targets[@]}"; do
-	rsync -rltDvhu --progress --delete -e "ssh -T -o Compression=no -x" "${src}/${d}/" "${dest}/${d}"
+    rsync -rltDvhu --progress --delete -e "ssh -T -o Compression=no -x" "${src}/${d}/" "${dest}/${d}"
 done
 
 printf "Done!\n"

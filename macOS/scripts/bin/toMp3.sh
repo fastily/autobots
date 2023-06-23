@@ -8,9 +8,9 @@
 #: Author: Fastily
 ##
 
-if [ ! -f "$1" ]; then
-	printf "Usage: %s <PATH_TO_MEDIA_FILE>\n" "${0##*/}"
-	exit 1
+if [[ ! -f $1 ]]; then
+    printf "Usage: %s <PATH_TO_MEDIA_FILE>\n" "${0##*/}"
+    exit 1
 fi
 
 ffmpeg -y -i "$1" -vn -c:a libmp3lame -b:a 320k -loglevel panic "${1%.*}".mp3
