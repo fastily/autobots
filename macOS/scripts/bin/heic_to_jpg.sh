@@ -15,7 +15,7 @@ if (( $# <= 0 )); then
     exit 1
 fi
 
-if [[ $1 == -r ]]; then
+if [[ $1 == -s ]]; then
     STRIP_EXIF=true
     shift
 fi
