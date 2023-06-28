@@ -37,4 +37,6 @@ alias uuaas="uuaa && sleep 5 && sudo shutdown now"
 alias showRaspbianVersion="cat /etc/os-release"
 EOF
 
+sudo timedatectl set-timezone Etc/UTC
+
 echo "Done!"
