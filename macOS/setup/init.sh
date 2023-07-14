@@ -23,9 +23,10 @@ brew install cloudflare/cloudflare/cloudflared
 brew install exiftool ffmpeg imagemagick yt-dlp # node p7zip
 brew install --cask dbeaver-community google-chrome knockknock postman visual-studio-code vlc # blackhole-2ch
 
-if [[ "$(sysctl hw.model)" == *"Macmini"* ]]; then
+MAC_MODEL="$(system_profiler SPHardwareDataType | grep "Model Name")"
+if [[ $MAC_MODEL == *"Mac mini"* ]]; then
     brew install --cask steam
-elif [[ "$(sysctl hw.model)" == *"MacBook"* ]]; then
+elif [[ $MAC_MODEL == *"MacBook"* ]]; then
     brew install --cask mullvadvpn
 fi
 
@@ -66,7 +67,7 @@ ln -s Documents/keys/px.txt .px.txt
 ln -s Documents/keys/scu.px.txt .scu.px.txt
 
 ## Macbook specific settings
-if [[ "$(sysctl hw.model)" == *"MacBook"* ]]; then
+if [[ $MAC_MODEL == *"MacBook"* ]]; then
     ## disable trackpad in clamshell mode
     # defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad USBMouseStopsTrackpad -int 1
     defaults write com.apple.AppleMultitouchTrackpad USBMouseStopsTrackpad -int 1
