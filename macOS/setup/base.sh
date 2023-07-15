@@ -32,6 +32,7 @@ brew install --cask firefox knockknock sublime-text
 brew install less openssh rsync
 
 ## Global python packages
+pip3 install -U 'pip'
 pip3 install virtualenv
 
 ## Create folders and symlinks
