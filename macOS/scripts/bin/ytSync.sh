@@ -22,10 +22,18 @@ cd "$BASE_DIR"
 
 while read l || [[ -n $l ]]; do
     d="${l%=*}"
+    name="${l#*=}"
 
     mkdir -p "$d"
     pushd "$d"
-    yt-dlp -w --match-filters '!is_live' --add-metadata --download-archive archive.txt -o '%(upload_date)s - %(title)s - [%(id)s].%(ext)s' "https://www.youtube.com/${l#*=}"
+
+    CHANNEL_ID="$(yt-dlp --print channel_id -I1 "https://www.youtube.com/${name}")"
+    if [[ -z $CHANNEL_ID ]]; then
+        echo "[ERROR]: Could not extract channel id for '${name}', skipping"
+        continue
+    fi
+
+    yt-dlp -w --match-filters '!is_live' --add-metadata --cookies-from-browser safari --download-archive archive.txt -o '%(upload_date)s - %(title)s - [%(id)s].%(ext)s' "https://www.youtube.com/playlist?list=UU${CHANNEL_ID:2}"
     popd
 
 done < "$CHANNELS"
