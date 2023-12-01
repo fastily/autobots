@@ -61,9 +61,7 @@ sudo pmset -c displaysleep 30
 
 ## Create symlinks
 cd ~
-ln -s Documents/keys/pypirc.txt .pypirc
-ln -s Documents/keys/px.txt .px.txt
-ln -s Documents/keys/scu.px.txt .scu.px.txt
+ln -s Documents/keys/bash_keys.sh .bash_keys
 
 ## Macbook specific settings
 if [[ $MAC_MODEL == *"MacBook"* ]]; then
