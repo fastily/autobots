@@ -13,7 +13,7 @@ source shared.sh
 setup_sshd
 apply_ui_settings
 general_settings
-sudo apt -y install exfat-fuse exfatprogs fail2ban hfsprogs iperf3 net-tools nfs-kernel-server screen smartmontools
+sudo apt -y install exfat-fuse exfatprogs fail2ban hfsprogs iperf3 jq net-tools nfs-kernel-server screen smartmontools
 
 # Configure file limits
 # MAX_FILES_OPEN=131072
