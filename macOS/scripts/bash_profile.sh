@@ -29,6 +29,7 @@ alias pip='pip3'
 alias po='pip3 list -o '
 alias pu='pip3 install -U '
 alias resetFileGit='git checkout HEAD -- '
+alias sign_chromedriver='ad_hoc_sign.sh chromedriver'
 alias strip_exif='exiftool -EXIF= -overwrite_original '
 alias tar='gtar'
 alias undoLastCommit='git reset --soft HEAD~1'
@@ -36,21 +37,6 @@ alias weather='curl https://wttr.in'
 alias whatIsMyIP='curl https://icanhazip.com'
 alias youtube_audio='yt-dlp -w -f bestaudio --add-metadata '
 
-
-##
-# Creates a directory and sets it to the current working directory.
-#
-#: PARAMETERS:
-#: 		$1 - the name of the directory to create
-##
-mkcd() {
-    if [ -z ${1+x} ]; then
-        echo "Need to specify at least one argument!"
-        return 1
-    fi
-
-    mkdir -p "$1" && cd "$1"
-}
 
 # local settings
 for s in "local" "keys"; do
