@@ -20,15 +20,13 @@ shopt -s globstar nocaseglob nullglob
 #   $2 - The output directory.  Optional, if not specified, then the output file will be saved in the same directory as `$1`.
 ##
 _rip() {
-    [[ ${1,,} =~ .*(mp4|mov)$ ]] && local ext="m4a" || local ext="mka"
-
-    local out="${1%.*}.${ext}"
+    local out="${1%.*}.mka"
     if [[ $2 ]]; then
         out="${2}/$(basename "$out")"
     fi
 
     echo "$(date) [INFO]: ripping audio from '${1}' and sending it to '${out}'"
-    ffmpeg -n -i "$1" -vn -c:a copy -map_metadata 0 -map_metadata:s:a 0:s:a -loglevel panic "$out"
+    ffmpeg -n -i "$1" -vn -c:a copy -loglevel panic "$out"
 }
 
 if (( $# > 0 )); then
