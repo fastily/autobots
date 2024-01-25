@@ -74,6 +74,7 @@ defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool 
 defaults write com.apple.Safari WebKitPreferences.developerExtrasEnabled -bool true # show develop menu pt 3
 
 defaults write com.apple.dock "show-recents" -int 0 # hide recent applications from dock (applied after reboot or killall dock)
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false # disable click wallpaper to show desktop
 
 defaults write com.apple.Terminal SecureKeyboardEntry -bool true # enable terminal secure keyboard entry
 defaults write com.apple.Terminal "Default Window Settings" -string Pro # set default terminal window to Pro
