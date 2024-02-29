@@ -28,10 +28,16 @@ EOF
 
     # suppress irritating apt prompt in >= 22.04
     local NR_CONF="/etc/needrestart/needrestart.conf"
-    if [ -f "$NR_CONF" ]; then
+    if [[ -f $NR_CONF ]]; then
         sudo sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' "$NR_CONF"
         sudo sed -i "s/#\$nrconf{kernelhints} = -1;/\$nrconf{kernelhints} = -1;/g" "$NR_CONF"
     fi
+
+    # create user's home bin & containers
+    mkdir -p ~/{bin,containers}
+
+    # update apt lists
+    sudo apt-get update
 }
 
 ##
@@ -55,17 +61,32 @@ apply_ui_settings() {
 #   $1 - Configure sshd to use an alternative port (i.e. not 22).  Optional - leave blank to disable.
 ##
 setup_sshd() {
-    sudo apt-get update && sudo apt-get -y install openssh-server
+    sudo apt-get -y install openssh-server
 
     local SSH_CONFIG="/etc/ssh/sshd_config"
     cp "$SSH_CONFIG" "/tmp/"
     sudo sed -i -E 's/^\#?PermitRootLogin .*/PermitRootLogin no/' "$SSH_CONFIG"
     sudo sed -i -E 's/^\#?PasswordAuthentication .*/PasswordAuthentication no/' "$SSH_CONFIG"
 
-    if [ ! -z "$1" ]; then
+    if [[ ! -z $1 ]]; then
         sudo sed -i -E "s/^\#?Port .*/Port ${1}/" "$SSH_CONFIG"
     fi
 
     mkdir -p ~/.ssh
     touch ~/.ssh/authorized_keys
+}
+
+##
+# Setup nfs service
+##
+setup_nfs() {
+    sudo apt -y nfs-kernel-server
+    sudo systemctl start nfs-kernel-server.service
+}
+
+##
+# Instlls global shared packages
+##
+install_shared_packages() {
+    sudo apt-get install -y fail2ban jq net-tools
 }
