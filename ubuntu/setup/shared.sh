@@ -80,7 +80,7 @@ setup_sshd() {
 # Setup nfs service
 ##
 setup_nfs() {
-    sudo apt -y nfs-kernel-server
+    sudo apt -y install nfs-kernel-server
     sudo systemctl start nfs-kernel-server.service
 }
 

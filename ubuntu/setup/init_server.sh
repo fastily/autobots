@@ -13,6 +13,6 @@ general_settings
 install_shared_packages
 setup_sshd
 setup_nfs
-sudo apt -y screen smartmontools
+sudo apt install -y screen smartmontools
 
 echo "Done, reboot for changes to take effect."
