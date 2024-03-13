@@ -12,17 +12,11 @@
 #: Tested on Ubuntu 20.04
 #: Author: Fastily
 
-##
-# Print usage and exits
-##
-usage() {
-  printf "Usage: %s <PATH_OF_DIR_TO_SHARE> <CIDR_WHICH_CAN_CONNECT>\n" "${0##*/}"
-  exit 1
-}
-
 if (( $# < 2 )); then
-	usage
+  echo "Usage: ${0##*/} <PATH_OF_DIR_TO_SHARE> <CIDR_WHICH_CAN_CONNECT>"
+  exit 1
 fi
 
-printf "\n\"${1}\" ${2}(insecure,subtree_check)\n" | sudo tee -a "/etc/exports" > /dev/null
+# implied - ro,sync,no_subtree_check,root_squash.  Also macOS requires 'insecure' to connect
+printf "\n\"${1}\" ${2}(insecure)\n" | sudo tee -a "/etc/exports" > /dev/null
 sudo exportfs -a
