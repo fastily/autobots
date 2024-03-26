@@ -11,15 +11,16 @@ set -e
 
 DOCKER_DL="https://download.docker.com/linux/debian"
 KEYRINGS="/etc/apt/keyrings"
-DOCKER_KEYRING="${KEYRINGS}/docker.gpg"
+KEY_FILE="${KEYRINGS}/docker.asc"
 
-sudo apt update && sudo apt install -y ca-certificates curl gnupg
-
+sudo apt update
+sudo apt install -y ca-certificates curl
 sudo install -m 0755 -d "$KEYRINGS"
-curl -fsSL "${DOCKER_DL}/gpg" | sudo gpg --dearmor -o "$DOCKER_KEYRING"
-sudo chmod +r "$DOCKER_KEYRING"
-echo "deb [arch="$(dpkg --print-architecture)" signed-by=${DOCKER_KEYRING}] ${DOCKER_DL} "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo curl -fsSL "${DOCKER_DL}/gpg" -o "$KEY_FILE"
+sudo chmod +r "$KEY_FILE"
 
-sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+echo "deb [arch=$(dpkg --print-architecture) signed-by=${KEY_FILE}] ${DOCKER_DL} $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 sudo usermod -aG docker "$USER"
