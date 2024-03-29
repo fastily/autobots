@@ -9,7 +9,7 @@ cd "${0%/*}" &> /dev/null
 set -e
 
 ## Install packages
-sudo apt update && sudo apt -y install fail2ban
+sudo apt update && sudo apt -y install fail2ban jq
 
 ## Apply custom settings for ssh
 sshdConfig="/etc/ssh/sshd_config"
