@@ -68,7 +68,7 @@ setup_sshd() {
     sudo sed -i -E 's/^\#?PermitRootLogin .*/PermitRootLogin no/' "$SSH_CONFIG"
     sudo sed -i -E 's/^\#?PasswordAuthentication .*/PasswordAuthentication no/' "$SSH_CONFIG"
 
-    if [[ ! -z $1 ]]; then
+    if [[ -n $1 ]]; then
         sudo sed -i -E "s/^\#?Port .*/Port ${1}/" "$SSH_CONFIG"
     fi
 

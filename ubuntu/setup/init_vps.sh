@@ -16,6 +16,18 @@ general_settings
 setup_sshd "$SSH_PORT"
 install_shared_packages
 
+# Install cloudflared
+KEYRINGS="/usr/share/keyrings"
+PKG_CF="https://pkg.cloudflare.com"
+CF_GPG="cloudflare-main.gpg"
+CFD="cloudflared"
+
+sudo mkdir -p --mode=0755 "$KEYRINGS"
+curl -fsSL "${PKG_CF}/${CF_GPG}" | sudo tee "${KEYRINGS}/${CF_GPG}" > /dev/null
+echo "deb [signed-by=${KEYRINGS}/${CF_GPG}] ${PKG_CF}/${CFD} $(. /etc/os-release && echo "$VERSION_CODENAME") main" | sudo tee "/etc/apt/sources.list.d/${CFD}.list" > /dev/null
+sudo apt update
+sudo apt install -y "$CFD"
+
 # Configure firewall
 sudo ufw default allow outgoing
 sudo ufw default deny incoming
