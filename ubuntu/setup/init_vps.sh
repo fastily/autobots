@@ -9,11 +9,9 @@ cd "${0%/*}" &> /dev/null
 set -e
 source shared.sh
 
-SSH_PORT=41517
-
 # install dependencies, configure global settings
 general_settings
-setup_sshd "$SSH_PORT"
+setup_sshd
 install_shared_packages
 
 # Install cloudflared
@@ -31,7 +29,6 @@ sudo apt install -y "$CFD"
 # Configure firewall
 sudo ufw default allow outgoing
 sudo ufw default deny incoming
-sudo ufw allow "${SSH_PORT}/tcp"
 echo "y" | sudo ufw enable
 
 echo "Done, reboot for changes to take effect."

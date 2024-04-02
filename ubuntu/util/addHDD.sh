@@ -3,11 +3,11 @@
 #: Configure a hard drive or HD partition to be auto-mounted on boot via /etc/fstab.
 #: 
 #: PRECONDITIONS: 
-#:		1) Specified device/partition exists.
+#:    1) Specified device/partition exists.
 #:
 #: ARGUMENTS:
-#: 		$1 - The device/partition identifier, exluding the '/dev/' prefix.  Example: sdb1
-#: 		$2 - The desired mount identifier.  Will be prefixed with '/mnt/'.  Example: myDrive
+#:    $1 - The device/partition identifier, exluding the '/dev/' prefix.  Example: sdb1
+#:    $2 - The desired mount identifier.  Will be prefixed with '/mnt/'.  Example: myDrive
 #: 
 #: Tested on Ubuntu 17.04
 #: Author: Fastily
@@ -21,7 +21,7 @@ usage() {
 }
 
 if (( $# < 2 )); then
-	usage
+  usage
 fi
 
 ## Fetch target UUID and perform sanity checks
