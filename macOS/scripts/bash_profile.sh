@@ -12,7 +12,7 @@
 export PATH="${HOME}/bin:${HOME}/.docker/bin:${PATH}"
 
 # aliases
-alias 4cr='4cr -o ~/Public '
+alias 4cr='4cr -o ~/Public/Sets '
 alias b64d='base64 -D -i '
 alias b64e='base64 -i '
 alias buu='brew update && brew upgrade'
