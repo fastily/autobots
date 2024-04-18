@@ -25,8 +25,8 @@ if [[ $(arch) == "arm64" ]] && ! command -v brew; then
 fi
 
 ## Install Apps
-brew install bash-completion@2 gnu-sed gnu-tar iperf3 nmap python rdfind rg wget
-brew install --cask firefox knockknock sublime-text
+brew install bash-completion@2 gnu-sed gnu-tar iperf3 nmap python python-setuptools rdfind rg wget virtualenv
+brew install --cask google-chrome knockknock sublime-text
 
 ## Patch Antiques
 brew install less openssh rsync

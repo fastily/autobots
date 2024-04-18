@@ -19,4 +19,4 @@ fi
 
 # implied - ro,sync,no_subtree_check,root_squash.  Also macOS requires 'insecure' to connect
 printf "\n\"${1}\" ${2}(insecure)\n" | sudo tee -a "/etc/exports" > /dev/null
-sudo exportfs -a
+sudo exportfs -r

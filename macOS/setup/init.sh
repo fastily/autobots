@@ -20,7 +20,7 @@ fi
 
 ## Install Apps
 brew install cloudflared exiftool ffmpeg imagemagick yt-dlp # node p7zip
-brew install --cask dbeaver-community google-chrome postman visual-studio-code vlc # blackhole-2ch
+brew install --cask dbeaver-community postman visual-studio-code vlc # blackhole-2ch
 
 MAC_MODEL="$(system_profiler SPHardwareDataType | grep "Model Name")"
 if [[ $MAC_MODEL == *"Mac mini"* ]]; then
