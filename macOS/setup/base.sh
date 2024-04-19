@@ -31,10 +31,6 @@ brew install --cask google-chrome knockknock sublime-text
 ## Patch Antiques
 brew install less openssh rsync
 
-## Global python packages
-pip3 install -U 'pip'
-pip3 install virtualenv
-
 ## Create folders and symlinks
 cd ~
 mkdir -p Documents/{git,keys/ssh,scripts}
