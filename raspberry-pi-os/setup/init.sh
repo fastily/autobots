@@ -25,6 +25,7 @@ sudo systemctl start ssh
 sudo systemctl restart ssh
 
 ## Setup bin and aliases
+mkdir -p ~/.config/containers
 bash ../scripts/deploy.sh
 
 cat << EOF >> ~/".bash_aliases"
