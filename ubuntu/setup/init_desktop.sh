@@ -14,6 +14,6 @@ apply_ui_settings
 install_shared_packages
 setup_sshd
 setup_nfs
-sudo apt -y install exfat-fuse exfatprogs hfsprogs iperf3 screen smartmontools
+sudo apt -y install hfsprogs iperf3 screen smartmontools
 
 echo "Done, reboot for changes to take effect."
