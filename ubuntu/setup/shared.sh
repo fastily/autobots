@@ -26,6 +26,31 @@ Dpkg::Options {
 }
 EOF
 
+    # max # of open file descriptors is egregiously low
+    local f_hard_limit=1048576
+    local f_soft_limit=65536
+    local limit_d="/etc/security/limits.d"
+
+    sudo mkdir -p "$limit_d" /etc/systemd/{system,user}.conf.d
+
+    sudo tee "${limit_d}/99my_custom.conf" > /dev/null << EOF
+* soft nofile ${f_soft_limit}
+* hard nofile ${f_hard_limit}
+root soft nofile ${f_soft_limit}
+root hard nofile ${f_hard_limit}
+EOF
+
+    for f in /etc/systemd/{system,user}.conf.d/99my_custom.conf; do
+        sudo tee "$f" > /dev/null << EOF
+[Manager]
+DefaultLimitNOFILE=${f_soft_limit}:${f_hard_limit}
+EOF
+    done
+
+    for f in /etc/pam.d/common-session{,-noninteractive}; do
+        echo "session required pam_limits.so" | sudo tee -a "$f" > /dev/null
+    done
+
     # suppress irritating apt prompt in >= 22.04
     local NR_CONF="/etc/needrestart/needrestart.conf"
     if [[ -f $NR_CONF ]]; then
