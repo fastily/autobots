@@ -13,7 +13,8 @@ source "shared.sh"
 sanity_check
 general_settings
 setup_personal
-setup_dev_tools
 macbook_settings
 
 brew install --cask mullvadvpn
+
+echo "All set!  Please reboot for changes to take effect"

@@ -13,6 +13,7 @@ source "shared.sh"
 sanity_check
 general_settings
 setup_personal
-setup_dev_tools
 
 brew install --cask steam
+
+echo "All set!  Please reboot for changes to take effect"

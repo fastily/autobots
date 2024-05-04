@@ -12,5 +12,6 @@ source "shared.sh"
 
 sanity_check
 general_settings
-setup_dev_tools
 macbook_settings
+
+echo "All set!  Please reboot for changes to take effect"

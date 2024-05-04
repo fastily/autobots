@@ -26,12 +26,36 @@ general_settings() {
         eval $("/opt/homebrew/bin/brew" shellenv)
     fi
 
+    # copy scripts and bash_profile
+    cd "${0%/*}" &> /dev/null || true
+    bash ../scripts/deploy.sh
+
     ## Install Apps
     brew install bash-completion@2 gnu-sed gnu-tar iperf3 nmap python rdfind rg wget virtualenv
-    brew install --cask google-chrome knockknock sublime-text
+    brew install --cask dbeaver-community google-chrome knockknock postman sublime-text visual-studio-code
 
     ## Patch Antiques
     brew install less openssh rsync
+
+    ## VSCode settings and extensions
+    code --install-extension ms-python.autopep8 --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension ms-vscode.live-server --install-extension njpwerner.autodocstring --install-extension Vue.volar  # --install-extension zignd.html-css-class-completion
+
+    local VSCODE_DIR=~/'Library/Application Support/Code/User'
+    mkdir -p "$VSCODE_DIR"
+    cat > "${VSCODE_DIR}/settings.json" <<EOF
+{
+    "python.linting.pylintArgs": ["-d", "C0103,C0301,W0703"],
+    "python.formatting.autopep8Args": ["--max-line-length", "300"],
+    "terminal.integrated.defaultProfile.osx": "bash",
+    "html.format.wrapLineLength": 0,
+    "security.workspace.trust.enabled": false,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8",
+    },
+    "autopep8.args": ["--max-line-length", "300"]
+}
+EOF
+    #"python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
 
     ## Create folders and symlinks
     pushd ~
@@ -85,14 +109,14 @@ general_settings() {
 
     # suppress warning about bash running when closing window
     plutil -replace "Window Settings.Pro.noWarnProcesses" -array ~/Library/Preferences/com.apple.Terminal.plist
-    count=0
+    local count=0
     for s in "screen" "tmux" "-bash"; do
         plutil -insert "Window Settings.Pro.noWarnProcesses" -dictionary -append ~/Library/Preferences/com.apple.Terminal.plist
         plutil -replace "Window Settings.Pro.noWarnProcesses.${count}.ProcessName" -string "$s" ~/Library/Preferences/com.apple.Terminal.plist
         ((count++))
     done
 
-    [[ "$(arch)" == "arm64" ]] && my_bash="/opt/homebrew/bin/bash" || my_bash="/usr/local/bin/bash"
+    [[ "$(arch)" == "arm64" ]] && local my_bash="/opt/homebrew/bin/bash" || local my_bash="/usr/local/bin/bash"
     defaults write com.apple.Terminal Shell -string "$my_bash" # set shell to locally patched bash
 
     ## Set default shell to homebrew bash
@@ -108,33 +132,6 @@ general_settings() {
     ## Disable sleep and set display sleep to 30 mins while plugged in
     sudo pmset -c sleep 0
     sudo pmset -c displaysleep 30
-}
-
-##
-# Installs my preferred dev env and extensions
-##
-setup_dev_tools() {
-    brew install --cask dbeaver-community postman visual-studio-code
-
-    ## VSCode settings and extensions
-    code --install-extension ms-python.autopep8 --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension ms-vscode.live-server --install-extension njpwerner.autodocstring --install-extension Vue.volar  # --install-extension zignd.html-css-class-completion
-
-    VSCODE_DIR=~/'Library/Application Support/Code/User'
-    mkdir -p "$VSCODE_DIR"
-    cat > "${VSCODE_DIR}/settings.json" <<EOF
-{
-    "python.linting.pylintArgs": ["-d", "C0103,C0301,W0703"],
-    "python.formatting.autopep8Args": ["--max-line-length", "300"],
-    "terminal.integrated.defaultProfile.osx": "bash",
-    "html.format.wrapLineLength": 0,
-    "security.workspace.trust.enabled": false,
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.autopep8",
-    },
-    "autopep8.args": ["--max-line-length", "300"]
-}
-EOF
-    #"python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
 }
 
 ##
