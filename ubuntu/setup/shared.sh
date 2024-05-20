@@ -11,6 +11,7 @@ general_settings() {
     # setup bash aliases
     cat << EOF >> ~/".bash_aliases"
 
+alias buu="brew update && brew upgrade"
 alias dcla="docker container ls -a "
 alias dlf="docker logs -f --tail 1000 "
 alias uuaa="sudo apt update && sudo apt upgrade -y && sudo apt autoclean && sudo apt autoremove -y"

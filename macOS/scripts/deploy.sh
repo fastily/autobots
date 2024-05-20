@@ -7,17 +7,14 @@
 ##
 
 cd "${0%/*}" &> /dev/null
+set -e
 
 DEST_BIN=~/"bin"
-
-echo "Copying scripts to ${DEST_BIN}..."
 for s in bin ../../shared/scripts; do
     rsync -avhP "${s}/" "$DEST_BIN"
 done
-
 chflags hidden "$DEST_BIN"
 
-echo "Copying .bash_profile"
-cp bash_profile.sh ~/.bash_profile
+rsync -avhP "./bash_profile.sh" ~/".bash_profile"
 
 echo "Done!"
