@@ -29,7 +29,7 @@ sudo apt update
 sudo apt install -y ca-certificates curl
 sudo install -m 0755 -d "$KEYRINGS"
 sudo curl -fsSL "${DOCKER_DL}/gpg" -o "$KEY_FILE"
-sudo chmod +r "$KEY_FILE"
+sudo chmod a+r "$KEY_FILE"
 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=${KEY_FILE}] ${DOCKER_DL} $(. "$OSR" && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt update

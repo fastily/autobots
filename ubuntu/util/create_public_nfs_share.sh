@@ -3,11 +3,11 @@
 #: Create a new nfs share with the specified directory and IP/CIDR
 #: 
 #: PRECONDITIONS:
-#:		1) *Kernel* NFS is installed
+#:    1) *Kernel* NFS is installed
 #:
 #: ARGUMENTS:
-#: 		$1 - The path to the directory to share.
-#: 		$2 - The IPs allowed to access the share. Example: 192.168.1.0/24
+#:    $1 - The path to the directory to share.
+#:    $2 - The IPs allowed to access the share. Example: 192.168.1.0/24
 #: 
 #: Tested on Ubuntu 20.04
 #: Author: Fastily
