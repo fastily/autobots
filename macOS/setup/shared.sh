@@ -31,7 +31,7 @@ general_settings() {
     bash ../scripts/deploy.sh
 
     ## Install Apps
-    brew install bash-completion@2 gnu-sed gnu-tar iperf3 nmap python rdfind rg wget virtualenv
+    brew install bash-completion@2 gnu-sed gnu-tar iperf3 nmap python rdfind rg wget
     brew install --cask dbeaver-community google-chrome knockknock postman sublime-text visual-studio-code
 
     ## Patch Antiques
@@ -138,7 +138,7 @@ EOF
 # Installs apps/programs for my personal devices
 ##
 setup_personal() {
-    brew install cloudflared exiftool ffmpeg imagemagick yt-dlp # node p7zip
+    brew install cloudflared exiftool ffmpeg imagemagick yt-dlp
     brew install --cask vlc # blackhole-2ch
 
     ## Configure Pixelmator
