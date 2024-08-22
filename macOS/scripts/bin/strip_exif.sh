@@ -14,5 +14,5 @@ if (( $# < 1 )); then
 fi
 
 for f; do
-    exiftool -EXIF= -overwrite_original "$f"
+    exiftool -DateCreated= -AllDates= -EXIF= -overwrite_original "$f"
 done
