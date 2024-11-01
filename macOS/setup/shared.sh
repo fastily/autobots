@@ -95,11 +95,11 @@ EOF
     defaults write com.apple.Safari IncludeDevelopMenu -bool true # show develop menu pt 1
     defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true # show develop menu pt 2
     defaults write com.apple.Safari WebKitPreferences.developerExtrasEnabled -bool true # show develop menu pt 3
+    defaults write com.apple.Safari.SandboxBroker ShowDevelopMenu -bool true # show develop menu pt 4
 
     defaults write com.apple.dock "show-recents" -int 0 # hide recent applications from dock (applied after reboot or killall dock)
     defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false # disable click wallpaper to show desktop
 
-    defaults write com.apple.Terminal SecureKeyboardEntry -bool true # enable terminal secure keyboard entry
     defaults write com.apple.Terminal "Default Window Settings" -string Pro # set default terminal window to Pro
     defaults write com.apple.Terminal "Startup Window Settings" -string Pro # set startup window to Pro
     defaults write com.apple.Terminal NewTabWorkingDirectoryBehavior -int 1 # New tabs should open with default working dir
