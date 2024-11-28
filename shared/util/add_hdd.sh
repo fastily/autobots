@@ -1,9 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #: Configure a hard drive or HD partition to be auto-mounted on boot via /etc/fstab.
 #: 
-#: PRECONDITIONS: 
+#: PRECONDITIONS:
 #:    1) Specified device/partition exists.
+#:    2) Must be using debian, 64-bit Raspberry Pi OS, or ubuntu
 #:
 #: ARGUMENTS:
 #:    $1 - The device/partition identifier, exluding the '/dev/' prefix.  Example: sdb1
@@ -12,11 +13,13 @@
 #: Tested on Ubuntu 17.04
 #: Author: Fastily
 
+set -e
+
 ##
 # Prints usage and exits
 ##
 usage() {
-  printf "Usage: %s <device id> <mount destination>\n" "${0##*/}"
+  echo "Usage: ${0##*/} <DEVICE_ID> <MNT_DIR>"
   exit 1
 }
 
@@ -26,17 +29,18 @@ fi
 
 ## Fetch target UUID and perform sanity checks
 targetDrive="/dev/${1}"
-targetUUID=$( sudo blkid -s UUID -o value "$targetDrive" )
+targetUUID="$(sudo blkid -s UUID -o value "$targetDrive")"
 
 if [[ -z $targetUUID ]]; then
-   printf "Error: ${targetDrive} does not exist\n"
+   echo "[ERROR]: '${targetDrive}' does not exist"
    usage
 fi
 
 mountPoint="/mnt/${2}"
 
 ## Perform changes
-mkdir -p "$mountPoint"
-printf "\nUUID=${targetUUID} ${mountPoint} auto defaults,nofail 0 0" | sudo tee -a /etc/fstab > /dev/null
+sudo mkdir -p "$mountPoint"
+sudo chmod a+rwx "$mountPoint"
+printf "\nUUID=${targetUUID} ${mountPoint} auto defaults,nofail 0 2\n" | sudo tee -a /etc/fstab > /dev/null
 
-printf "OK: ${targetDrive} will mount on ${mountPoint} on next reboot.\n"
+echo "[INFO]: '${targetDrive}' will mount at '${mountPoint}' on next reboot"
