@@ -9,6 +9,6 @@
 #: Author: Fastily
 ##
 
-[[ -z $1 ]] && d="." || d="$1"
-echo "Recursively deleting '.DS_STORE' from '${d}'"
-find "$d" -name '*.DS_Store' -type f -print -delete
+d="${1:-.}"
+echo "[INFO]: Recursively deleting '.DS_STORE' from '${d}'"
+find "$d" -path '*/.Trashes' -prune -o -name '*.DS_Store' -type f -exec rm -v {} +
