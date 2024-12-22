@@ -14,6 +14,7 @@ sudo dpkg -i "$DEB_FILE" && \
 sudo apt-get install -f
 
 # shut up passowrd manager, nobody cares
-LOCALCONFIG=~/".local/share/applications/google-chrome.desktop"
-cp "/usr/share/applications/google-chrome.desktop" "$LOCALCONFIG"
+CFG_FILE="share/applications/google-chrome.desktop"
+LOCALCONFIG=~/".local/${CFG_FILE}"
+cp "/usr/${CFG_FILE}" "$LOCALCONFIG"
 sed -i -e 's|google-chrome-stable|google-chrome-stable --password-store=basic|' "$LOCALCONFIG"
