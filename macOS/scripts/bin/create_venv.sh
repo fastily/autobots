@@ -6,6 +6,6 @@
 #: Author: Fastily
 ##
 
-VENV_NAME="$(basename "$PWD" | tr --  "- " "_")"
+VENV_NAME="$(basename "$PWD" | tr -- "- " "_")"
 echo "Creating venv with name ${VENV_NAME}..."
 python3 -m venv "venv_${VENV_NAME}"
