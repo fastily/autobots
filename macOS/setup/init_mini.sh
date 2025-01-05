@@ -15,5 +15,6 @@ general_settings
 setup_personal
 
 brew install --cask steam
+softwareupdate --install-rosetta --agree-to-license
 
 echo "All set!  Please reboot for changes to take effect"

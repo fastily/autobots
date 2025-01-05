@@ -144,6 +144,9 @@ setup_personal() {
     ## Configure Pixelmator
     # defaults write com.pixelmatorteam.pixelmator.x fullSizeQuickLookPreview -bool true
 
+    git config --global user.name "fastily"
+    git config --global user.email "fastily@users.noreply.github.com"
+
     ## Create symlinks
     cd ~
     ln -s Documents/keys/bash_keys.sh .bash_keys
