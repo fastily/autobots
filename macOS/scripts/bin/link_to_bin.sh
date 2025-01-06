@@ -11,10 +11,10 @@ if [[ -z $1 ]]; then
     exit 1
 fi
 
-SRC="$([[ $1 = /* ]] && echo "$1" || echo "${PWD}/${1#./}")"
+[[ $1 = /* ]] && SRC="$1" || SRC="${PWD}/${1#./}"
 
-if [[ ! -f $SRC ]]; then
-    echo "'${SRC}' doesn't exist, is this actually what you meant?"
-else
+if [[ -f $SRC ]]; then
     ln -s "$SRC" ~/"bin/$(basename "$SRC")"
+else
+    echo "'${SRC}' doesn't exist, is this actually what you meant?"
 fi
