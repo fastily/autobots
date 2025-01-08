@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ##
-#: Encode a media file as 320kbps mp3
+#: Encode a media file as mp3
 #: PARAMETERS:
 #: 		$1 - path to media file to encode as mp3
 #:
@@ -9,8 +9,8 @@
 ##
 
 if [[ ! -f $1 ]]; then
-    printf "Usage: %s <PATH_TO_MEDIA_FILE>\n" "${0##*/}"
+    echo "Usage: ${0##*/} <PATH_TO_MEDIA_FILE>"
     exit 1
 fi
 
-ffmpeg -y -i "$1" -vn -c:a libmp3lame -b:a 320k -loglevel panic "${1%.*}".mp3
+ffmpeg -y -i "$1" -vn -c:a libmp3lame -q:a 0 -loglevel panic "${1%.*}".mp3
