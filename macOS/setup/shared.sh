@@ -31,8 +31,8 @@ general_settings() {
     bash ../scripts/deploy.sh
 
     ## Install Apps
-    brew install bash-completion@2 difftastic gnu-sed gnu-tar iperf3 nmap python rdfind rg wget
-    brew install --cask dbeaver-community google-chrome knockknock postman sublime-text visual-studio-code
+    brew install bash-completion@2 difftastic gnu-sed gnu-tar nmap python rdfind rg wget
+    brew install --cask google-chrome knockknock postman sublime-text visual-studio-code
 
     ## Patch Antiques
     brew install less openssh rsync
@@ -121,7 +121,7 @@ EOF
 
     ## Set default shell to homebrew bash
     echo "$my_bash" | sudo tee -a "/etc/shells" &> /dev/null
-    sudo chsh -s "$my_bash" $(whoami)
+    sudo chsh -s "$my_bash" "$(whoami)"
 
     ## patch misconfigured default nfs config
     printf "\nnfs.client.mount.options = vers=4\n" | sudo tee -a "/etc/nfs.conf" &> /dev/null
@@ -138,7 +138,7 @@ EOF
 # Installs apps/programs for my personal devices
 ##
 setup_personal() {
-    brew install cloudflared exiftool ffmpeg imagemagick yt-dlp
+    brew install cloudflared exiftool ffmpeg imagemagick iperf3 yt-dlp
     brew install --cask vlc # blackhole-2ch
 
     ## Configure Pixelmator
