@@ -15,6 +15,6 @@ general_settings
 setup_personal
 macbook_settings
 
-brew install --cask mullvadvpn
+brew install --cask mullvadvpn tailscale
 
 echo "All set!  Please reboot for changes to take effect"
