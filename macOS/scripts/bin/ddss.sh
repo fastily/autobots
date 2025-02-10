@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ##
-#: Recursively deletes .DS_STORE from the specified directory.  Defaults to searching the current working directory.
+#: Recursively deletes .DS_Store from the specified directory.  Defaults to searching the current working directory.
 #: 
 #: PARAMETERS:
 #: 		$1 - Directory to look in.  Optional, leave blank to disable.
@@ -10,5 +10,5 @@
 ##
 
 d="${1:-.}"
-echo "[INFO]: Recursively deleting '.DS_STORE' from '${d}'"
-find "$d" -name '*.DS_Store' -type f -print -delete || true
+echo "[INFO]: Recursively deleting .DS_Store from '${d}'"
+find "$d" -name ".DS_Store" -type f -print -delete || true
