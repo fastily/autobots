@@ -89,13 +89,14 @@ apply_ui_settings() {
 setup_sshd() {
     sudo apt-get -y install openssh-server
 
-    local SSH_CONFIG="/etc/ssh/sshd_config"
-    cp "$SSH_CONFIG" "/tmp/"
-    sudo sed -i -E 's/^\#?PermitRootLogin .*/PermitRootLogin no/' "$SSH_CONFIG"
-    sudo sed -i -E 's/^\#?PasswordAuthentication .*/PasswordAuthentication no/' "$SSH_CONFIG"
+    local SSH_CONFIG="/etc/ssh/sshd_config.d/10-my-ssh.conf"
+    sudo tee "$SSH_CONFIG" > /dev/null << EOF
+PermitRootLogin no
+PasswordAuthentication no
+EOF
 
     if [[ -n $1 ]]; then
-        sudo sed -i -E "s/^\#?Port .*/Port ${1}/" "$SSH_CONFIG"
+        echo "Port ${1}" >> "$SSH_CONFIG"
     fi
 
     mkdir -p ~/.ssh

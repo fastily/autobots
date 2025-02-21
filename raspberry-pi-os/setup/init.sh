@@ -12,10 +12,10 @@ set -e
 sudo apt update && sudo apt -y install fail2ban jq
 
 ## Apply custom settings for ssh
-sshdConfig="/etc/ssh/sshd_config"
-cp "$sshdConfig" /tmp
-sudo sed -i -E 's/^\#?PermitRootLogin .*/PermitRootLogin no/' "$sshdConfig"
-sudo sed -i -E 's/^\#?PasswordAuthentication .*/PasswordAuthentication no/' "$sshdConfig"
+sudo tee "/etc/ssh/sshd_config.d/10-my-ssh.conf" > /dev/null << EOF
+PermitRootLogin no
+PasswordAuthentication no
+EOF
 
 mkdir -p ~/.ssh
 echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDVS+ueZU1A4iHGyEKlQ0RzjcU9cio708BpFMZJeGGaP chungus_pi' >> ~/.ssh/authorized_keys
