@@ -8,13 +8,13 @@
 
 set -e
 
-target=$(pbpaste)
+target="$(pbpaste)"
 
 if [[ -n $target ]] && [[ $target =~ "https://www.youtube.com/watch?v=".+ ]]; then
-    echo "INFO: now downloading '${target}'"
+    echo "[INFO]: now downloading '${target}'"
     cd /tmp
     yt-dlp "$target"
     open .
 else
-    echo "ERROR: '${target}' is not a valid yt link"
+    echo "[ERROR]: '${target}' is not a valid yt link"
 fi
