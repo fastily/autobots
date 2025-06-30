@@ -31,7 +31,7 @@ general_settings() {
     bash ../scripts/deploy.sh
 
     ## Install Apps
-    brew install bash-completion@2 difftastic gnu-sed gnu-tar nmap python rdfind rg wget
+    brew install difftastic gnu-sed gnu-tar nmap python rdfind rg wget
     brew install --cask google-chrome knockknock postman sublime-text visual-studio-code
 
     ## Patch Antiques
