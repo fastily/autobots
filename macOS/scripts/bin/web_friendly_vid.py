@@ -22,7 +22,7 @@ def _handle_case(f: Path, audio_codec: str, disable_audio: bool, audio_codecs_to
         disable_audio (bool): indicates whether audio should be removed, this is the option the user sets via CLI
         audio_codecs_to_ignore (tuple[str, ...], optional): audio codecs to ignore, if applicable. Defaults to `("aac",)`.
         video_args (str, optional): the ffmpeg args to use for transcoding the video stream of `f`. Defaults to `"-c:v copy"`.
-        audio_args (_type_, optional): the ffmpeg args to use for transcoding the audio stream of `f`. Defaults to `"-c:a aac -vbr 3"`.
+        audio_args (str, optional): the ffmpeg args to use for transcoding the audio stream of `f`. Defaults to `"-c:a aac -vbr 3"`.
         output_ext (str, optional): the file extension to use for the resulting output file. Defaults to `".mp4"`.
         additional_args (str, optional): any additional arguments to pass to ffmpeg. Optional, set `None` to disable. Defaults to `"-movflags +faststart"`.
     """
@@ -63,7 +63,7 @@ def _main() -> None:
 
     for p in args.videos:
         if not (streams := json.loads(subprocess.run(split(f"ffprobe -v error -show_entries stream=index,codec_type,codec_name -of json '{p}'"), capture_output=True).stdout.decode()).get("streams")):
-            print("'%s' is not an A/V file? Skipping.", p)
+            print(f"'{p}' is not an A/V file? Skipping")
             continue
 
         ac = vc = None
