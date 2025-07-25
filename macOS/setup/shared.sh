@@ -35,7 +35,7 @@ general_settings() {
     brew install --cask google-chrome knockknock postman sublime-text visual-studio-code
 
     ## Patch Antiques
-    brew install less openssh rsync
+    brew install bash less openssh rsync
 
     ## VSCode settings and extensions
     code --install-extension ms-python.autopep8 --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension ms-vscode.live-server --install-extension njpwerner.autodocstring --install-extension Vue.volar  # --install-extension zignd.html-css-class-completion

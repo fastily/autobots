@@ -2,7 +2,6 @@
 export PATH="${HOME}/bin:${PATH}"
 
 # aliases
-alias 4cr='4cr -o ~/Public '
 alias b64d='base64 -D -i '
 alias b64e='base64 -i '
 alias buu='brew update && brew upgrade'
