@@ -8,7 +8,7 @@
 #: Author: Fastily
 
 for f in /dev/sd{a..z}; do
-	if [ -b "$f" ]; then
+	if [[ -b $f ]]; then
 		sudo smartctl -x "$f"
 	fi
 done
