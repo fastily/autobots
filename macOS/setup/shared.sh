@@ -11,7 +11,7 @@
 # Checks if the script has the necessary permissions to run
 ##
 sanity_check() {
-    if [ ! -r "/Library/Preferences/com.apple.TimeMachine.plist" ]; then
+    if [[ ! -r "/Library/Preferences/com.apple.TimeMachine.plist" ]]; then
         echo "[ERROR]: Terminal does not have Full Disk Access, please enable before retrying"
         exit 1
     fi
@@ -59,7 +59,7 @@ EOF
 
     ## Create folders and symlinks
     pushd ~
-    mkdir -p Documents/{git,keys/ssh,scripts}
+    mkdir -p Documents/{git,keys/ssh} ".local/bin"
     ln -s Documents/keys/ssh .ssh
     popd
 
