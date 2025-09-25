@@ -138,7 +138,7 @@ EOF
 # Installs apps/programs for my personal devices
 ##
 setup_personal() {
-    brew install cloudflared exiftool ffmpeg imagemagick iperf3 yt-dlp
+    brew install cloudflared deno exiftool ffmpeg imagemagick iperf3 yt-dlp
     brew install --cask vlc # blackhole-2ch
 
     ## Configure Pixelmator
