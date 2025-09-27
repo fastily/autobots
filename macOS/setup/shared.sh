@@ -21,10 +21,7 @@ sanity_check() {
 # Applies general/shared settings and installs shared apps
 ##
 general_settings() {
-    # brew not automatically on PATH for Apple Silicon
-    if [[ $(arch) == "arm64" ]] && ! command -v brew; then
-        eval $("/opt/homebrew/bin/brew" shellenv)
-    fi
+    eval $("/opt/homebrew/bin/brew" shellenv)
 
     # copy scripts and bash_profile
     cd "${0%/*}" &> /dev/null || true
@@ -116,7 +113,7 @@ EOF
         ((count++))
     done
 
-    [[ "$(arch)" == "arm64" ]] && local my_bash="/opt/homebrew/bin/bash" || local my_bash="/usr/local/bin/bash"
+    local my_bash="/opt/homebrew/bin/bash"
     defaults write com.apple.Terminal Shell -string "$my_bash" # set shell to locally patched bash
 
     ## Set default shell to homebrew bash

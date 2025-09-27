@@ -1,4 +1,5 @@
 [[ -r "/opt/homebrew/bin/brew" ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
 export PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 
 # aliases
@@ -6,14 +7,13 @@ alias b64d='base64 -D -i '
 alias b64e='base64 -i '
 alias buu='brew update && brew upgrade'
 alias buuu='buu && brew upgrade --cask -g'
-# alias clean_py_build='rm -rfv build dist *.egg-info'
 # alias drs='python3 manage.py runserver'
 alias ffprobe='ffprobe -hide_banner '
 # alias gcp='gradle clean publishToMavenLocal -x test'
 # alias nrd='npm run dev'
 alias python='python3'
 alias pdb='uv sync -U --no-install-project'
-alias pie='pip3 install --config-settings editable_mode=compat -e '
+# alias pie='pip3 install --config-settings editable_mode=compat -e '
 alias po='uv pip list -o'
 alias resetFileGit='git checkout HEAD -- '
 alias tar='gtar'
