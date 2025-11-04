@@ -52,11 +52,13 @@ EOF
         echo "session required pam_limits.so" | sudo tee -a "$f" > /dev/null
     done
 
-    # suppress irritating apt prompt in >= 22.04
-    local NR_CONF="/etc/needrestart/needrestart.conf"
-    if [[ -f $NR_CONF ]]; then
-        sudo sed -i 's/#$nrconf{restart} = '"'"'i'"'"';/$nrconf{restart} = '"'"'a'"'"';/g' "$NR_CONF"
-        sudo sed -i "s/#\$nrconf{kernelhints} = -1;/\$nrconf{kernelhints} = -1;/g" "$NR_CONF"
+    # suppress irritating apt prompt in 22.04
+    local NR_CONF="/etc/needrestart/conf.d"
+    if [[ -d $NR_CONF ]]; then
+        sudo tee "${NR_CONF}/10-my-needrestart.conf" > /dev/null << 'EOF'
+$nrconf{restart} = 'l';
+$nrconf{kernelhints} = -1;
+EOF
     fi
 
     # create user's home bin & containers
