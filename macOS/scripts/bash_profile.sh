@@ -17,11 +17,11 @@ alias pdb='uv sync -U --no-install-project'
 alias po='uv pip list -o'
 alias resetFileGit='git checkout HEAD -- '
 alias tar='gtar'
-alias ucc='uv cache clean'
+alias ucc='uv cache clean && swift sh --clean-cache'
 alias undoLastCommit='git reset --soft HEAD~1'
 alias weather='curl https://wttr.in'
 alias whatIsMyIP='curl --resolve icanhazip.com:443:104.16.184.241 https://icanhazip.com'
-alias youtube_audio='yt-dlp -w -f bestaudio --add-metadata '
+alias youtube_audio='yt-dlp -w -x --add-metadata '
 
 
 # local settings

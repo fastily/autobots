@@ -2,9 +2,12 @@
 
 #: Installs my working environment for development with Docker.
 #:
+#: PRECONDITIONS:
+#:    1) visual-studio-code is installed
+#:
 #: Author: Fastily
 
-brew install --cask docker visual-studio-code
+brew install --cask docker
 
 ## Vscode extension
 code --install-extension ms-azuretools.vscode-docker
