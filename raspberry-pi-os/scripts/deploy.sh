@@ -9,7 +9,7 @@ cd "${0%/*}" &> /dev/null
 DEST_BIN=~/"bin"
 
 echo "Copying scripts to ${DEST_BIN}..."
-for s in bin ../../shared/scripts; do
+for s in ../../shared/scripts; do
     rsync -avhP "${s}/" "$DEST_BIN"
 done
 
