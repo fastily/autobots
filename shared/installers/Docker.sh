@@ -10,7 +10,7 @@
 set -e
 
 OSR="/etc/os-release"
-OS_ID="$( . "$OSR" && echo "$ID" )"
+OS_ID="$(. "$OSR" && echo "$ID")"
 case "$OS_ID" in
     ubuntu|debian)
         echo "Installing Docker for ${OS_ID}..."
@@ -32,17 +32,13 @@ sudo install -m 0755 -d "$KEYRINGS"
 sudo curl -fsSL "${DOCKER_DL}/gpg" -o "$KEY_FILE"
 sudo chmod a+r "$KEY_FILE"
 
-if [[ $OS_ID == "debian" ]]; then
-    sudo tee "${APT_SOURCE_LIST}/docker.sources" > /dev/null << EOF
+sudo tee "${APT_SOURCE_LIST}/docker.sources" > /dev/null << EOF
 Types: deb
 URIs: ${DOCKER_DL}
-Suites: $(. "$OSR" && echo "$VERSION_CODENAME")
+Suites: $(. "$OSR" && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
 Components: stable
 Signed-By: ${KEY_FILE}
 EOF
-else
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=${KEY_FILE}] ${DOCKER_DL} $(. "$OSR" && echo "${UBUNTU_CODENAME:-VERSION_CODENAME}") stable" | sudo tee "${APT_SOURCE_LIST}/docker.list" > /dev/null
-fi
 
 sudo apt update
 sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
