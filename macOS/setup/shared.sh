@@ -35,7 +35,10 @@ general_settings() {
     brew install bash less openssh rsync
 
     ## VSCode settings and extensions
-    code --install-extension ms-python.autopep8 --install-extension ms-python.python --install-extension ms-python.vscode-pylance --install-extension ms-vscode.live-server --install-extension njpwerner.autodocstring --install-extension Vue.volar  # --install-extension zignd.html-css-class-completion
+    # --install-extension ms-vscode.live-server --install-extension zignd.html-css-class-completion
+    code --install-extension ms-python.python --install-extension ms-python.autopep8 --install-extension njpwerner.autodocstring \
+        --install-extension Vue.volar --install-extension tamasfe.even-better-toml --install-extension tamasfe.even-better-toml \
+        --install-extension swiftlang.swift-vscode
 
     local VSCODE_DIR=~/'Library/Application Support/Code/User'
     mkdir -p "$VSCODE_DIR"
