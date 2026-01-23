@@ -37,15 +37,12 @@ general_settings() {
     ## VSCode settings and extensions
     # --install-extension ms-vscode.live-server --install-extension zignd.html-css-class-completion
     code --install-extension ms-python.python --install-extension ms-python.autopep8 --install-extension njpwerner.autodocstring \
-        --install-extension Vue.volar --install-extension tamasfe.even-better-toml --install-extension tamasfe.even-better-toml \
-        --install-extension swiftlang.swift-vscode
+        --install-extension Vue.volar --install-extension tamasfe.even-better-toml --install-extension swiftlang.swift-vscode
 
     local VSCODE_DIR=~/'Library/Application Support/Code/User'
     mkdir -p "$VSCODE_DIR"
     cat > "${VSCODE_DIR}/settings.json" <<EOF
 {
-    "python.linting.pylintArgs": ["-d", "C0103,C0301,W0703"],
-    "python.formatting.autopep8Args": ["--max-line-length", "300"],
     "terminal.integrated.defaultProfile.osx": "bash",
     "html.format.wrapLineLength": 0,
     "security.workspace.trust.enabled": false,
@@ -55,7 +52,6 @@ general_settings() {
     "autopep8.args": ["--max-line-length", "300"]
 }
 EOF
-    #"python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
 
     ## Create folders and symlinks
     pushd ~
