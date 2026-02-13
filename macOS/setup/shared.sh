@@ -95,6 +95,7 @@ EOF
 
     defaults write com.apple.dock "show-recents" -int 0 # hide recent applications from dock (applied after reboot or killall dock)
     defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false # disable click wallpaper to show desktop
+    defaults write com.apple.WindowManager StandardHideWidgets -bool true # hide widgets from desktop
 
     defaults write com.apple.Terminal "Default Window Settings" -string Pro # set default terminal window to Pro
     defaults write com.apple.Terminal "Startup Window Settings" -string Pro # set startup window to Pro
