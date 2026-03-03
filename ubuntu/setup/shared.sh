@@ -8,6 +8,9 @@
 # Applies general, shared settings.
 ##
 general_settings() {
+    # save git credentials
+    git config --global credential.helper store
+
     # setup bash aliases
     cat << EOF >> ~/".bash_aliases"
 

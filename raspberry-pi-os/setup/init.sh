@@ -36,6 +36,7 @@ alias uuaar="uuaa && sleep 5 && sudo reboot"
 alias uuaas="uuaa && sleep 5 && sudo shutdown now"
 EOF
 
-sudo timedatectl set-timezone Etc/UTC
+sudo timedatectl set-timezone Etc/UTC  # ensure utc tz
+git config --global credential.helper store  # save git credentials
 
 echo "Done!"
