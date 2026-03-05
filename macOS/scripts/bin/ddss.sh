@@ -11,4 +11,4 @@
 
 d="${1:-.}"
 echo "[INFO]: Recursively deleting .DS_Store from '${d}'"
-find "$d" -path './.*' -prune -o -name ".DS_Store" -type f -print -delete || true
+fd -H '^\.DS_Store$' -t f -E '**/.*/*' "$d" -X rm -v

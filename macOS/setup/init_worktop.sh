@@ -14,4 +14,6 @@ sanity_check
 general_settings
 macbook_settings
 
+brew install --cask slack webex
+
 echo "All set!  Please reboot for changes to take effect"

@@ -28,8 +28,8 @@ general_settings() {
     bash ../scripts/deploy.sh
 
     ## Install Apps
-    brew install difftastic gnu-sed gnu-tar nmap python rdfind rg uv wget
-    brew install --cask google-chrome knockknock postman sublime-text visual-studio-code
+    brew install difftastic fd gnu-sed gnu-tar nmap python rdfind ripgrep uv wget
+    brew install --cask sublime-text visual-studio-code
 
     ## Patch Antiques
     brew install bash less openssh rsync
@@ -136,7 +136,7 @@ EOF
 ##
 setup_personal() {
     brew install cloudflared exiftool ffmpeg imagemagick iperf3 yt-dlp
-    brew install --cask vlc # blackhole-2ch
+    brew install --cask google-chrome knockknock postman vlc # blackhole-2ch
 
     ## Configure Pixelmator
     # defaults write com.pixelmatorteam.pixelmator.x fullSizeQuickLookPreview -bool true
