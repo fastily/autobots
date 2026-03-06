@@ -36,7 +36,9 @@ alias uuaar="uuaa && sleep 5 && sudo reboot"
 alias uuaas="uuaa && sleep 5 && sudo shutdown now"
 EOF
 
+## misc
 sudo timedatectl set-timezone Etc/UTC  # ensure utc tz
 git config --global credential.helper store  # save git credentials
+sudo sed -i "s/$/ cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1/" "/boot/firmware/cmdline.txt"  # enable cgroup mem controller
 
 echo "Done!"
