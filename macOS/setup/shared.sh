@@ -8,19 +8,15 @@
 #: Author: Fastily
 
 ##
-# Checks if the script has the necessary permissions to run
+# Applies general/shared settings and installs shared apps
 ##
-sanity_check() {
+general_settings() {
+    # Ensure script has the necessary perms to run
     if [[ ! -r "/Library/Preferences/com.apple.TimeMachine.plist" ]]; then
         echo "[ERROR]: Terminal does not have Full Disk Access, please enable before retrying"
         exit 1
     fi
-}
 
-##
-# Applies general/shared settings and installs shared apps
-##
-general_settings() {
     eval $("/opt/homebrew/bin/brew" shellenv)
 
     # copy scripts and bash_profile
@@ -76,6 +72,9 @@ EOF
     defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true # prevent Photos from opening when iPhone is connected
 
     defaults -currentHost write com.apple.screensaver idleTime -int 0 # disable screensaver
+
+    defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false # don't save new docs to icloud
+    defaults write -g NSShowAppCentricOpenPanelInsteadOfUntitledFile -bool false # just show untitled file window on app launch
 
     defaults write com.apple.Safari AutoOpenSafeDownloads -bool false  # disable auto-opening of downloads
     defaults write com.apple.Safari CanPromptForPushNotifications -bool false # prevent websites from asking for push notifications

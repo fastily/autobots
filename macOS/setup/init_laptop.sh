@@ -10,7 +10,6 @@
 set -e
 source "shared.sh"
 
-sanity_check
 general_settings
 setup_personal
 macbook_settings
