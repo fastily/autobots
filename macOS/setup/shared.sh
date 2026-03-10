@@ -109,7 +109,7 @@ EOF
     for s in "screen" "tmux" "-bash"; do
         plutil -insert "Window Settings.Pro.noWarnProcesses" -dictionary -append ~/Library/Preferences/com.apple.Terminal.plist
         plutil -replace "Window Settings.Pro.noWarnProcesses.${count}.ProcessName" -string "$s" ~/Library/Preferences/com.apple.Terminal.plist
-        ((count++))
+        ((++count))
     done
 
     local my_bash="/opt/homebrew/bin/bash"
