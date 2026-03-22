@@ -88,9 +88,6 @@ apply_ui_settings() {
 
 ##
 # Setup & configure OpenSSH server
-#
-# PARAMETERS:
-#   $1 - Configure sshd to use an alternative port (i.e. not 22).  Optional - leave blank to disable.
 ##
 setup_sshd() {
     sudo apt-get -y install openssh-server
@@ -100,10 +97,6 @@ setup_sshd() {
 PermitRootLogin no
 PasswordAuthentication no
 EOF
-
-    if [[ -n $1 ]]; then
-        echo "Port ${1}" >> "$SSH_CONFIG"
-    fi
 
     mkdir -p ~/.ssh
     touch ~/.ssh/authorized_keys
