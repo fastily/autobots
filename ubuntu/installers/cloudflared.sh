@@ -22,4 +22,4 @@ sudo apt install -y "$CFD"
 
 read -p "Enter Cloudflare token: " MY_CF_TOKEN
 sudo "$CFD" service install "$MY_CF_TOKEN"
-systemctl status cloudflared --no-pager
+systemctl status "$CFD" --no-pager
