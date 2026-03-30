@@ -45,7 +45,8 @@ general_settings() {
     "[python]": {
         "editor.defaultFormatter": "ms-python.autopep8",
     },
-    "autopep8.args": ["--max-line-length", "300"]
+    "autopep8.args": ["--max-line-length", "300"],
+    "workbench.colorTheme": "Dark Modern"
 }
 EOF
 
