@@ -66,7 +66,7 @@ EOF
     fi
 
     # create user's home bin & containers
-    mkdir -p ~/{.local/bin,bin,containers} ~/.config/containers
+    mkdir -p ~/{.local/bin,bin,containers,.config/containers}
 
     # update apt lists
     sudo apt-get update

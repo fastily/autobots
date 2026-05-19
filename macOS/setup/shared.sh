@@ -137,10 +137,7 @@ EOF
 ##
 setup_personal() {
     brew install cloudflared exiftool ffmpeg imagemagick iperf3 yt-dlp
-    brew install --cask google-chrome knockknock postman vlc # blackhole-2ch
-
-    ## Configure Pixelmator
-    # defaults write com.pixelmatorteam.pixelmator.x fullSizeQuickLookPreview -bool true
+    brew install --cask google-chrome iina knockknock postman vlc # blackhole-2ch
 
     git config --global user.name "fastily"
     git config --global user.email "fastily@users.noreply.github.com"
