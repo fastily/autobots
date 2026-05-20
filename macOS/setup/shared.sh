@@ -14,10 +14,11 @@ general_settings() {
     # Ensure script has the necessary perms to run
     if [[ ! -r "/Library/Preferences/com.apple.TimeMachine.plist" ]]; then
         echo "[ERROR]: Terminal does not have Full Disk Access, please enable before retrying"
-        exit 1
+        open "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"
+        return 1
     fi
 
-    eval $("/opt/homebrew/bin/brew" shellenv)
+    eval $(/opt/homebrew/bin/brew shellenv)
 
     # copy scripts and bash_profile
     cd "${0%/*}" &> /dev/null || true
@@ -107,7 +108,7 @@ EOF
 
     # suppress warning about bash running when closing window
     plutil -replace "Window Settings.Pro.noWarnProcesses" -array ~/Library/Preferences/com.apple.Terminal.plist
-    local count=0
+    local s count=0
     for s in "screen" "tmux" "-bash"; do
         plutil -insert "Window Settings.Pro.noWarnProcesses" -dictionary -append ~/Library/Preferences/com.apple.Terminal.plist
         plutil -replace "Window Settings.Pro.noWarnProcesses.${count}.ProcessName" -string "$s" ~/Library/Preferences/com.apple.Terminal.plist
