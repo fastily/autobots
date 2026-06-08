@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #: Install some helpful packages and apply sane settings for Ubuntu Server.
 #: 

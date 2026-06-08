@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #: Configures apt repo for cloudflared and installs it
 #: 

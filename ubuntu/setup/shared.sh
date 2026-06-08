@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #: Shared functions for ubuntu intializer scripts.
 #: 
@@ -8,12 +8,13 @@
 # Applies general, shared settings.
 ##
 general_settings() {
-    # save git credentials
+    # update apt lists & set up git
+    sudo apt update
+    sudo apt install -y git
     git config --global credential.helper store
 
     # setup bash aliases
     cat << EOF >> ~/".bash_aliases"
-
 alias buu="brew update && brew upgrade"
 alias dcla="docker container ls -a "
 alias dlf="docker container logs -f -n 1000 "
@@ -68,8 +69,9 @@ EOF
     # create user's home bin & containers
     mkdir -p ~/{.local/bin,bin,containers,.config/containers}
 
-    # update apt lists
-    sudo apt-get update
+    # setup local env vars
+    local global_sh=~/".config/containers/global.sh"
+    printf "\n[[ -r '%s' ]] && source '%s'\n" "$global_sh" "$global_sh" >> ~/.bashrc
 }
 
 ##
@@ -90,7 +92,7 @@ apply_ui_settings() {
 # Setup & configure OpenSSH server
 ##
 setup_sshd() {
-    sudo apt-get -y install openssh-server
+    sudo apt install -y openssh-server
 
     local SSH_CONFIG="/etc/ssh/sshd_config.d/10-my-ssh.conf"
     sudo tee "$SSH_CONFIG" > /dev/null << EOF
@@ -106,7 +108,7 @@ EOF
 # Setup nfs service
 ##
 setup_nfs() {
-    sudo apt -y install nfs-kernel-server
+    sudo apt install -y nfs-kernel-server
     sudo systemctl start nfs-kernel-server.service
 }
 
@@ -114,5 +116,5 @@ setup_nfs() {
 # Instlls global shared packages
 ##
 install_shared_packages() {
-    sudo apt-get install -y fail2ban jq net-tools
+    sudo apt install -y fail2ban jq net-tools
 }

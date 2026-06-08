@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #: Installs/updates my scripts in ~/bin.
 #:

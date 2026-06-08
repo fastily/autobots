@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #: Convert common movie files (mp4, mov, mts) to vp9/vorbis.  Targets higher quality and sane-ish file size.
 #: Configuration should be good enough for most video @ 1080p60fps

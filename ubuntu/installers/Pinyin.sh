@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #: Installs prerequisites to add pinyin as an input source in ubuntu
 #: 
