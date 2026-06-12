@@ -14,6 +14,6 @@ general_settings
 setup_personal
 macbook_settings
 
-brew install --cask mullvad-vpn protonvpn tailscale-app
+brew install -y --cask mullvad-vpn protonvpn tailscale-app
 
 echo "All set!  Please reboot for changes to take effect"

@@ -1,0 +1,5 @@
+alias dcla="docker container ls -a "
+alias dlf="docker container logs -f -n 1000 "
+alias uuaa="sudo apt update && sudo apt upgrade -y && sudo apt autoclean && sudo apt autoremove -y"
+alias uuaar="uuaa && sleep 5 && sudo reboot"
+alias uuaas="uuaa && sleep 5 && sudo shutdown now"

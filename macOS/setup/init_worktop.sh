@@ -13,6 +13,6 @@ source "shared.sh"
 general_settings
 macbook_settings
 
-brew install --cask slack webex
+brew install -y --cask slack webex
 
 echo "All set!  Please reboot for changes to take effect"

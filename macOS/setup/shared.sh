@@ -25,11 +25,11 @@ general_settings() {
     bash ../scripts/deploy.sh
 
     ## Install Apps
-    brew install difftastic fd gnu-sed gnu-tar nmap python rdfind ripgrep uv wget
-    brew install --cask sublime-text visual-studio-code
+    brew install -y difftastic fd gnu-sed gnu-tar nmap python rdfind ripgrep uv wget
+    brew install -y --cask sublime-text visual-studio-code
 
     ## Patch Antiques
-    brew install bash less openssh rsync
+    brew install -y bash less openssh rsync
 
     ## VSCode settings and extensions
     # --install-extension ms-vscode.live-server --install-extension zignd.html-css-class-completion
@@ -137,8 +137,8 @@ EOF
 # Installs apps/programs for my personal devices
 ##
 setup_personal() {
-    brew install cloudflared exiftool ffmpeg imagemagick iperf3 yt-dlp
-    brew install --cask google-chrome iina knockknock postman vlc # blackhole-2ch
+    brew install -y cloudflared exiftool ffmpeg imagemagick iperf3 yt-dlp
+    brew install -y --cask google-chrome iina knockknock postman vlc # blackhole-2ch
 
     git config --global user.name "fastily"
     git config --global user.email "fastily@users.noreply.github.com"

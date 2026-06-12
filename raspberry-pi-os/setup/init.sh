@@ -23,18 +23,9 @@ echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDVS+ueZU1A4iHGyEKlQ0RzjcU9cio708BpFMZ
 
 sudo touch "/boot/firmware/ssh" # enable ssh
 
-## Setup bin and aliases
+## Setup bin, deploy shell aliases & scripts
 mkdir -p ~/.config/containers
 bash ../scripts/deploy.sh
-
-cat << EOF >> ~/".bash_aliases"
-
-alias dcla="docker container ls -a "
-alias dlf="docker container logs -f -n 1000 "
-alias uuaa="sudo apt update && sudo apt upgrade -y && sudo apt autoclean && sudo apt autoremove -y"
-alias uuaar="uuaa && sleep 5 && sudo reboot"
-alias uuaas="uuaa && sleep 5 && sudo shutdown now"
-EOF
 
 ## misc
 sudo timedatectl set-timezone Etc/UTC  # ensure utc tz

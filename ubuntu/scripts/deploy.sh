@@ -5,12 +5,12 @@
 #: Author: Fastily
 
 cd "${0%/*}" &> /dev/null
+set -e
 
-DEST_BIN=~/"bin"
-
-echo "Copying scripts to ${DEST_BIN}..."
 for s in bin ../../shared/scripts; do
-    rsync -avhP "${s}/" "$DEST_BIN"
+    rsync -avhP "${s}/" ~/"bin"
 done
+
+rsync -avhP "./bash_aliases.sh" ~/".bash_aliases"
 
 echo "Done!"

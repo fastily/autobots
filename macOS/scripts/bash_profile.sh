@@ -5,8 +5,8 @@ export PATH="${HOME}/bin:${HOME}/.local/bin:${PATH}"
 # aliases
 alias b64d='base64 -D -i '
 alias b64e='base64 -i '
-alias buu='brew update && brew upgrade'
-alias buuu='buu && brew upgrade --cask -g'
+alias buu='brew update && brew upgrade -y'
+alias buuu='buu && brew upgrade --cask -g -y'
 alias csvcsv="column -s , -t "
 # alias drs='python3 manage.py runserver'
 alias ffprobe='ffprobe -hide_banner '

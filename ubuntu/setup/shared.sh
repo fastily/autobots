@@ -13,17 +13,6 @@ general_settings() {
     sudo apt install -y git
     git config --global credential.helper store
 
-    # setup bash aliases
-    cat << EOF >> ~/".bash_aliases"
-alias buu="brew update && brew upgrade"
-alias dcla="docker container ls -a "
-alias dlf="docker container logs -f -n 1000 "
-alias ucc="uv cache clean"
-alias uuaa="sudo apt update && sudo apt upgrade -y && sudo apt autoclean && sudo apt autoremove -y"
-alias uuaar="uuaa && sleep 5 && sudo reboot"
-alias uuaas="uuaa && sleep 5 && sudo shutdown now"
-EOF
-
     # default apt to keeping user's config files
     sudo tee "/etc/apt/apt.conf.d/99z-my-settings" > /dev/null << EOF
 Dpkg::Options {
@@ -72,6 +61,9 @@ EOF
     # setup local env vars
     local global_sh=~/".config/containers/global.sh"
     printf "\n[[ -r '%s' ]] && source '%s'\n" "$global_sh" "$global_sh" >> ~/.bashrc
+
+    # deploy scripts & bash aliases
+    bash ../scripts/deploy.sh
 }
 
 ##
