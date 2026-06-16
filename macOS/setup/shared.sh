@@ -142,6 +142,10 @@ setup_personal() {
 
     git config --global user.name "fastily"
     git config --global user.email "fastily@users.noreply.github.com"
+    git config --global gpg.format ssh
+    git config --global user.signingkey ~/".ssh/fastily.pub"
+    git config --global gpg.ssh.allowedSignersFile ~/".ssh/allowed_signers"
+    git config --global commit.gpgsign true
 
     ## Create symlinks
     cd ~
