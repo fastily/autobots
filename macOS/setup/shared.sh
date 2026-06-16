@@ -29,7 +29,7 @@ general_settings() {
     brew install -y --cask sublime-text visual-studio-code
 
     ## Patch Antiques
-    brew install -y bash less openssh rsync
+    brew install -y bash less rsync # openssh
 
     ## VSCode settings and extensions
     # --install-extension ms-vscode.live-server --install-extension zignd.html-css-class-completion
@@ -158,7 +158,7 @@ setup_personal() {
 macbook_settings() {
     ## disable trackpad in clamshell mode
     # defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad USBMouseStopsTrackpad -int 1
-    defaults write com.apple.AppleMultitouchTrackpad USBMouseStopsTrackpad -int 1
+    # defaults write com.apple.AppleMultitouchTrackpad USBMouseStopsTrackpad -int 1
 
     ## Tap to click
     defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1
