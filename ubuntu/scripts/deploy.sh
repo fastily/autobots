@@ -7,10 +7,7 @@
 cd "${0%/*}" &> /dev/null
 set -e
 
-for s in bin ../../shared/scripts; do
-    rsync -avhP "${s}/" ~/"bin"
-done
-
+rsync -avhP "../../shared/scripts/" ~/"bin"
 rsync -avhP "./bash_aliases.sh" ~/".bash_aliases"
 
 echo "Done!"
