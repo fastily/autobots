@@ -69,6 +69,7 @@ EOF
 
     defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false # disable autocorrect smart-quotes
     defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false  # disable autocorrect smart-dashes
+    defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false # disable adding period after pressing space twice
 
     defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true  # don't create .DS_STORE in SMB shares
 

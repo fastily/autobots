@@ -14,6 +14,6 @@ apply_ui_settings
 install_shared_packages
 setup_sshd
 setup_nfs
-sudo apt -y install hfsprogs screen smartmontools
+sudo apt -y install hfsprogs screen smartmontools software-properties-gtk
 
 echo "Done, reboot for changes to take effect."
