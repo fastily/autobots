@@ -77,6 +77,8 @@ EOF
 
     defaults -currentHost write com.apple.screensaver idleTime -int 0 # disable screensaver
 
+    defaults write com.apple.loginwindow TALLogoutSavesState -bool false # uncheck box for reopening windows shutdown/reboot prompt
+
     defaults write -g NSDocumentSaveNewDocumentsToCloud -bool false # don't save new docs to icloud
     defaults write -g NSShowAppCentricOpenPanelInsteadOfUntitledFile -bool false # just show untitled file window on app launch
 
@@ -138,7 +140,7 @@ EOF
 # Installs apps/programs for my personal devices
 ##
 setup_personal() {
-    brew install -y cloudflared exiftool ffmpeg imagemagick iperf3 yt-dlp
+    brew install -y cloudflared exiftool ffmpeg ghostscript imagemagick iperf3 yt-dlp
     brew install -y --cask google-chrome iina knockknock postman vlc # blackhole-2ch
 
     git config --global user.name "fastily"
