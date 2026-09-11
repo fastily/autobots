@@ -55,6 +55,9 @@ $nrconf{kernelhints} = -1;
 EOF
     fi
 
+    # make /tmp part of rootfs
+    sudo systemctl mask tmp.mount
+
     # create user's home bin & containers
     mkdir -p ~/{.local/bin,bin,containers,.config/containers}
 
